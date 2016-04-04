@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!--
+DESC=Servidores centrales (sc1-7)
+-->
+
+<vnx xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="/usr/share/xml/vnx/vnx-2.00.xsd">
+  <global>
+    <version>2.0</version>
+    <scenario_name>attacker-kali</scenario_name>
+    <automac offset="4"/>
+    <!--ssh_version>1</ssh_version-->
+    <!--ssh_key>~/.ssh/id_dsa.pub</ssh_key>-->
+    
+    <!--vm_mgmt type="none"/-->
+    <vm_mgmt type="private" network="10.20.0.0" mask="24" offset="12">
+       <host_mapping />
+    </vm_mgmt>
+    <vm_defaults>
+    	<console id="0" display="yes"/>
+		<console id="1" display="yes"/>
+    </vm_defaults>
+  </global>
+
+  <!-- REDES -->
+  <!-- Sede Central -->
+  <net name="NetATT"  mode="virtual_bridge" />
+
+  <!-- SERVIDORES SEDE CENTRAL -->
+
+  <!-- ATTACKER13 -->
+  <vm name="attKali" type="libvirt" subtype="kvm" os="linux" exec_mode="sdisk">
+    <filesystem type="cow">/usr/share/vnx/filesystems/rootfs_kali-1.0.9</filesystem>
+    <mem>1024M</mem>
+    <if id="1" net="NetATT">
+      <ipv4 mask="255.255.255.0">10.1.100.26</ipv4>
+    </if>
+    <route type="ipv4" gw="10.1.100.1">default</route>
+	<!--Arrancamos nessus-->
+	<exec seq="on_boot, start" type="verbatim">/etc/init.d/nessusd start</exec>	
+    <!-- Instalamos /etc/hosts -->
+    <exec seq="on_boot, start" type="verbatim">cat /tmp/hosts >> /etc/hosts</exec>
+  </vm>
+  <host>
+	<hostif net="NetATT">
+		<ipv4 mask="255.255.255.0">10.1.100.1</ipv4>
+	</hostif>
+
+  </host>
+</vnx>

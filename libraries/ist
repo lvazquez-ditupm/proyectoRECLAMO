@@ -1,0 +1,2 @@
+[2013.10.11 13:59:56 virsh 9876] ERROR Comando desconocido: «vi»
+[2013.10.11 13:59:59 virsh 9876] ERROR Falló al crear «/root/.cache/libvirt/virsh»: No existe el archivo o el directorio

@@ -1,0 +1,3756 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#"
+     xml:base="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#continuatedBy -->
+
+    <owl:ObjectProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#continuatedBy">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#FormattedIntrusion"/>
+        <rdfs:range rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#FormattedIntrusion"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#existsOnAsset -->
+
+    <owl:ObjectProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#existsOnAsset">
+        <rdfs:range rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Asset"/>
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Vulnerability"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#exploits -->
+
+    <owl:ObjectProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#exploits">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#FormattedIntrusion"/>
+        <rdfs:range rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Vulnerability"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#generatedResult -->
+
+    <owl:ObjectProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#generatedResult">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#AutomatedIntrusionResponseSystem"/>
+        <rdfs:range rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Result"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#generates -->
+
+    <owl:ObjectProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#generates">
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <rdfs:range rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#FormattedIntrusion"/>
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#IntrusionDetectionSystem"/>
+        <owl:inverseOf rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#isGeneratedBy"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#hasAddress -->
+
+    <owl:ObjectProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#hasAddress">
+        <rdfs:range rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Address"/>
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#SystemComponent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#hasAsset -->
+
+    <owl:ObjectProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#hasAsset">
+        <rdfs:range rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Asset"/>
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Network"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#hasContext -->
+
+    <owl:ObjectProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#hasContext">
+        <rdfs:range rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Context"/>
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Network"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#hasFile -->
+
+    <owl:ObjectProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#hasFile">
+        <rdfs:range rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#File"/>
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#SystemComponent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#hasIntrusionType -->
+
+    <owl:ObjectProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#hasIntrusionType">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#FormattedIntrusion"/>
+        <rdfs:range rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Threat"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#hasNodeLocation -->
+
+    <owl:ObjectProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#hasNodeLocation">
+        <rdfs:range rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#SystemComponent"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#AutomatedIntrusionResponseSystem"/>
+                    <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#IntrusionDetectionSystem"/>
+                    <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#ResponseSystemComponents"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#hasProcess -->
+
+    <owl:ObjectProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#hasProcess">
+        <rdfs:range rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Process"/>
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#SystemComponent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#hasReference -->
+
+    <owl:ObjectProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#hasReference">
+        <rdfs:range rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Reference"/>
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Vulnerability"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#hasResponseDependency -->
+
+    <owl:ObjectProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#hasResponseDependency">
+        <rdfs:range rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Response"/>
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Response"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#hasResponseIncompatible -->
+
+    <owl:ObjectProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#hasResponseIncompatible">
+        <rdfs:range rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Response"/>
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#SystemComponent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#hasService -->
+
+    <owl:ObjectProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#hasService">
+        <rdfs:range rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Service"/>
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#SystemComponent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#hasSimilarResult -->
+
+    <owl:ObjectProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#hasSimilarResult">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#FormattedIntrusion"/>
+        <rdfs:range rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Result"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#hasTarget -->
+
+    <owl:ObjectProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#hasTarget">
+        <rdfs:range rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Asset"/>
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#FormattedIntrusion"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#hasVulnerability -->
+
+    <owl:ObjectProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#hasVulnerability">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Asset"/>
+        <rdfs:range rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Vulnerability"/>
+        <owl:inverseOf rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#existsOnAsset"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#indicates -->
+
+    <owl:ObjectProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#indicates">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Context"/>
+        <rdfs:range rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Threat"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#installedIDS -->
+
+    <owl:ObjectProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#installedIDS">
+        <rdfs:range rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#IntrusionDetectionSystem"/>
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Network"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#isContinuationOf -->
+
+    <owl:ObjectProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#isContinuationOf">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#FormattedIntrusion"/>
+        <rdfs:range rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#FormattedIntrusion"/>
+        <owl:inverseOf rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#continuatedBy"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#isGeneratedBy -->
+
+    <owl:ObjectProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#isGeneratedBy">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#FormattedIntrusion"/>
+        <rdfs:range rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#IntrusionDetectionSystem"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#managedBy -->
+
+    <owl:ObjectProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#managedBy">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Network"/>
+        <rdfs:range rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#User"/>
+        <owl:inverseOf rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#manages"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#manages -->
+
+    <owl:ObjectProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#manages">
+        <rdfs:range rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Network"/>
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#User"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#neededSystemComponents -->
+
+    <owl:ObjectProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#neededSystemComponents">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Response"/>
+        <rdfs:range rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#ResponseSystemComponents"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#optimumProactiveResponse -->
+
+    <owl:ObjectProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#optimumProactiveResponse">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#FormattedIntrusion"/>
+        <rdfs:range rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Proactive"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#optimumResponse -->
+
+    <owl:ObjectProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#optimumResponse">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#FormattedIntrusion"/>
+        <rdfs:range rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Response"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#orientedTo -->
+
+    <owl:ObjectProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#orientedTo">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Response"/>
+        <rdfs:range rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#SpecificThreat"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#potentialOptimumResponses -->
+
+    <owl:ObjectProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#potentialOptimumResponses">
+        <rdfs:range rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Active"/>
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#FormattedIntrusion"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#protectedBy -->
+
+    <owl:ObjectProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#protectedBy">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#AutomatedIntrusionResponseSystem"/>
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Network"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#protects -->
+
+    <owl:ObjectProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#protects">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Response"/>
+        <rdfs:range rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#SecurityGoal"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#receivedFormattedIntrusion -->
+
+    <owl:ObjectProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#receivedFormattedIntrusion">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#AutomatedIntrusionResponseSystem"/>
+        <rdfs:range rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#FormattedIntrusion"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#recommendedProactiveResponses -->
+
+    <owl:ObjectProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#recommendedProactiveResponses">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#FormattedIntrusion"/>
+        <rdfs:range rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Proactive"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#recommendedResponses -->
+
+    <owl:ObjectProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#recommendedResponses">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#FormattedIntrusion"/>
+        <rdfs:range rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Response"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#relatedIntrusion -->
+
+    <owl:ObjectProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#relatedIntrusion">
+        <rdfs:range rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#FormattedIntrusion"/>
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Result"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#relatedResponse -->
+
+    <owl:ObjectProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#relatedResponse">
+        <rdfs:range rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Response"/>
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Result"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#threatens -->
+
+    <owl:ObjectProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#threatens">
+        <rdfs:range rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#SecurityGoal"/>
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Threat"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#uses -->
+
+    <owl:ObjectProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#uses">
+        <rdfs:range rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#SystemComponent"/>
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#User"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#bottomObjectProperty -->
+
+    <owl:ObjectProperty rdf:about="&owl;bottomObjectProperty">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdf:type rdf:resource="&owl;SymmetricProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#topObjectProperty -->
+
+    <owl:ObjectProperty rdf:about="&owl;topObjectProperty">
+        <rdf:type rdf:resource="&owl;SymmetricProperty"/>
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#AIRSID -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#AIRSID">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#AutomatedIntrusionResponseSystem"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#AIRSOStype -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#AIRSOStype">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#AutomatedIntrusionResponseSystem"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#AIRSOSversion -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#AIRSOSversion">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#AutomatedIntrusionResponseSystem"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#AIRSclass -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#AIRSclass">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#AutomatedIntrusionResponseSystem"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#AIRSmanufacturer -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#AIRSmanufacturer">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#AutomatedIntrusionResponseSystem"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#AIRSmodel -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#AIRSmodel">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#AutomatedIntrusionResponseSystem"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#AIRSname -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#AIRSname">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#AutomatedIntrusionResponseSystem"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#AIRSnumberOfResponses -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#AIRSnumberOfResponses">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#AutomatedIntrusionResponseSystem"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#AIRSversion -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#AIRSversion">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#AutomatedIntrusionResponseSystem"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#IDSID -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#IDSID">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#IntrusionDetectionSystem"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#IDSOStype -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#IDSOStype">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#IntrusionDetectionSystem"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#IDSOSversion -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#IDSOSversion">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#IntrusionDetectionSystem"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#IDSclass -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#IDSclass">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#IntrusionDetectionSystem"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#IDSconfidence -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#IDSconfidence">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#IntrusionDetectionSystem"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&xsd;double"/>
+                    <rdf:Description rdf:about="&xsd;string"/>
+                </owl:unionOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#IDSmanufacturer -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#IDSmanufacturer">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#IntrusionDetectionSystem"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#IDSmodel -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#IDSmodel">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#IntrusionDetectionSystem"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#IDSname -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#IDSname">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#IntrusionDetectionSystem"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#IDSversion -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#IDSversion">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#IntrusionDetectionSystem"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#addressID -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#addressID">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Address"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#addressIP -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#addressIP">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Address"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#addressNetmask -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#addressNetmask">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Address"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#addressType -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#addressType">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Address"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#addressVlanName -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#addressVlanName">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Address"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#addressVlanNumber -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#addressVlanNumber">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Address"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#assetDescription -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#assetDescription">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Asset"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#assetID -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#assetID">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Asset"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#assetLevelOfImportance -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#assetLevelOfImportance">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Asset"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&xsd;int"/>
+                    <rdfs:Datatype>
+                        <owl:oneOf>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;string">high</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="&rdf;List"/>
+                                        <rdf:first rdf:datatype="&xsd;string">low</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="&rdf;List"/>
+                                                <rdf:first rdf:datatype="&xsd;string">medium</rdf:first>
+                                                <rdf:rest rdf:resource="&rdf;nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </owl:oneOf>
+                    </rdfs:Datatype>
+                </owl:unionOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#assetLevelOfImportance_authenticity -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#assetLevelOfImportance_authenticity">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Asset"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&xsd;int"/>
+                    <rdfs:Datatype>
+                        <owl:oneOf>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;string">high</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="&rdf;List"/>
+                                        <rdf:first rdf:datatype="&xsd;string">low</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="&rdf;List"/>
+                                                <rdf:first rdf:datatype="&xsd;string">medium</rdf:first>
+                                                <rdf:rest rdf:resource="&rdf;nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </owl:oneOf>
+                    </rdfs:Datatype>
+                </owl:unionOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#assetLevelOfImportance_availability -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#assetLevelOfImportance_availability">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Asset"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&xsd;int"/>
+                    <rdfs:Datatype>
+                        <owl:oneOf>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;string">high</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="&rdf;List"/>
+                                        <rdf:first rdf:datatype="&xsd;string">low</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="&rdf;List"/>
+                                                <rdf:first rdf:datatype="&xsd;string">medium</rdf:first>
+                                                <rdf:rest rdf:resource="&rdf;nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </owl:oneOf>
+                    </rdfs:Datatype>
+                </owl:unionOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#assetLevelOfImportance_confidentiality -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#assetLevelOfImportance_confidentiality">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Asset"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&xsd;int"/>
+                    <rdfs:Datatype>
+                        <owl:oneOf>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;string">high</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="&rdf;List"/>
+                                        <rdf:first rdf:datatype="&xsd;string">low</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="&rdf;List"/>
+                                                <rdf:first rdf:datatype="&xsd;string">medium</rdf:first>
+                                                <rdf:rest rdf:resource="&rdf;nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </owl:oneOf>
+                    </rdfs:Datatype>
+                </owl:unionOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#assetLevelOfImportance_integrity -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#assetLevelOfImportance_integrity">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Asset"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&xsd;int"/>
+                    <rdfs:Datatype>
+                        <owl:oneOf>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;string">high</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="&rdf;List"/>
+                                        <rdf:first rdf:datatype="&xsd;string">low</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="&rdf;List"/>
+                                                <rdf:first rdf:datatype="&xsd;string">medium</rdf:first>
+                                                <rdf:rest rdf:resource="&rdf;nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </owl:oneOf>
+                    </rdfs:Datatype>
+                </owl:unionOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#attackerLocation -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#attackerLocation">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#FormattedIntrusion"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first rdf:datatype="&xsd;string">Local</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;string">Network</rdf:first>
+                                <rdf:rest rdf:resource="&rdf;nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#availableRangeOfComponents -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#availableRangeOfComponents">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Response"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#componentID -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#componentID">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#SystemComponent"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#componentLocation -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#componentLocation">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#SystemComponent"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#componentName -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#componentName">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#SystemComponent"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#componentType -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#componentType">
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#ResponseSystemComponents"/>
+                    <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#SystemComponent"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#contextInformationDate -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#contextInformationDate">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Context"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#existingResult -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#existingResult">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#FormattedIntrusion"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#installedNumberOfComponents -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#installedNumberOfComponents">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Network"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#intrusionAlertCreateTime -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#intrusionAlertCreateTime">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#FormattedIntrusion"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#intrusionAlertReliability -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#intrusionAlertReliability">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#FormattedIntrusion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#intrusionCompletion -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#intrusionCompletion">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#FormattedIntrusion"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first rdf:datatype="&xsd;string">failed</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;string">succeeded</rdf:first>
+                                <rdf:rest rdf:resource="&rdf;nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#intrusionDescription -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#intrusionDescription">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#FormattedIntrusion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#intrusionDetectionTime -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#intrusionDetectionTime">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#FormattedIntrusion"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#intrusionEndingTime -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#intrusionEndingTime">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#FormattedIntrusion"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#intrusionID -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#intrusionID">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#FormattedIntrusion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#intrusionImpact -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#intrusionImpact">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#FormattedIntrusion"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#intrusionName -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#intrusionName">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#FormattedIntrusion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#intrusionSeverity -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#intrusionSeverity">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#FormattedIntrusion"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#intrusionStartTime -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#intrusionStartTime">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#FormattedIntrusion"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#intrusionURL -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#intrusionURL">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#FormattedIntrusion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#isARepeatedFormattedIntrusion -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#isARepeatedFormattedIntrusion">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#FormattedIntrusion"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#isASourceOfIntrusionSpoofed -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#isASourceOfIntrusionSpoofed">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#FormattedIntrusion"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first rdf:datatype="&xsd;string">no</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;string">yes</rdf:first>
+                                <rdf:rest rdf:resource="&rdf;nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#isATargetOfIntrusionDecoy -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#isATargetOfIntrusionDecoy">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#FormattedIntrusion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#isSecurityDeviceAvailable -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#isSecurityDeviceAvailable">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#ResponseSystemComponents"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#maximumResponseComplexity -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#maximumResponseComplexity">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#AutomatedIntrusionResponseSystem"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#neededRangeOfComponents -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#neededRangeOfComponents">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Response"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#neededRecommendedInference -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#neededRecommendedInference">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#FormattedIntrusion"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#networkAnomaly -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#networkAnomaly">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#NetworkContext"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#nextIntrusionID -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#nextIntrusionID">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#FormattedIntrusion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#numExecutions -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#numExecutions">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Response"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#numberOfGeneratedResult -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#numberOfGeneratedResult">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#AutomatedIntrusionResponseSystem"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#numberOfPotentialOptimumResponses -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#numberOfPotentialOptimumResponses">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#FormattedIntrusion"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#numberOfRecommendedProactiveResponses -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#numberOfRecommendedProactiveResponses">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#FormattedIntrusion"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#numberOfRecommendedResponses -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#numberOfRecommendedResponses">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#FormattedIntrusion"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#portDest -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#portDest">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#FormattedIntrusion"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#portSrc -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#portSrc">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#FormattedIntrusion"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#processArg -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#processArg">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Process"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#processEnv -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#processEnv">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Process"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#processName -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#processName">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Process"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#processPID -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#processPID">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Process"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#processPath -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#processPath">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Process"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#realIntrusionImpact -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#realIntrusionImpact">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#FormattedIntrusion"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&xsd;double"/>
+                    <rdf:Description rdf:about="&xsd;int"/>
+                </owl:unionOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#referenceName -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#referenceName">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Reference"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#referenceOrigin -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#referenceOrigin">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Reference"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first rdf:datatype="&xsd;string">cve</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;string">osvdb</rdf:first>
+                                <rdf:rest rdf:resource="&rdf;nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#referenceURL -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#referenceURL">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Reference"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#responseAction -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#responseAction">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Response"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#responseComplexity -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#responseComplexity">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Response"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#responseCost -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#responseCost">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Response"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#responseDeploymentCost -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#responseDeploymentCost">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Response"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#responseDescription -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#responseDescription">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Response"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#responseEfficiency -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#responseEfficiency">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Response"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#responseID -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#responseID">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Response"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#responseImpact -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#responseImpact">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Response"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#responseName -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#responseName">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Response"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#responsePriority -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#responsePriority">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Response"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#responseResult -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#responseResult">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Result"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#responseSeverity -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#responseSeverity">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Response"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#responseStatus -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#responseStatus">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#FormattedIntrusion"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first rdf:datatype="&xsd;string">Complete</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;string">Pending</rdf:first>
+                                <rdf:rest rdf:resource="&rdf;nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#responseType -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#responseType">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Response"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#securityDeviceDescription -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#securityDeviceDescription">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#ResponseSystemComponents"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#sourceOfIntrusionID -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#sourceOfIntrusionID">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#FormattedIntrusion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#sourceOfIntrusionName -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#sourceOfIntrusionName">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#FormattedIntrusion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#successThresholdHigh -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#successThresholdHigh">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#SomeThreat"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#successThresholdLow -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#successThresholdLow">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#SomeThreat"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#systemActiveProcesses -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#systemActiveProcesses">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#SystemContext"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#systemCPUUsage -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#systemCPUUsage">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#SystemContext"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#systemFreeSpace -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#systemFreeSpace">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#SystemContext"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#systemLatency -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#systemLatency">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#SystemContext"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#systemNumberOfUsersLogged -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#systemNumberOfUsersLogged">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#SystemContext"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#systemSSHFailed -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#systemSSHFailed">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#SystemContext"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#systemStatus -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#systemStatus">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#SystemContext"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#timingOfIntrusionDetection -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#timingOfIntrusionDetection">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#FormattedIntrusion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#vulnerabilityDescription -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#vulnerabilityDescription">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Vulnerability"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#vulnerabilityID -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#vulnerabilityID">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Vulnerability"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#vulnerabilityName -->
+
+    <owl:DatatypeProperty rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#vulnerabilityName">
+        <rdfs:domain rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Vulnerability"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#topDataProperty -->
+
+    <owl:DatatypeProperty rdf:about="&owl;topDataProperty"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#ARPSpoofing -->
+
+    <owl:Class rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#ARPSpoofing">
+        <rdfs:subClassOf rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Spoofing"/>
+    </owl:Class>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Active -->
+
+    <owl:Class rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Active">
+        <rdfs:subClassOf rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Response"/>
+    </owl:Class>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Address -->
+
+    <owl:Class rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Address">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#addressType"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#addressNetmask"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#addressID"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#addressIP"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Asset -->
+
+    <owl:Class rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Asset">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#assetID"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#assetLevelOfImportance"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange>
+                    <rdfs:Datatype>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&xsd;int"/>
+                            <rdf:Description rdf:about="&xsd;string"/>
+                        </owl:unionOf>
+                    </rdfs:Datatype>
+                </owl:onDataRange>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#AuthenticityGoal -->
+
+    <owl:Class rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#AuthenticityGoal">
+        <rdfs:subClassOf rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#SecurityGoal"/>
+    </owl:Class>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#AutomatedIntrusionResponseSystem -->
+
+    <owl:Class rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#AutomatedIntrusionResponseSystem">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#AIRSversion"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#hasNodeLocation"/>
+                <owl:onClass rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#SystemComponent"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#maximumResponseComplexity"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;int"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#AIRSname"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#AIRSmodel"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#AIRSclass"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#AIRSnumberOfResponses"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;int"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#AIRSmanufacturer"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#AIRSID"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#AvailabilityGoal -->
+
+    <owl:Class rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#AvailabilityGoal">
+        <rdfs:subClassOf rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#SecurityGoal"/>
+    </owl:Class>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#BackDoors -->
+
+    <owl:Class rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#BackDoors">
+        <rdfs:subClassOf rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#SpecificThreat"/>
+    </owl:Class>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#BootInfector -->
+
+    <owl:Class rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#BootInfector">
+        <rdfs:subClassOf rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Virus"/>
+    </owl:Class>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#BruteForce -->
+
+    <owl:Class rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#BruteForce">
+        <rdfs:subClassOf rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Guessing"/>
+    </owl:Class>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#BufferOverflow -->
+
+    <owl:Class rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#BufferOverflow">
+        <rdfs:subClassOf rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#SpecificThreat"/>
+    </owl:Class>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#ConfidentialityGoal -->
+
+    <owl:Class rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#ConfidentialityGoal">
+        <rdfs:subClassOf rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#SecurityGoal"/>
+    </owl:Class>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Context -->
+
+    <owl:Class rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Context">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#contextInformationDate"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#CookiePoisoning -->
+
+    <owl:Class rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#CookiePoisoning">
+        <rdfs:subClassOf rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#WebApplicationAttack"/>
+    </owl:Class>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#CrossSiteScripting -->
+
+    <owl:Class rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#CrossSiteScripting">
+        <rdfs:subClassOf rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#WebApplicationAttack"/>
+    </owl:Class>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#DNSSpoofing -->
+
+    <owl:Class rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#DNSSpoofing">
+        <rdfs:subClassOf rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Spoofing"/>
+    </owl:Class>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Deception -->
+
+    <owl:Class rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Deception">
+        <rdfs:subClassOf rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Active"/>
+    </owl:Class>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#DictionaryAttack -->
+
+    <owl:Class rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#DictionaryAttack">
+        <rdfs:subClassOf rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Guessing"/>
+    </owl:Class>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#DoS -->
+
+    <owl:Class rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#DoS">
+        <rdfs:subClassOf rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#SpecificThreat"/>
+    </owl:Class>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Exploits -->
+
+    <owl:Class rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Exploits">
+        <rdfs:subClassOf rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#SpecificThreat"/>
+    </owl:Class>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#File -->
+
+    <owl:Class rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#File">
+        <rdfs:subClassOf rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Asset"/>
+    </owl:Class>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#FileInfector -->
+
+    <owl:Class rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#FileInfector">
+        <rdfs:subClassOf rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Virus"/>
+    </owl:Class>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#FormattedIntrusion -->
+
+    <owl:Class rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#FormattedIntrusion">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#intrusionImpact"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;int"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#intrusionID"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#intrusionDetectionTime"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;dateTime"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#responseStatus"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#isGeneratedBy"/>
+                <owl:onClass rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#IntrusionDetectionSystem"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#intrusionCompletion"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#intrusionAlertCreateTime"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;dateTime"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#intrusionAlertReliability"/>
+                <owl:someValuesFrom rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#intrusionEndingTime"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;int"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#hasTarget"/>
+                <owl:someValuesFrom rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Asset"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#attackerLocation"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#realIntrusionImpact"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange>
+                    <rdfs:Datatype>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&xsd;double"/>
+                            <rdf:Description rdf:about="&xsd;int"/>
+                        </owl:unionOf>
+                    </rdfs:Datatype>
+                </owl:onDataRange>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#numberOfRecommendedProactiveResponses"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;int"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#intrusionStartTime"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;dateTime"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#intrusionSeverity"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;int"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#hasIntrusionType"/>
+                <owl:onClass rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Threat"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#numberOfRecommendedResponses"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;int"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#numberOfPotentialOptimumResponses"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;int"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Guessing -->
+
+    <owl:Class rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Guessing">
+        <rdfs:subClassOf rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#PasswordAttack"/>
+    </owl:Class>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#HighReliabilityFI -->
+
+    <owl:Class rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#HighReliabilityFI">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#FormattedIntrusion"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#intrusionAlertReliability"/>
+                        <owl:hasValue>high</owl:hasValue>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#FormattedIntrusion"/>
+    </owl:Class>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Hijacking -->
+
+    <owl:Class rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Hijacking">
+        <rdfs:subClassOf rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#NetworkAttack"/>
+    </owl:Class>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#IPSpoofing -->
+
+    <owl:Class rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#IPSpoofing">
+        <rdfs:subClassOf rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Spoofing"/>
+    </owl:Class>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#InformationGatheringAttack -->
+
+    <owl:Class rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#InformationGatheringAttack">
+        <rdfs:subClassOf rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#SpecificThreat"/>
+    </owl:Class>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#IntegrityGoal -->
+
+    <owl:Class rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#IntegrityGoal">
+        <rdfs:subClassOf rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#SecurityGoal"/>
+    </owl:Class>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#IntrusionDetectionSystem -->
+
+    <owl:Class rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#IntrusionDetectionSystem">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#IDSID"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#IDSname"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#IDSmanufacturer"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#IDSmodel"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#IDSversion"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#hasNodeLocation"/>
+                <owl:onClass rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#SystemComponent"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#IDSconfidence"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange>
+                    <rdfs:Datatype>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&xsd;double"/>
+                            <rdf:Description rdf:about="&xsd;string"/>
+                        </owl:unionOf>
+                    </rdfs:Datatype>
+                </owl:onDataRange>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#IDSclass"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#LowReliabilityFI -->
+
+    <owl:Class rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#LowReliabilityFI">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#FormattedIntrusion"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#intrusionAlertReliability"/>
+                        <owl:hasValue>low</owl:hasValue>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Macro -->
+
+    <owl:Class rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Macro">
+        <rdfs:subClassOf rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Virus"/>
+    </owl:Class>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Mapping -->
+
+    <owl:Class rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Mapping">
+        <rdfs:subClassOf rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#InformationGatheringAttack"/>
+    </owl:Class>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#MediumReliabilityFI -->
+
+    <owl:Class rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#MediumReliabilityFI">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#FormattedIntrusion"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#intrusionAlertReliability"/>
+                        <owl:hasValue>medium</owl:hasValue>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#FormattedIntrusion"/>
+    </owl:Class>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Network -->
+
+    <owl:Class rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Network">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#protectedBy"/>
+                <owl:onClass rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#AutomatedIntrusionResponseSystem"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#installedIDS"/>
+                <owl:someValuesFrom rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#IntrusionDetectionSystem"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#installedNumberOfComponents"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;integer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#hasAsset"/>
+                <owl:someValuesFrom rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Asset"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#NetworkAttack -->
+
+    <owl:Class rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#NetworkAttack">
+        <rdfs:subClassOf rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#SpecificThreat"/>
+    </owl:Class>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#NetworkContext -->
+
+    <owl:Class rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#NetworkContext">
+        <rdfs:subClassOf rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Context"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#networkAnomaly"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;int"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#NotThreat -->
+
+    <owl:Class rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#NotThreat">
+        <rdfs:subClassOf rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Threat"/>
+        <owl:disjointWith rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#SomeThreat"/>
+    </owl:Class>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#ParameterTampering -->
+
+    <owl:Class rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#ParameterTampering">
+        <rdfs:subClassOf rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#WebApplicationAttack"/>
+    </owl:Class>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Passive -->
+
+    <owl:Class rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Passive">
+        <rdfs:subClassOf rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Response"/>
+    </owl:Class>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#PasswordAttack -->
+
+    <owl:Class rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#PasswordAttack">
+        <rdfs:subClassOf rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#SpecificThreat"/>
+    </owl:Class>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Proactive -->
+
+    <owl:Class rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Proactive">
+        <rdfs:subClassOf rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Response"/>
+    </owl:Class>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Process -->
+
+    <owl:Class rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Process">
+        <rdfs:subClassOf rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Asset"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#processName"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#processPID"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;int"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#processPath"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Protection -->
+
+    <owl:Class rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Protection">
+        <rdfs:subClassOf rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Active"/>
+    </owl:Class>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Reaction -->
+
+    <owl:Class rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Reaction">
+        <rdfs:subClassOf rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Active"/>
+    </owl:Class>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Recovery -->
+
+    <owl:Class rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Recovery">
+        <rdfs:subClassOf rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Active"/>
+    </owl:Class>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Reference -->
+
+    <owl:Class rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Reference">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#referenceOrigin"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#referenceURL"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#referenceName"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Response -->
+
+    <owl:Class rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Response">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#responseSeverity"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;int"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#responseImpact"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;int"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#responseCost"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;int"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#responseEfficiency"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;double"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#availableRangeOfComponents"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;int"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#numExecutions"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;int"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#responseComplexity"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;int"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#responseID"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#neededRangeOfComponents"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;int"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#responseAction"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#ResponseSystemComponents -->
+
+    <owl:Class rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#ResponseSystemComponents">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#isSecurityDeviceAvailable"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#hasNodeLocation"/>
+                <owl:onClass rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#SystemComponent"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#componentType"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Result -->
+
+    <owl:Class rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Result"/>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#SQLInjection -->
+
+    <owl:Class rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#SQLInjection">
+        <rdfs:subClassOf rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#WebApplicationAttack"/>
+    </owl:Class>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Scanning -->
+
+    <owl:Class rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Scanning">
+        <rdfs:subClassOf rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#InformationGatheringAttack"/>
+    </owl:Class>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#SecurityGoal -->
+
+    <owl:Class rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#SecurityGoal"/>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Service -->
+
+    <owl:Class rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Service">
+        <rdfs:subClassOf rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Asset"/>
+    </owl:Class>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Sniffing -->
+
+    <owl:Class rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Sniffing">
+        <rdfs:subClassOf rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#InformationGatheringAttack"/>
+    </owl:Class>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#SomeThreat -->
+
+    <owl:Class rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#SomeThreat">
+        <rdfs:subClassOf rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Threat"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#successThresholdLow"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;double"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#successThresholdHigh"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;double"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#SpecificThreat -->
+
+    <owl:Class rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#SpecificThreat">
+        <rdfs:subClassOf rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#SomeThreat"/>
+        <owl:disjointWith rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#UndefinedThreat"/>
+    </owl:Class>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Spoofing -->
+
+    <owl:Class rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Spoofing">
+        <rdfs:subClassOf rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#NetworkAttack"/>
+    </owl:Class>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#SystemComponent -->
+
+    <owl:Class rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#SystemComponent">
+        <rdfs:subClassOf rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Asset"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#componentID"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#componentLocation"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#componentName"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#SystemContext -->
+
+    <owl:Class rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#SystemContext">
+        <rdfs:subClassOf rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Context"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#systemFreeSpace"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;int"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#systemActiveProcesses"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;int"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#systemLatency"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;int"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#systemNumberOfUsersLogged"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;int"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#systemStatus"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;int"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#systemSSHFailed"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;int"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#systemCPUUsage"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;int"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#TCPSpoofing -->
+
+    <owl:Class rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#TCPSpoofing">
+        <rdfs:subClassOf rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Spoofing"/>
+    </owl:Class>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Threat -->
+
+    <owl:Class rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Threat"/>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Trojan -->
+
+    <owl:Class rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Trojan">
+        <rdfs:subClassOf rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#SpecificThreat"/>
+    </owl:Class>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#UndefinedThreat -->
+
+    <owl:Class rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#UndefinedThreat">
+        <rdfs:subClassOf rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#SomeThreat"/>
+    </owl:Class>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#User -->
+
+    <owl:Class rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#User">
+        <rdfs:subClassOf rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Asset"/>
+    </owl:Class>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Virus -->
+
+    <owl:Class rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Virus">
+        <rdfs:subClassOf rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#SpecificThreat"/>
+    </owl:Class>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Vulnerability -->
+
+    <owl:Class rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Vulnerability">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#vulnerabilityID"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#vulnerabilityName"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#WebApplicationAttack -->
+
+    <owl:Class rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#WebApplicationAttack">
+        <rdfs:subClassOf rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#NetworkAttack"/>
+    </owl:Class>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#WebSpoofing -->
+
+    <owl:Class rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#WebSpoofing">
+        <rdfs:subClassOf rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Spoofing"/>
+    </owl:Class>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#WirelessAttack -->
+
+    <owl:Class rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#WirelessAttack">
+        <rdfs:subClassOf rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#NetworkAttack"/>
+    </owl:Class>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Worms -->
+
+    <owl:Class rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Worms">
+        <rdfs:subClassOf rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#SpecificThreat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Nothing -->
+
+    <owl:Class rdf:about="&owl;Nothing"/>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#AIRS -->
+
+    <owl:NamedIndividual rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#AIRS">
+        <rdf:type rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#AutomatedIntrusionResponseSystem"/>
+        <AIRSnumberOfResponses rdf:datatype="&xsd;int">0</AIRSnumberOfResponses>
+        <maximumResponseComplexity rdf:datatype="&xsd;int">8</maximumResponseComplexity>
+        <AIRSID rdf:datatype="&xsd;string">AIRS:DALI:10.0.0.1</AIRSID>
+        <hasNodeLocation rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#IRS-H1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#BloquearIPEntrante -->
+
+    <owl:NamedIndividual rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#BloquearIPEntrante">
+        <rdf:type rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Proactive"/>
+        <rdf:type rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Protection"/>
+        <numExecutions rdf:datatype="&xsd;int">0</numExecutions>
+        <responseDeploymentCost rdf:datatype="&xsd;int">3</responseDeploymentCost>
+        <responseImpact rdf:datatype="&xsd;int">3</responseImpact>
+        <responseSeverity rdf:datatype="&xsd;int">4</responseSeverity>
+        <responseCost rdf:datatype="&xsd;int">4</responseCost>
+        <responseComplexity rdf:datatype="&xsd;int">5</responseComplexity>
+        <responseID rdf:datatype="&xsd;string">BlockIn-R28,R31,R33</responseID>
+        <responseType rdf:datatype="&xsd;string">Protection</responseType>
+        <responseDescription rdf:datatype="&xsd;string">Respuesta que consiste en agregar una regla de filtrado sobre un FW de red tipo IPTables para bloquear una dirección IP origen la del atacante, o blquear conexiones de red entrantes (R28, R31, R33)</responseDescription>
+        <responseAction rdf:datatype="&xsd;string">blockInAttack</responseAction>
+        <protects rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#availability"/>
+        <protects rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#confidentiality"/>
+        <orientedTo rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#dos"/>
+        <orientedTo rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#exploits"/>
+        <orientedTo rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#guessing"/>
+        <orientedTo rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#informationgatheringattack"/>
+        <protects rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#integrity"/>
+        <orientedTo rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#networkattack"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#CiscoACL -->
+
+    <owl:NamedIndividual rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#CiscoACL">
+        <rdf:type rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Proactive"/>
+        <rdf:type rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Protection"/>
+        <numExecutions rdf:datatype="&xsd;int">0</numExecutions>
+        <responseCost rdf:datatype="&xsd;int">10</responseCost>
+        <responseSeverity rdf:datatype="&xsd;int">3</responseSeverity>
+        <responseImpact rdf:datatype="&xsd;int">5</responseImpact>
+        <responseComplexity rdf:datatype="&xsd;int">5</responseComplexity>
+        <responseDeploymentCost rdf:datatype="&xsd;int">7</responseDeploymentCost>
+        <responseType rdf:datatype="&xsd;string">Protection</responseType>
+        <responseAction rdf:datatype="&xsd;string">addACL</responseAction>
+        <responseID rdf:datatype="&xsd;string">ciscoacl-r30</responseID>
+        <orientedTo rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#networkattack"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#DMZ-MS -->
+
+    <owl:NamedIndividual rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#DMZ-MS">
+        <rdf:type rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#SystemComponent"/>
+        <componentName rdf:datatype="&xsd;string">DMZ-MS</componentName>
+        <componentType rdf:datatype="&xsd;string">Server</componentType>
+        <componentID rdf:datatype="&xsd;string">dmzmsid192.168.100.140</componentID>
+        <assetLevelOfImportance rdf:datatype="&xsd;string">medium</assetLevelOfImportance>
+        <hasAddress rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#dmz-a2"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#DMZ-S1 -->
+
+    <owl:NamedIndividual rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#DMZ-S1">
+        <rdf:type rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#SystemComponent"/>
+        <componentName rdf:datatype="&xsd;string">DMZ-S1</componentName>
+        <assetDescription rdf:datatype="&xsd;string">Mail Server of the organization</assetDescription>
+        <componentType rdf:datatype="&xsd;string">Server</componentType>
+        <componentID rdf:datatype="&xsd;string">dmzs1id192.168.100.130</componentID>
+        <assetLevelOfImportance rdf:datatype="&xsd;string">medium</assetLevelOfImportance>
+        <hasAddress rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#dmz-a1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#HoneynetDeployment -->
+
+    <owl:NamedIndividual rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#HoneynetDeployment">
+        <rdf:type rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Deception"/>
+        <rdf:type rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Proactive"/>
+        <numExecutions rdf:datatype="&xsd;int">0</numExecutions>
+        <responseCost rdf:datatype="&xsd;int">150</responseCost>
+        <responseSeverity rdf:datatype="&xsd;int">4</responseSeverity>
+        <responseImpact rdf:datatype="&xsd;int">50</responseImpact>
+        <responseComplexity rdf:datatype="&xsd;int">7</responseComplexity>
+        <responseDeploymentCost rdf:datatype="&xsd;int">80</responseDeploymentCost>
+        <responseID rdf:datatype="&xsd;string">Honeynet-R36</responseID>
+        <responseAction rdf:datatype="&xsd;string">honeynetDeployment</responseAction>
+        <protects rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#authenticity"/>
+        <protects rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#availability"/>
+        <orientedTo rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#backdoors"/>
+        <orientedTo rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#bufferoverflow"/>
+        <protects rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#confidentiality"/>
+        <orientedTo rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#dos"/>
+        <orientedTo rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#exploits"/>
+        <orientedTo rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#guessing"/>
+        <orientedTo rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#informationgatheringattack"/>
+        <protects rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#integrity"/>
+        <orientedTo rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#networkattack"/>
+        <orientedTo rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#trojan"/>
+        <orientedTo rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#virus"/>
+        <orientedTo rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#worms"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#IDS-H1 -->
+
+    <owl:NamedIndividual rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#IDS-H1">
+        <rdf:type rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#SystemComponent"/>
+        <assetLevelOfImportance rdf:datatype="&xsd;string">high</assetLevelOfImportance>
+        <componentID rdf:datatype="&xsd;string">idsh1id10.0.1.100</componentID>
+        <componentType rdf:datatype="&xsd;string">nids</componentType>
+        <assetDescription rdf:datatype="&xsd;string">snort ids de la subred</assetDescription>
+        <hasAddress rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#ids-a1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#IDS1 -->
+
+    <owl:NamedIndividual rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#IDS1">
+        <rdf:type rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#IntrusionDetectionSystem"/>
+        <IDSID rdf:datatype="&xsd;string">1:100852:1</IDSID>
+        <hasNodeLocation rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#IDS-H1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#INTNet1-H1 -->
+
+    <owl:NamedIndividual rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#INTNet1-H1">
+        <rdf:type rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#SystemComponent"/>
+        <componentType rdf:datatype="&xsd;string">Host</componentType>
+        <componentName rdf:datatype="&xsd;string">INT1-H1</componentName>
+        <assetDescription rdf:datatype="&xsd;string">Ubuntu 12 gui</assetDescription>
+        <componentID rdf:datatype="&xsd;string">intnet1h1id10.0.0.100</componentID>
+        <assetLevelOfImportance rdf:datatype="&xsd;string">low</assetLevelOfImportance>
+        <hasAddress rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#intnet1-a1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#INTNet1-H2 -->
+
+    <owl:NamedIndividual rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#INTNet1-H2">
+        <rdf:type rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#SystemComponent"/>
+        <componentType rdf:datatype="&xsd;string">Host</componentType>
+        <componentName rdf:datatype="&xsd;string">INT1-H2</componentName>
+        <assetDescription rdf:datatype="&xsd;string">Ubuntu 13.10</assetDescription>
+        <componentID rdf:datatype="&xsd;string">intnet1h2id10.0.0.2</componentID>
+        <assetLevelOfImportance rdf:datatype="&xsd;string">low</assetLevelOfImportance>
+        <hasAddress rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#intnet1-a2"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#INTNet1-H3 -->
+
+    <owl:NamedIndividual rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#INTNet1-H3">
+        <rdf:type rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#SystemComponent"/>
+        <componentType rdf:datatype="&xsd;string">Host</componentType>
+        <componentName rdf:datatype="&xsd;string">INT1-H3</componentName>
+        <assetDescription rdf:datatype="&xsd;string">Ubuntu 13.10</assetDescription>
+        <componentID rdf:datatype="&xsd;string">intnet1-h3id10.0.0.3</componentID>
+        <assetLevelOfImportance rdf:datatype="&xsd;string">low</assetLevelOfImportance>
+        <hasAddress rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#intnet1-a3"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#INTNet1-H4 -->
+
+    <owl:NamedIndividual rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#INTNet1-H4">
+        <rdf:type rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#SystemComponent"/>
+        <componentType rdf:datatype="&xsd;string">Host</componentType>
+        <componentName rdf:datatype="&xsd;string">INT1-H4</componentName>
+        <assetDescription rdf:datatype="&xsd;string">Ubuntu 13.10</assetDescription>
+        <componentID rdf:datatype="&xsd;string">intnet1-h4id10.0.0.103</componentID>
+        <assetLevelOfImportance rdf:datatype="&xsd;string">low</assetLevelOfImportance>
+        <hasAddress rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#intnet1-a4"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#INTNet4-S1 -->
+
+    <owl:NamedIndividual rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#INTNet4-S1">
+        <rdf:type rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#SystemComponent"/>
+        <componentName rdf:datatype="&xsd;string">INT4-S1</componentName>
+        <componentType rdf:datatype="&xsd;string">Server</componentType>
+        <assetLevelOfImportance rdf:datatype="&xsd;string">high</assetLevelOfImportance>
+        <componentID rdf:datatype="&xsd;string">intnet4s1id10.0.4.131</componentID>
+        <hasAddress rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#intnet4-a1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#IRS-H1 -->
+
+    <owl:NamedIndividual rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#IRS-H1">
+        <rdf:type rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#SystemComponent"/>
+        <assetLevelOfImportance rdf:datatype="&xsd;string">high</assetLevelOfImportance>
+        <componentType rdf:datatype="&xsd;string">irs</componentType>
+        <componentID rdf:datatype="&xsd;string">irsh1id10.0.1.1</componentID>
+        <hasAddress rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#irs-a1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Network1 -->
+
+    <owl:NamedIndividual rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Network1">
+        <rdf:type rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Network"/>
+        <protectedBy rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#AIRS"/>
+        <installedIDS rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#IDS1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#PassiveResp1 -->
+
+    <owl:NamedIndividual rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#PassiveResp1">
+        <rdf:type rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Passive"/>
+        <numExecutions rdf:datatype="&xsd;int">0</numExecutions>
+        <responsePriority rdf:datatype="&xsd;int">1</responsePriority>
+        <responseSeverity rdf:datatype="&xsd;int">1</responseSeverity>
+        <responseComplexity rdf:datatype="&xsd;int">1</responseComplexity>
+        <responseImpact rdf:datatype="&xsd;int">1</responseImpact>
+        <responseDeploymentCost rdf:datatype="&xsd;int">2</responseDeploymentCost>
+        <responseCost rdf:datatype="&xsd;int">3</responseCost>
+        <responseType rdf:datatype="&xsd;string">Passive</responseType>
+        <responseID rdf:datatype="&xsd;string">PassiveResp1</responseID>
+        <responseAction rdf:datatype="&xsd;string">mailNotification</responseAction>
+        <orientedTo rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#backdoors"/>
+        <orientedTo rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#bufferoverflow"/>
+        <orientedTo rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#dos"/>
+        <orientedTo rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#exploits"/>
+        <orientedTo rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#guessing"/>
+        <orientedTo rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#informationgatheringattack"/>
+        <orientedTo rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#networkattack"/>
+        <orientedTo rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#trojan"/>
+        <orientedTo rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#virus"/>
+        <orientedTo rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#worms"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#RedirectTraffic -->
+
+    <owl:NamedIndividual rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#RedirectTraffic">
+        <rdf:type rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Deception"/>
+        <rdf:type rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Proactive"/>
+        <rdf:type rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Protection"/>
+        <numExecutions rdf:datatype="&xsd;int">0</numExecutions>
+        <responseSeverity rdf:datatype="&xsd;int">2</responseSeverity>
+        <responseDeploymentCost rdf:datatype="&xsd;int">3</responseDeploymentCost>
+        <responseImpact rdf:datatype="&xsd;int">3</responseImpact>
+        <responseComplexity rdf:datatype="&xsd;int">4</responseComplexity>
+        <responseCost rdf:datatype="&xsd;int">5</responseCost>
+        <responseType rdf:datatype="&xsd;string">Deception</responseType>
+        <responseType rdf:datatype="&xsd;string">Protection</responseType>
+        <responseID rdf:datatype="&xsd;string">RedirectTraffic-R39</responseID>
+        <responseDescription rdf:datatype="&xsd;string">Redirige el tráfico de entrada, salida, o entrada y salida, o de una conexión específica hacia un host que se pasa como parámetro de entrada. Se utiliza junto con la respuesta de HoneynetDeployment.</responseDescription>
+        <responseAction rdf:datatype="&xsd;string">redirectTraffic</responseAction>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#authenticity -->
+
+    <owl:NamedIndividual rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#authenticity">
+        <rdf:type rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#AuthenticityGoal"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#availability -->
+
+    <owl:NamedIndividual rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#availability">
+        <rdf:type rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#AvailabilityGoal"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#backdoors -->
+
+    <owl:NamedIndividual rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#backdoors">
+        <rdf:type rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#BackDoors"/>
+        <threatens rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#authenticity"/>
+        <threatens rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#availability"/>
+        <threatens rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#confidentiality"/>
+        <threatens rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#integrity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#bufferoverflow -->
+
+    <owl:NamedIndividual rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#bufferoverflow">
+        <rdf:type rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#BufferOverflow"/>
+        <threatens rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#availability"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#confidentiality -->
+
+    <owl:NamedIndividual rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#confidentiality">
+        <rdf:type rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#ConfidentialityGoal"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#dmz-a1 -->
+
+    <owl:NamedIndividual rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#dmz-a1">
+        <rdf:type rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Address"/>
+        <addressIP rdf:datatype="&xsd;string">192.168.100.130</addressIP>
+        <addressNetmask rdf:datatype="&xsd;string">255.255.255.0</addressNetmask>
+        <addressID rdf:datatype="&xsd;string">dmz-a1:ident</addressID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#dmz-a2 -->
+
+    <owl:NamedIndividual rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#dmz-a2">
+        <rdf:type rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Address"/>
+        <addressIP rdf:datatype="&xsd;string">192.168.100.140</addressIP>
+        <addressNetmask rdf:datatype="&xsd;string">255.255.255.0</addressNetmask>
+        <addressID rdf:datatype="&xsd;string">dmz-a2:ident</addressID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#dos -->
+
+    <owl:NamedIndividual rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#dos">
+        <rdf:type rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#DoS"/>
+        <threatens rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#availability"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#exploits -->
+
+    <owl:NamedIndividual rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#exploits">
+        <rdf:type rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Exploits"/>
+        <threatens rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#authenticity"/>
+        <threatens rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#availability"/>
+        <threatens rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#confidentiality"/>
+        <threatens rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#integrity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#guessing -->
+
+    <owl:NamedIndividual rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#guessing">
+        <rdf:type rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Guessing"/>
+        <threatens rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#authenticity"/>
+        <threatens rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#confidentiality"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#ids-a1 -->
+
+    <owl:NamedIndividual rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#ids-a1">
+        <rdf:type rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Address"/>
+        <addressIP rdf:datatype="&xsd;string">10.0.1.100</addressIP>
+        <addressNetmask rdf:datatype="&xsd;string">255.255.255.0</addressNetmask>
+        <addressID rdf:datatype="&xsd;string">ids-a1:ident</addressID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#informationgatheringattack -->
+
+    <owl:NamedIndividual rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#informationgatheringattack">
+        <rdf:type rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#InformationGatheringAttack"/>
+        <threatens rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#confidentiality"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#integrity -->
+
+    <owl:NamedIndividual rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#integrity">
+        <rdf:type rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#IntegrityGoal"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#intnet1-a1 -->
+
+    <owl:NamedIndividual rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#intnet1-a1">
+        <rdf:type rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Address"/>
+        <addressIP rdf:datatype="&xsd;string">10.0.0.100</addressIP>
+        <addressNetmask rdf:datatype="&xsd;string">255.255.255.0</addressNetmask>
+        <addressID rdf:datatype="&xsd;string">intnet1-a1:ident</addressID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#intnet1-a2 -->
+
+    <owl:NamedIndividual rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#intnet1-a2">
+        <rdf:type rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Address"/>
+        <addressIP rdf:datatype="&xsd;string">10.0.0.2</addressIP>
+        <addressNetmask rdf:datatype="&xsd;string">255.255.255.0</addressNetmask>
+        <addressID rdf:datatype="&xsd;string">intnet1-a2:ident</addressID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#intnet1-a3 -->
+
+    <owl:NamedIndividual rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#intnet1-a3">
+        <rdf:type rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Address"/>
+        <addressIP rdf:datatype="&xsd;string">10.0.0.3</addressIP>
+        <addressNetmask rdf:datatype="&xsd;string">255.255.255.0</addressNetmask>
+        <addressID rdf:datatype="&xsd;string">intnet1-a3:ident</addressID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#intnet1-a4 -->
+
+    <owl:NamedIndividual rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#intnet1-a4">
+        <rdf:type rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Address"/>
+        <addressIP rdf:datatype="&xsd;string">10.0.0.103</addressIP>
+        <addressNetmask rdf:datatype="&xsd;string">255.255.255.0</addressNetmask>
+        <addressID rdf:datatype="&xsd;string">intnet1-a4:ident</addressID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#intnet4-a1 -->
+
+    <owl:NamedIndividual rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#intnet4-a1">
+        <rdf:type rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Address"/>
+        <addressIP rdf:datatype="&xsd;string">10.0.4.131</addressIP>
+        <addressNetmask rdf:datatype="&xsd;string">255.255.255.0</addressNetmask>
+        <addressID rdf:datatype="&xsd;string">intnet4-a1:ident</addressID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#irs-a1 -->
+
+    <owl:NamedIndividual rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#irs-a1">
+        <rdf:type rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Address"/>
+        <addressIP rdf:datatype="&xsd;string">10.0.1.1</addressIP>
+        <addressNetmask rdf:datatype="&xsd;string">255.255.255.0</addressNetmask>
+        <addressID rdf:datatype="&xsd;string">irs-a1:ident</addressID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#networkattack -->
+
+    <owl:NamedIndividual rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#networkattack">
+        <rdf:type rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#NetworkAttack"/>
+        <threatens rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#authenticity"/>
+        <threatens rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#availability"/>
+        <threatens rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#confidentiality"/>
+        <threatens rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#integrity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#notthreat -->
+
+    <owl:NamedIndividual rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#notthreat">
+        <rdf:type rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#NotThreat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#trojan -->
+
+    <owl:NamedIndividual rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#trojan">
+        <rdf:type rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Trojan"/>
+        <threatens rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#integrity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#virus -->
+
+    <owl:NamedIndividual rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#virus">
+        <rdf:type rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Virus"/>
+        <threatens rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#availability"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#worms -->
+
+    <owl:NamedIndividual rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#worms">
+        <rdf:type rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Worms"/>
+        <threatens rdf:resource="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#availability"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#backdoors"/>
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#networkattack"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#dos"/>
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#trojan"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#notthreat"/>
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#worms"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#backdoors"/>
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#bufferoverflow"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#trojan"/>
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#virus"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#guessing"/>
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#informationgatheringattack"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#informationgatheringattack"/>
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#trojan"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#dos"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#notthreat"/>
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#virus"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#dos"/>
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#networkattack"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#informationgatheringattack"/>
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#virus"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#exploits"/>
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#informationgatheringattack"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#dos"/>
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#virus"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#guessing"/>
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#notthreat"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#virus"/>
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#worms"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#exploits"/>
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#notthreat"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#dos"/>
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#guessing"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#networkattack"/>
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#notthreat"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#backdoors"/>
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#worms"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#dos"/>
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#informationgatheringattack"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#backdoors"/>
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#notthreat"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#informationgatheringattack"/>
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#networkattack"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#informationgatheringattack"/>
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#notthreat"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#bufferoverflow"/>
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#dos"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#guessing"/>
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#worms"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#exploits"/>
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#trojan"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#networkattack"/>
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#trojan"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#bufferoverflow"/>
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#guessing"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#dos"/>
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#worms"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#guessing"/>
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#trojan"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#exploits"/>
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#guessing"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#bufferoverflow"/>
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#networkattack"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#dos"/>
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#exploits"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#backdoors"/>
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#exploits"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#bufferoverflow"/>
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#informationgatheringattack"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#guessing"/>
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#virus"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#guessing"/>
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#networkattack"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#dos"/>
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#notthreat"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#backdoors"/>
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#virus"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#trojan"/>
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#worms"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#bufferoverflow"/>
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#virus"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#backdoors"/>
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#trojan"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#backdoors"/>
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#informationgatheringattack"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#exploits"/>
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#worms"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#informationgatheringattack"/>
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#worms"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#backdoors"/>
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#dos"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#backdoors"/>
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#guessing"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#bufferoverflow"/>
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#trojan"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#notthreat"/>
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#trojan"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#exploits"/>
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#networkattack"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#networkattack"/>
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#virus"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#bufferoverflow"/>
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#exploits"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#exploits"/>
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#virus"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#networkattack"/>
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#worms"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#bufferoverflow"/>
+            <rdf:Description rdf:about="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#worms"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.3.1957) http://owlapi.sourceforge.net -->
+

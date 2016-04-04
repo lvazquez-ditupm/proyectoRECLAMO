@@ -1,0 +1,46 @@
+###################################################################
+define host{
+        use airs-host
+        host_name $HOSTNAME
+        alias   $ALIAS
+        address $IPADDRESS
+        parents $PARENTS
+}
+define service{
+        use     generic-service
+        host_name       $HOSTNAME
+        service_description     CPU Load
+        check_command   check_nrpe!check_load  $NATPORT
+}
+
+define service{
+        use     generic-service
+        host_name       $HOSTNAME
+        service_description     Current Users
+        check_command   check_nrpe!check_users  $NATPORT
+}
+
+define service{
+        use     generic-service
+        host_name       $HOSTNAME
+        service_description     /dev/sda1 Free Space
+        check_command   check_nrpe!check_sda1  $NATPORT
+}
+define service{
+        use     generic-service
+        host_name       $HOSTNAME
+        service_description     Total Processes
+        check_command   check_nrpe!check_total_procs -t 20  $NATPORT
+}
+define service{
+        use     generic-service
+        host_name       $HOSTNAME
+        service_description     Zombie Processer
+        check_command   check_nrpe!check_zombie_procs  $NATPORT
+}
+define service{
+        use     generic-service
+        host_name       $HOSTNAME
+        service_description     SSH Failed Login
+        check_command   check_nrpe!check_ssh_faillogin  $NATPORT
+}

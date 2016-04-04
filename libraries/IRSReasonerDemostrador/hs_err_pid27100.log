@@ -1,0 +1,312 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGBUS (0x7) at pc=0xb6991b43, pid=27100, tid=3064343408
+#
+# JRE version: 6.0_22-b04
+# Java VM: Java HotSpot(TM) Server VM (17.1-b03 mixed mode linux-x86 )
+# Problematic frame:
+# C  [libzip.so+0xbb43]
+#
+# If you would like to submit a bug report, please visit:
+#   http://java.sun.com/webapps/bugreport/crash.jsp
+# The crash happened outside the Java Virtual Machine in native code.
+# See problematic frame for where to report the bug.
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0822e000):  JavaThread "main" [_thread_in_native, id=27102, stack(0xb6a12000,0xb6a63000)]
+
+siginfo:si_signo=SIGBUS: si_errno=0, si_code=2 (BUS_ADRERR), si_addr=0x7baaa763
+
+Registers:
+EAX=0x7bb73ee0, EBX=0xb69966bc, ECX=0x7ba8b000, EDX=0x00188000
+ESP=0xb6a5ded0, EBP=0xb6a5def8, ESI=0x7baaa746, EDI=0x083caab0
+EIP=0xb6991b43, CR2=0x7baaa763, EFLAGS=0x00010202
+
+Top of Stack: (sp=0xb6a5ded0)
+0xb6a5ded0:   00000030 08481c48 08482f48 08489c3c
+0xb6a5dee0:   7bb73fa8 b69966bc b6991afb b69966bc
+0xb6a5def0:   7bb77868 00000000 b6a5df28 b6991efb
+0xb6a5df00:   7bb73ee0 7bb77868 00000000 b7203768
+0xb6a5df10:   b6a5dfa0 b6a5dfd0 59cceed3 b69966bc
+0xb6a5df20:   b6a5df70 0822e118 b6a5e398 b69890e9
+0xb6a5df30:   7bb73ee0 b6a5df70 00000030 00000030
+0xb6a5df40:   b6a5df70 08330ad4 b6a5e108 b6e2361b 
+
+Instructions: (pc=0xb6991b43)
+0xb6991b33:   8b 70 04 8b 45 08 8b 48 10 8b 50 1c 01 ce 29 d6
+0xb6991b43:   0f b6 46 1d 0f b6 56 1c c1 e0 08 09 c2 89 55 f0 
+
+Stack: [0xb6a12000,0xb6a63000],  sp=0xb6a5ded0,  free space=12fb6a5d850k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  [libzip.so+0xbb43]
+C  [libzip.so+0xbefb]  ZIP_GetEntry+0x10b
+C  [libzip.so+0x30e9]  Java_java_util_zip_ZipFile_getEntry+0xc9
+J  java.util.zip.ZipFile.getEntry(JLjava/lang/String;Z)J
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+J  java.util.zip.ZipFile.getEntry(JLjava/lang/String;Z)J
+J  sun.misc.URLClassPath.getResource(Ljava/lang/String;Z)Lsun/misc/Resource;
+j  java.net.URLClassLoader$1.run()Ljava/lang/Object;+26
+v  ~StubRoutines::call_stub
+j  java.security.AccessController.doPrivileged(Ljava/security/PrivilegedExceptionAction;Ljava/security/AccessControlContext;)Ljava/lang/Object;+0
+j  java.net.URLClassLoader.findClass(Ljava/lang/String;)Ljava/lang/Class;+13
+j  java.lang.ClassLoader.loadClass(Ljava/lang/String;Z)Ljava/lang/Class;+47
+j  sun.misc.Launcher$AppClassLoader.loadClass(Ljava/lang/String;Z)Ljava/lang/Class;+41
+j  java.lang.ClassLoader.loadClass(Ljava/lang/String;)Ljava/lang/Class;+3
+v  ~StubRoutines::call_stub
+j  java.lang.Class.forName0(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;+0
+j  java.lang.Class.forName(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;+32
+j  edu.stanford.smi.protege.plugin.PluginUtilities.isLoadableClass(Ljava/lang/String;Ljava/lang/ClassLoader;Ljava/lang/Class;)Z+16
+j  edu.stanford.smi.protege.plugin.PluginUtilities.checkPlugin(Ljava/lang/ClassLoader;Ljava/util/jar/Attributes;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Class;)Z+15
+j  edu.stanford.smi.protege.plugin.PluginUtilities.checkPlugins(Ljava/lang/ClassLoader;Ljava/util/jar/Attributes;Ljava/lang/String;)V+113
+j  edu.stanford.smi.protege.plugin.PluginUtilities.processManifest(Ljava/util/jar/Manifest;Ljava/lang/ClassLoader;)V+52
+j  edu.stanford.smi.protege.plugin.PluginUtilities.loadPluginsWithClassLoader(Ljava/io/File;Ljava/lang/ClassLoader;)V+60
+j  edu.stanford.smi.protege.plugin.PluginUtilities.createClassLoaderAndLoadPlugins(Ljava/io/File;Ljava/lang/ClassLoader;)V+19
+j  edu.stanford.smi.protege.plugin.PluginUtilities.loadPlugins(Ljava/io/File;)V+7
+j  edu.stanford.smi.protege.plugin.PluginUtilities.loadSystemPlugins()V+1
+j  edu.stanford.smi.protege.plugin.PluginUtilities.loadPlugins()V+3
+j  edu.stanford.smi.protege.plugin.PluginUtilities.init()V+0
+j  edu.stanford.smi.protege.plugin.PluginUtilities.<clinit>()V+113
+v  ~StubRoutines::call_stub
+j  edu.stanford.smi.protege.util.SystemUtilities.init()V+6
+j  edu.stanford.smi.protege.util.SystemUtilities.<clinit>()V+9
+v  ~StubRoutines::call_stub
+j  edu.stanford.smi.protege.util.AbstractFormatter.<clinit>()V+0
+v  ~StubRoutines::call_stub
+j  edu.stanford.smi.protege.util.Log.getConsoleHandler()Ljava/util/logging/Handler;+19
+j  edu.stanford.smi.protege.util.Log.addConsoleHandler()V+0
+j  edu.stanford.smi.protege.util.Log.getLogger()Ljava/util/logging/Logger;+36
+j  edu.stanford.smi.protege.util.Log.<clinit>()V+230
+v  ~StubRoutines::call_stub
+j  edu.stanford.smi.protege.model.Project.<clinit>()V+3
+v  ~StubRoutines::call_stub
+j  edu.stanford.smi.protegex.owl.ProtegeOWL.createJenaOWLModel()Ledu/stanford/smi/protegex/owl/jena/JenaOWLModel;+18
+j  edu.stanford.smi.protegex.owl.ProtegeOWL.createJenaOWLModelFromReader(Ljava/io/Reader;)Ledu/stanford/smi/protegex/owl/jena/JenaOWLModel;+0
+j  irsreasonerdemostrador.Main.main([Ljava/lang/String;)V+25
+v  ~StubRoutines::call_stub
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x7c104800 JavaThread "Low Memory Detector" daemon [_thread_blocked, id=27111, stack(0x7bd22000,0x7bd73000)]
+  0x7c102800 JavaThread "CompilerThread1" daemon [_thread_blocked, id=27110, stack(0x7bd73000,0x7bdf4000)]
+  0x7c100800 JavaThread "CompilerThread0" daemon [_thread_blocked, id=27109, stack(0x7bdf4000,0x7be75000)]
+  0x082bfc00 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=27108, stack(0x7be75000,0x7bec6000)]
+  0x082b0800 JavaThread "Finalizer" daemon [_thread_blocked, id=27107, stack(0x7bec6000,0x7bf17000)]
+  0x082ac000 JavaThread "Reference Handler" daemon [_thread_blocked, id=27106, stack(0x7bf17000,0x7bf68000)]
+=>0x0822e000 JavaThread "main" [_thread_in_native, id=27102, stack(0xb6a12000,0xb6a63000)]
+
+Other Threads:
+  0x082a9400 VMThread [stack: 0x7c21f000,0x7c2a0000] [id=27105]
+  0x7c106800 WatcherThread [stack: 0x7bca1000,0x7bd22000] [id=27112]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap
+ PSYoungGen      total 15232K, used 9421K [0xa2820000, 0xa3920000, 0xb38c0000)
+  eden space 13056K, 72% used [0xa2820000,0xa31535f8,0xa34e0000)
+  from space 2176K, 0% used [0xa3700000,0xa3700000,0xa3920000)
+  to   space 2176K, 0% used [0xa34e0000,0xa34e0000,0xa3700000)
+ PSOldGen        total 34880K, used 0K [0x806c0000, 0x828d0000, 0xa2820000)
+  object space 34880K, 0% used [0x806c0000,0x806c0000,0x828d0000)
+ PSPermGen       total 16384K, used 6051K [0x7c6c0000, 0x7d6c0000, 0x806c0000)
+  object space 16384K, 36% used [0x7c6c0000,0x7cca8c50,0x7d6c0000)
+
+Dynamic libraries:
+08048000-08052000 r-xp 00000000 08:01 7079247    /etc/jdk1.6.0_22/jre/bin/java
+08052000-08053000 rwxp 00009000 08:01 7079247    /etc/jdk1.6.0_22/jre/bin/java
+08228000-08532000 rwxp 00000000 00:00 0          [heap]
+7b700000-7b7d7000 rwxp 00000000 00:00 0 
+7b7d7000-7b800000 ---p 00000000 00:00 0 
+7b847000-7b8cb000 r-xp 00000000 08:01 7080220    /etc/jdk1.6.0_22/jre/lib/i386/libawt.so
+7b8cb000-7b8d2000 rwxp 00084000 08:01 7080220    /etc/jdk1.6.0_22/jre/lib/i386/libawt.so
+7b8d2000-7b8f6000 rwxp 00000000 00:00 0 
+7b8f6000-7b8f9000 r-xs 0001b000 08:01 4456575    /home/vmateos/Documents/NetBeansProjects/IRSReasonerDemostrador/dist/lib/junit.jar
+7b8f9000-7b900000 r-xs 00051000 08:01 4456574    /home/vmateos/Documents/NetBeansProjects/IRSReasonerDemostrador/dist/lib/log4j-1.2.13.jar
+7b900000-7b9fc000 rwxp 00000000 00:00 0 
+7b9fc000-7ba00000 ---p 00000000 00:00 0 
+7ba77000-7ba8a000 r-xp 00000000 08:01 7080209    /etc/jdk1.6.0_22/jre/lib/i386/libnet.so
+7ba8a000-7ba8b000 rwxp 00013000 08:01 7080209    /etc/jdk1.6.0_22/jre/lib/i386/libnet.so
+7ba8b000-7bab4000 r-xs 00188000 08:01 4456571    /home/vmateos/Documents/NetBeansProjects/IRSReasonerDemostrador/dist/lib/protege.jar
+7bab4000-7bb00000 r-xs 0028c000 08:01 4456570    /home/vmateos/Documents/NetBeansProjects/IRSReasonerDemostrador/dist/lib/protege-owl.jar
+7bb00000-7bbf9000 rwxp 00000000 00:00 0 
+7bbf9000-7bc00000 ---p 00000000 00:00 0 
+7bc06000-7bc0b000 r-xp 00000000 08:01 7080227    /etc/jdk1.6.0_22/jre/lib/i386/headless/libmawt.so
+7bc0b000-7bc0c000 rwxp 00004000 08:01 7080227    /etc/jdk1.6.0_22/jre/lib/i386/headless/libmawt.so
+7bc0c000-7bc11000 r-xs 00045000 08:01 4456573    /home/vmateos/Documents/NetBeansProjects/IRSReasonerDemostrador/dist/lib/bossam.jar
+7bc11000-7bc25000 r-xs 000e4000 08:01 4456572    /home/vmateos/Documents/NetBeansProjects/IRSReasonerDemostrador/dist/lib/xercesImpl.jar
+7bc25000-7bc2c000 r-xp 00000000 08:01 7080210    /etc/jdk1.6.0_22/jre/lib/i386/libnio.so
+7bc2c000-7bc2d000 rwxp 00006000 08:01 7080210    /etc/jdk1.6.0_22/jre/lib/i386/libnio.so
+7bc2d000-7bc31000 r-xs 00035000 08:01 4456569    /home/vmateos/Documents/NetBeansProjects/IRSReasonerDemostrador/dist/lib/mailapi.jar
+7bc31000-7bc38000 r-xs 00064000 08:01 4456568    /home/vmateos/Documents/NetBeansProjects/IRSReasonerDemostrador/dist/lib/mail.jar
+7bc38000-7bc41000 r-xs 0005b000 08:01 4456567    /home/vmateos/Documents/NetBeansProjects/IRSReasonerDemostrador/dist/lib/looks-2.2.2.jar
+7bc41000-7bc48000 r-xs 00028000 08:01 4456566    /home/vmateos/Documents/NetBeansProjects/IRSReasonerDemostrador/dist/lib/jgrapht-jdk1.5.jar
+7bc48000-7bc4a000 r-xs 00023000 08:01 4456565    /home/vmateos/Documents/NetBeansProjects/IRSReasonerDemostrador/dist/lib/iri.jar
+7bc4a000-7bc68000 r-xs 003ca000 08:01 4456564    /home/vmateos/Documents/NetBeansProjects/IRSReasonerDemostrador/dist/lib/icu4j-3_6.jar
+7bc68000-7bc69000 r-xs 0000c000 08:01 4456563    /home/vmateos/Documents/NetBeansProjects/IRSReasonerDemostrador/dist/lib/commons-logging-1.1.jar
+7bc69000-7bc6a000 r-xs 00002000 08:01 4456561    /home/vmateos/Documents/NetBeansProjects/IRSReasonerDemostrador/dist/lib/slf4j-log4j12-1.5.8.jar
+7bc6a000-7bc8d000 r-xs 001ad000 08:01 4456558    /home/vmateos/Documents/NetBeansProjects/IRSReasonerDemostrador/dist/lib/jena-2.6.3.jar
+7bc8d000-7bc94000 r-xs 00074000 08:01 4456557    /home/vmateos/Documents/NetBeansProjects/IRSReasonerDemostrador/dist/lib/pellet-test.jar
+7bc94000-7bc9a000 r-xs 0002d000 08:01 4456556    /home/vmateos/Documents/NetBeansProjects/IRSReasonerDemostrador/dist/lib/pellet-rules.jar
+7bc9a000-7bca1000 r-xs 0005c000 08:01 4456555    /home/vmateos/Documents/NetBeansProjects/IRSReasonerDemostrador/dist/lib/pellet-query.jar
+7bca1000-7bca2000 ---p 00000000 00:00 0 
+7bca2000-7bd22000 rwxp 00000000 00:00 0 
+7bd22000-7bd25000 ---p 00000000 00:00 0 
+7bd25000-7bd73000 rwxp 00000000 00:00 0 
+7bd73000-7bd76000 ---p 00000000 00:00 0 
+7bd76000-7bdf4000 rwxp 00000000 00:00 0 
+7bdf4000-7bdf7000 ---p 00000000 00:00 0 
+7bdf7000-7be75000 rwxp 00000000 00:00 0 
+7be75000-7be78000 ---p 00000000 00:00 0 
+7be78000-7bec6000 rwxp 00000000 00:00 0 
+7bec6000-7bec9000 ---p 00000000 00:00 0 
+7bec9000-7bf17000 rwxp 00000000 00:00 0 
+7bf17000-7bf1a000 ---p 00000000 00:00 0 
+7bf1a000-7bf68000 rwxp 00000000 00:00 0 
+7bf68000-7c100000 r-xs 03013000 08:01 7078330    /etc/jdk1.6.0_22/jre/lib/rt.jar
+7c100000-7c200000 rwxp 00000000 00:00 0 
+7c200000-7c201000 r-xs 00005000 08:01 4456560    /home/vmateos/Documents/NetBeansProjects/IRSReasonerDemostrador/dist/lib/slf4j-api-1.5.8.jar
+7c201000-7c204000 r-xs 0000f000 08:01 4456554    /home/vmateos/Documents/NetBeansProjects/IRSReasonerDemostrador/dist/lib/pellet-pellint.jar
+7c204000-7c206000 r-xs 00017000 08:01 4456553    /home/vmateos/Documents/NetBeansProjects/IRSReasonerDemostrador/dist/lib/pellet-owlapiv3.jar
+7c206000-7c208000 r-xs 00010000 08:01 4456552    /home/vmateos/Documents/NetBeansProjects/IRSReasonerDemostrador/dist/lib/pellet-owlapi.jar
+7c208000-7c20a000 r-xs 0000b000 08:01 4456551    /home/vmateos/Documents/NetBeansProjects/IRSReasonerDemostrador/dist/lib/pellet-modularity.jar
+7c20a000-7c20f000 r-xs 0003a000 08:01 4456546    /home/vmateos/Documents/NetBeansProjects/IRSReasonerDemostrador/dist/lib/pellet-datatypes.jar
+7c20f000-7c218000 r-xs 0008f000 08:01 4456545    /home/vmateos/Documents/NetBeansProjects/IRSReasonerDemostrador/dist/lib/pellet-core.jar
+7c218000-7c21f000 r-xs 000a7000 08:01 4456543    /home/vmateos/Documents/NetBeansProjects/IRSReasonerDemostrador/dist/lib/mysql-connector-java-5.1.7-bin.jar
+7c21f000-7c220000 ---p 00000000 00:00 0 
+7c220000-7c2d3000 rwxp 00000000 00:00 0 
+7c2d3000-7c2d4000 ---p 00000000 00:00 0 
+7c2d4000-7c354000 rwxp 00000000 00:00 0 
+7c354000-7c355000 ---p 00000000 00:00 0 
+7c355000-7c3dd000 rwxp 00000000 00:00 0 
+7c3dd000-7c3f5000 rwxp 00000000 00:00 0 
+7c3f5000-7c407000 rwxp 00000000 00:00 0 
+7c407000-7c506000 rwxp 00000000 00:00 0 
+7c506000-7c50e000 rwxp 00000000 00:00 0 
+7c50e000-7c526000 rwxp 00000000 00:00 0 
+7c526000-7c538000 rwxp 00000000 00:00 0 
+7c538000-7c636000 rwxp 00000000 00:00 0 
+7c636000-7c640000 rwxp 00000000 00:00 0 
+7c640000-7c6bf000 rwxp 00000000 00:00 0 
+7c6bf000-7d6c0000 rwxp 00000000 00:00 0 
+7d6c0000-806c0000 rwxp 00000000 00:00 0 
+806c0000-828d0000 rwxp 00000000 00:00 0 
+828d0000-a2820000 rwxp 00000000 00:00 0 
+a2820000-a3920000 rwxp 00000000 00:00 0 
+a3920000-b38c0000 rwxp 00000000 00:00 0 
+b38c0000-b38c1000 r-xs 00004000 08:01 4456559    /home/vmateos/Documents/NetBeansProjects/IRSReasonerDemostrador/dist/lib/relaxngDatatype.jar
+b38c1000-b38c6000 r-xs 00029000 08:01 4456550    /home/vmateos/Documents/NetBeansProjects/IRSReasonerDemostrador/dist/lib/pellet-jena.jar
+b38c6000-b38cf000 rwxp 00000000 00:00 0 
+b38cf000-b3986000 rwxp 00000000 00:00 0 
+b3986000-b3bc6000 rwxp 00000000 00:00 0 
+b3bc6000-b6986000 rwxp 00000000 00:00 0 
+b6986000-b6995000 r-xp 00000000 08:01 7080198    /etc/jdk1.6.0_22/jre/lib/i386/libzip.so
+b6995000-b6997000 rwxp 0000e000 08:01 7080198    /etc/jdk1.6.0_22/jre/lib/i386/libzip.so
+b6997000-b69a1000 r-xp 00000000 08:01 262259     /lib/tls/i686/cmov/libnss_files-2.11.1.so
+b69a1000-b69a2000 r-xp 00009000 08:01 262259     /lib/tls/i686/cmov/libnss_files-2.11.1.so
+b69a2000-b69a3000 rwxp 0000a000 08:01 262259     /lib/tls/i686/cmov/libnss_files-2.11.1.so
+b69a3000-b69ab000 r-xp 00000000 08:01 262269     /lib/tls/i686/cmov/libnss_nis-2.11.1.so
+b69ab000-b69ac000 r-xp 00007000 08:01 262269     /lib/tls/i686/cmov/libnss_nis-2.11.1.so
+b69ac000-b69ad000 rwxp 00008000 08:01 262269     /lib/tls/i686/cmov/libnss_nis-2.11.1.so
+b69ad000-b69ae000 r-xs 00008000 08:01 4456549    /home/vmateos/Documents/NetBeansProjects/IRSReasonerDemostrador/dist/lib/pellet-explanation.jar
+b69ae000-b69b2000 r-xs 0001e000 08:01 4456562    /home/vmateos/Documents/NetBeansProjects/IRSReasonerDemostrador/dist/lib/aterm-java-1.6.jar
+b69b2000-b69b5000 r-xs 0003a000 08:01 4456540    /home/vmateos/Documents/NetBeansProjects/IRSReasonerDemostrador/dist/IRSReasonerDemostrador.jar
+b69b5000-b69bd000 rwxs 00000000 08:01 10748043   /tmp/hsperfdata_root/27100
+b69bd000-b69d0000 r-xp 00000000 08:01 262253     /lib/tls/i686/cmov/libnsl-2.11.1.so
+b69d0000-b69d1000 r-xp 00012000 08:01 262253     /lib/tls/i686/cmov/libnsl-2.11.1.so
+b69d1000-b69d2000 rwxp 00013000 08:01 262253     /lib/tls/i686/cmov/libnsl-2.11.1.so
+b69d2000-b69d4000 rwxp 00000000 00:00 0 
+b69d4000-b69d5000 r-xs 0000c000 08:01 4456548    /home/vmateos/Documents/NetBeansProjects/IRSReasonerDemostrador/dist/lib/pellet-el.jar
+b69d5000-b69db000 r-xp 00000000 08:01 262255     /lib/tls/i686/cmov/libnss_compat-2.11.1.so
+b69db000-b69dc000 r-xp 00006000 08:01 262255     /lib/tls/i686/cmov/libnss_compat-2.11.1.so
+b69dc000-b69dd000 rwxp 00007000 08:01 262255     /lib/tls/i686/cmov/libnss_compat-2.11.1.so
+b69dd000-b69e3000 r-xp 00000000 08:01 7080122    /etc/jdk1.6.0_22/jre/lib/i386/native_threads/libhpi.so
+b69e3000-b69e4000 rwxp 00006000 08:01 7080122    /etc/jdk1.6.0_22/jre/lib/i386/native_threads/libhpi.so
+b69e4000-b6a07000 r-xp 00000000 08:01 7080194    /etc/jdk1.6.0_22/jre/lib/i386/libjava.so
+b6a07000-b6a09000 rwxp 00023000 08:01 7080194    /etc/jdk1.6.0_22/jre/lib/i386/libjava.so
+b6a09000-b6a10000 r-xp 00000000 08:01 262307     /lib/tls/i686/cmov/librt-2.11.1.so
+b6a10000-b6a11000 r-xp 00006000 08:01 262307     /lib/tls/i686/cmov/librt-2.11.1.so
+b6a11000-b6a12000 rwxp 00007000 08:01 262307     /lib/tls/i686/cmov/librt-2.11.1.so
+b6a12000-b6a15000 ---p 00000000 00:00 0 
+b6a15000-b6a63000 rwxp 00000000 00:00 0 
+b6a63000-b6a87000 r-xp 00000000 08:01 262242     /lib/tls/i686/cmov/libm-2.11.1.so
+b6a87000-b6a88000 r-xp 00023000 08:01 262242     /lib/tls/i686/cmov/libm-2.11.1.so
+b6a88000-b6a89000 rwxp 00024000 08:01 262242     /lib/tls/i686/cmov/libm-2.11.1.so
+b6a89000-b71b5000 r-xp 00000000 08:01 7080140    /etc/jdk1.6.0_22/jre/lib/i386/server/libjvm.so
+b71b5000-b7208000 rwxp 0072c000 08:01 7080140    /etc/jdk1.6.0_22/jre/lib/i386/server/libjvm.so
+b7208000-b7628000 rwxp 00000000 00:00 0 
+b7628000-b777b000 r-xp 00000000 08:01 262193     /lib/tls/i686/cmov/libc-2.11.1.so
+b777b000-b777c000 ---p 00153000 08:01 262193     /lib/tls/i686/cmov/libc-2.11.1.so
+b777c000-b777e000 r-xp 00153000 08:01 262193     /lib/tls/i686/cmov/libc-2.11.1.so
+b777e000-b777f000 rwxp 00155000 08:01 262193     /lib/tls/i686/cmov/libc-2.11.1.so
+b777f000-b7782000 rwxp 00000000 00:00 0 
+b7782000-b7784000 r-xp 00000000 08:01 262207     /lib/tls/i686/cmov/libdl-2.11.1.so
+b7784000-b7785000 r-xp 00001000 08:01 262207     /lib/tls/i686/cmov/libdl-2.11.1.so
+b7785000-b7786000 rwxp 00002000 08:01 262207     /lib/tls/i686/cmov/libdl-2.11.1.so
+b7786000-b778d000 r-xp 00000000 08:01 7080196    /etc/jdk1.6.0_22/jre/lib/i386/jli/libjli.so
+b778d000-b778f000 rwxp 00006000 08:01 7080196    /etc/jdk1.6.0_22/jre/lib/i386/jli/libjli.so
+b778f000-b7790000 rwxp 00000000 00:00 0 
+b7790000-b77a5000 r-xp 00000000 08:01 262301     /lib/tls/i686/cmov/libpthread-2.11.1.so
+b77a5000-b77a6000 r-xp 00014000 08:01 262301     /lib/tls/i686/cmov/libpthread-2.11.1.so
+b77a6000-b77a7000 rwxp 00015000 08:01 262301     /lib/tls/i686/cmov/libpthread-2.11.1.so
+b77a7000-b77a9000 rwxp 00000000 00:00 0 
+b77a9000-b77aa000 r-xs 00006000 08:01 4456547    /home/vmateos/Documents/NetBeansProjects/IRSReasonerDemostrador/dist/lib/pellet-dig.jar
+b77aa000-b77ab000 r-xs 00010000 08:01 4456544    /home/vmateos/Documents/NetBeansProjects/IRSReasonerDemostrador/dist/lib/pellet-cli.jar
+b77ab000-b77ac000 rwxp 00000000 00:00 0 
+b77ac000-b77ad000 r-xp 00000000 00:00 0 
+b77ad000-b77b8000 r-xp 00000000 08:01 7080193    /etc/jdk1.6.0_22/jre/lib/i386/libverify.so
+b77b8000-b77b9000 rwxp 0000b000 08:01 7080193    /etc/jdk1.6.0_22/jre/lib/i386/libverify.so
+b77b9000-b77bb000 rwxp 00000000 00:00 0 
+b77bb000-b77bc000 r-xp 00000000 00:00 0          [vdso]
+b77bc000-b77d7000 r-xp 00000000 08:01 266170     /lib/ld-2.11.1.so
+b77d7000-b77d8000 r-xp 0001a000 08:01 266170     /lib/ld-2.11.1.so
+b77d8000-b77d9000 rwxp 0001b000 08:01 266170     /lib/ld-2.11.1.so
+bffe4000-bfff9000 rwxp 00000000 00:00 0          [stack]
+
+VM Arguments:
+java_command: /home/vmateos/Documents/NetBeansProjects/IRSReasonerDemostrador/dist/IRSReasonerDemostrador.jar /home/vmateos/Documents/Segura/Pellet/AIRSPellet.owl 512
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=/etc/jdk1.6.0_22
+PATH=/sbin:/usr/sbin:/bin:/usr/bin
+LD_LIBRARY_PATH=/etc/jdk1.6.0_22/jre/lib/i386/server:/etc/jdk1.6.0_22/jre/lib/i386:/etc/jdk1.6.0_22/jre/../lib/i386
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0x6a9f20], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGBUS: [libjvm.so+0x6a9f20], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGFPE: [libjvm.so+0x5781e0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGPIPE: [libjvm.so+0x5781e0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGXFSZ: [libjvm.so+0x5781e0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGILL: [libjvm.so+0x5781e0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGUSR1: SIG_DFL, sa_mask[0]=0x00000000, sa_flags=0x00000000
+SIGUSR2: [libjvm.so+0x57ae20], sa_mask[0]=0x00000004, sa_flags=0x10000004
+SIGHUP: [libjvm.so+0x57ab50], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGINT: SIG_IGN, sa_mask[0]=0x00000000, sa_flags=0x00000000
+SIGTERM: [libjvm.so+0x57ab50], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGQUIT: [libjvm.so+0x57ab50], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+
+
+---------------  S Y S T E M  ---------------
+
+OS:squeeze/sid
+
+uname:Linux 2.6.32-26-generic #48-Ubuntu SMP Wed Nov 24 09:00:03 UTC 2010 i686
+libc:glibc 2.11.1 NPTL 2.11.1 
+rlimit: STACK 10240k, CORE 0k, NPROC 26063, NOFILE 1024, AS infinity
+load average:1.38 1.34 0.80
+
+CPU:total 2 (2 cores per cpu, 1 threads per core) family 6 model 15 stepping 2, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3
+
+Memory: 4k page, physical 3345316k(95876k free), swap 9796600k(9796600k free)
+
+vm_info: Java HotSpot(TM) Server VM (17.1-b03) for linux-x86 JRE (1.6.0_22-b04), built on Sep 15 2010 01:02:09 by "java_re" with gcc 3.2.1-7a (J2SE release)
+
+time: Thu Sep 22 17:53:51 2011
+elapsed time: 1 seconds
+
