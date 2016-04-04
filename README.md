@@ -7,13 +7,13 @@ http://reclamoairsupm.wikidot.com/
 
 ## Contenido:
 
-* RECLAMO: Contiene el código preparado para ser ejecutado, con las librerías compiladas
+* RECLAMO: Contiene el código preparado para ser ejecutado, con las librerías compiladas y los distintos ficheros de configuración
 
-* libraries: contiene el código de las librerías que se usan en RECLAMO
+* libraries: Contiene el código de las librerías que se usan en RECLAMO
 
-* ontologies: Todos los ficheros .owl
+* ontologies: Contiene todos los ficheros .owl para el funcionamiento del sistema
 
-* responesModule: Módulo de respuestas del sistema
+* responseModule: Módulo de respuestas del sistema (debe copiarse el fichero agents.conf a /etc)
 
 * running_files: Contiene los scripts de arranque del escenario y otros necesarios para pruebas
 
@@ -23,3 +23,4 @@ http://reclamoairsupm.wikidot.com/
 
 ## Consideraciones:
 * Se debe colocar todo el proyecto en el directorio /root/RECLAMO
+* Los distintos ficheros de configuración están situados en RECLAMO/build y RECLAMO/lib
