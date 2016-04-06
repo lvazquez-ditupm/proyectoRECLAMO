@@ -1,2 +1,0 @@
-#!/bin/bash
-sshpass -p 'xxxx' ssh root@10.0.13.2 -p 2210 netstat -napt | grep "nrpe" | tr -s ' ' | cut -d ' ' -f 4 | tr -s ':' | cut -d ':' -f 2

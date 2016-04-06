@@ -1,3 +1,0 @@
-Multiple SSHD authentication failures.=PasswordAttack
-User missed the password more than one time=PasswordAttack
-Multiple failed logins in a small period of time.=PasswordAttack

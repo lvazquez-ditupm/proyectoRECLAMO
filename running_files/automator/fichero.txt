@@ -1,9 +1,0 @@
-ANOMALÍAS CON ATAQUE DDOS
-Calculando anomalia de red antes del ataque
-Calculando anomalia de sistema antes del ataque
-El grado de anomalia del contexto de red es: 2
-DMZ-S1 : procesando estado
-medias: estado 1.0, usuarios 1.4242424242424243, proc 106.66666666666667, disco 5127.272727272727, CPU 0.03575757569210096, zombies 1.0, latencia 0.8367878859016028 , ssh_failed 0.0
-desviaciones: estado 0.0, usuarios 0.49422746758485125, proc 5.156147649734109, disco 31.866456884632854, CPU 0.06976281419490446, zombies 0.0, latencia 0.6474211673787683 , ssh_failed 0.0
-estado: 0
-procesos: 0
