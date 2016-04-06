@@ -9,6 +9,8 @@ http://reclamoairsupm.wikidot.com/
 
 * RECLAMO: Contiene el código preparado para ser ejecutado, con las librerías compiladas y los distintos ficheros de configuración
 
+* config_files: Contiene los distintos ficheros de configuración necesarios para el funcionamiento correcto del software externo a RECLAMO (Nagios, SANCP...)
+
 * libraries: Contiene el código de las librerías que se usan en RECLAMO
 
 * ontologies: Contiene todos los ficheros .owl para el funcionamiento del sistema
