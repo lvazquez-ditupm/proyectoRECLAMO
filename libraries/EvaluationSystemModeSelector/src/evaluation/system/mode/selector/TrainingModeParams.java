@@ -75,7 +75,7 @@ public class TrainingModeParams {
         _trainingSystemNetmask = null;
     }
 
-    public TrainingModeParams( String initType, int num, String initTrainingType, ArrayList<String> trainingList, String[] adParam, int port, String systemIP, String systemNetMask){
+    public TrainingModeParams(String initType, int num, String initTrainingType, ArrayList<String> trainingList, String[] adParam, int port, String systemIP, String systemNetMask){
         this._intrusionType = initType;
         this._num= num;
         this._trainingSetType = initTrainingType;

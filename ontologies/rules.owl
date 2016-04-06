@@ -8,7 +8,7 @@
     <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
     <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
-    <!ENTITY individuos "file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#" >
+    <!ENTITY individuos "file:///root/RECLAMO/ontologies/individuos.owl#" >
 ]>
 
 
@@ -20,7 +20,7 @@
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-     xmlns:individuos="file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#">
+     xmlns:individuos="file:///root/RECLAMO/ontologies/individuos.owl#">
     <owl:Ontology rdf:about="http://www.semanticweb.org/vero/ontologies/2013/rules"/>
     
 
@@ -47,85 +47,85 @@
     
 
 
-    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#generatedResult -->
+    <!-- file:///root/RECLAMO/ontologies/individuos.owl#generatedResult -->
 
     <owl:ObjectProperty rdf:about="&individuos;generatedResult"/>
     
 
 
-    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#generates -->
+    <!-- file:///root/RECLAMO/ontologies/individuos.owl#generates -->
 
     <owl:ObjectProperty rdf:about="&individuos;generates"/>
     
 
 
-    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#hasIntrusionType -->
+    <!-- file:///root/RECLAMO/ontologies/individuos.owl#hasIntrusionType -->
 
     <owl:ObjectProperty rdf:about="&individuos;hasIntrusionType"/>
     
 
 
-    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#hasSimilarResult -->
+    <!-- file:///root/RECLAMO/ontologies/individuos.owl#hasSimilarResult -->
 
     <owl:ObjectProperty rdf:about="&individuos;hasSimilarResult"/>
     
 
 
-    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#hasTarget -->
+    <!-- file:///root/RECLAMO/ontologies/individuos.owl#hasTarget -->
 
     <owl:ObjectProperty rdf:about="&individuos;hasTarget"/>
     
 
 
-    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#indicates -->
+    <!-- file:///root/RECLAMO/ontologies/individuos.owl#indicates -->
 
     <owl:ObjectProperty rdf:about="&individuos;indicates"/>
     
 
 
-    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#isGeneratedBy -->
+    <!-- file:///root/RECLAMO/ontologies/individuos.owl#isGeneratedBy -->
 
     <owl:ObjectProperty rdf:about="&individuos;isGeneratedBy"/>
     
 
 
-    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#optimumResponse -->
+    <!-- file:///root/RECLAMO/ontologies/individuos.owl#optimumResponse -->
 
     <owl:ObjectProperty rdf:about="&individuos;optimumResponse"/>
     
 
 
-    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#potentialOptimumResponses -->
+    <!-- file:///root/RECLAMO/ontologies/individuos.owl#potentialOptimumResponses -->
 
     <owl:ObjectProperty rdf:about="&individuos;potentialOptimumResponses"/>
     
 
 
-    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#protects -->
+    <!-- file:///root/RECLAMO/ontologies/individuos.owl#protects -->
 
     <owl:ObjectProperty rdf:about="&individuos;protects"/>
     
 
 
-    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#receivedFormattedIntrusion -->
+    <!-- file:///root/RECLAMO/ontologies/individuos.owl#receivedFormattedIntrusion -->
 
     <owl:ObjectProperty rdf:about="&individuos;receivedFormattedIntrusion"/>
     
 
 
-    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#recommendedResponses -->
+    <!-- file:///root/RECLAMO/ontologies/individuos.owl#recommendedResponses -->
 
     <owl:ObjectProperty rdf:about="&individuos;recommendedResponses"/>
     
 
 
-    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#relatedIntrusion -->
+    <!-- file:///root/RECLAMO/ontologies/individuos.owl#relatedIntrusion -->
 
     <owl:ObjectProperty rdf:about="&individuos;relatedIntrusion"/>
     
 
 
-    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#threatens -->
+    <!-- file:///root/RECLAMO/ontologies/individuos.owl#threatens -->
 
     <owl:ObjectProperty rdf:about="&individuos;threatens"/>
     
@@ -160,163 +160,163 @@
     
 
 
-    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#IDSconfidence -->
+    <!-- file:///root/RECLAMO/ontologies/individuos.owl#IDSconfidence -->
 
     <owl:DatatypeProperty rdf:about="&individuos;IDSconfidence"/>
     
 
 
-    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#assetLevelOfImportance -->
+    <!-- file:///root/RECLAMO/ontologies/individuos.owl#assetLevelOfImportance -->
 
     <owl:DatatypeProperty rdf:about="&individuos;assetLevelOfImportance"/>
     
 
 
-    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#contextInformationDate -->
+    <!-- file:///root/RECLAMO/ontologies/individuos.owl#contextInformationDate -->
 
     <owl:DatatypeProperty rdf:about="&individuos;contextInformationDate"/>
     
 
 
-    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#existingResult -->
+    <!-- file:///root/RECLAMO/ontologies/individuos.owl#existingResult -->
 
     <owl:DatatypeProperty rdf:about="&individuos;existingResult"/>
     
 
 
-    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#intrusionAlertReliability -->
+    <!-- file:///root/RECLAMO/ontologies/individuos.owl#intrusionAlertReliability -->
 
     <owl:DatatypeProperty rdf:about="&individuos;intrusionAlertReliability"/>
     
 
 
-    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#intrusionDetectionTime -->
+    <!-- file:///root/RECLAMO/ontologies/individuos.owl#intrusionDetectionTime -->
 
     <owl:DatatypeProperty rdf:about="&individuos;intrusionDetectionTime"/>
     
 
 
-    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#intrusionSeverity -->
+    <!-- file:///root/RECLAMO/ontologies/individuos.owl#intrusionSeverity -->
 
     <owl:DatatypeProperty rdf:about="&individuos;intrusionSeverity"/>
     
 
 
-    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#maximumResponseComplexity -->
+    <!-- file:///root/RECLAMO/ontologies/individuos.owl#maximumResponseComplexity -->
 
     <owl:DatatypeProperty rdf:about="&individuos;maximumResponseComplexity"/>
     
 
 
-    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#neededRecommendedInference -->
+    <!-- file:///root/RECLAMO/ontologies/individuos.owl#neededRecommendedInference -->
 
     <owl:DatatypeProperty rdf:about="&individuos;neededRecommendedInference"/>
     
 
 
-    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#networkAnomaly -->
+    <!-- file:///root/RECLAMO/ontologies/individuos.owl#networkAnomaly -->
 
     <owl:DatatypeProperty rdf:about="&individuos;networkAnomaly"/>
     
 
 
-    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#numberOfGeneratedResult -->
+    <!-- file:///root/RECLAMO/ontologies/individuos.owl#numberOfGeneratedResult -->
 
     <owl:DatatypeProperty rdf:about="&individuos;numberOfGeneratedResult"/>
     
 
 
-    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#numberOfPotentialOptimumResponses -->
+    <!-- file:///root/RECLAMO/ontologies/individuos.owl#numberOfPotentialOptimumResponses -->
 
     <owl:DatatypeProperty rdf:about="&individuos;numberOfPotentialOptimumResponses"/>
     
 
 
-    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#numberOfRecommendedResponses -->
+    <!-- file:///root/RECLAMO/ontologies/individuos.owl#numberOfRecommendedResponses -->
 
     <owl:DatatypeProperty rdf:about="&individuos;numberOfRecommendedResponses"/>
     
 
 
-    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#realIntrusionImpact -->
+    <!-- file:///root/RECLAMO/ontologies/individuos.owl#realIntrusionImpact -->
 
     <owl:DatatypeProperty rdf:about="&individuos;realIntrusionImpact"/>
     
 
 
-    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#responseComplexity -->
+    <!-- file:///root/RECLAMO/ontologies/individuos.owl#responseComplexity -->
 
     <owl:DatatypeProperty rdf:about="&individuos;responseComplexity"/>
     
 
 
-    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#responseCost -->
+    <!-- file:///root/RECLAMO/ontologies/individuos.owl#responseCost -->
 
     <owl:DatatypeProperty rdf:about="&individuos;responseCost"/>
     
 
 
-    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#responseImpact -->
+    <!-- file:///root/RECLAMO/ontologies/individuos.owl#responseImpact -->
 
     <owl:DatatypeProperty rdf:about="&individuos;responseImpact"/>
     
 
 
-    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#responseResult -->
+    <!-- file:///root/RECLAMO/ontologies/individuos.owl#responseResult -->
 
     <owl:DatatypeProperty rdf:about="&individuos;responseResult"/>
     
 
 
-    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#responseSeverity -->
+    <!-- file:///root/RECLAMO/ontologies/individuos.owl#responseSeverity -->
 
     <owl:DatatypeProperty rdf:about="&individuos;responseSeverity"/>
     
 
 
-    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#responseStatus -->
+    <!-- file:///root/RECLAMO/ontologies/individuos.owl#responseStatus -->
 
     <owl:DatatypeProperty rdf:about="&individuos;responseStatus"/>
     
 
 
-    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#systemActiveProcesses -->
+    <!-- file:///root/RECLAMO/ontologies/individuos.owl#systemActiveProcesses -->
 
     <owl:DatatypeProperty rdf:about="&individuos;systemActiveProcesses"/>
     
 
 
-    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#systemCPUUsage -->
+    <!-- file:///root/RECLAMO/ontologies/individuos.owl#systemCPUUsage -->
 
     <owl:DatatypeProperty rdf:about="&individuos;systemCPUUsage"/>
     
 
 
-    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#systemFreeSpace -->
+    <!-- file:///root/RECLAMO/ontologies/individuos.owl#systemFreeSpace -->
 
     <owl:DatatypeProperty rdf:about="&individuos;systemFreeSpace"/>
     
 
 
-    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#systemLatency -->
+    <!-- file:///root/RECLAMO/ontologies/individuos.owl#systemLatency -->
 
     <owl:DatatypeProperty rdf:about="&individuos;systemLatency"/>
     
 
 
-    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#systemNumberOfUsersLogged -->
+    <!-- file:///root/RECLAMO/ontologies/individuos.owl#systemNumberOfUsersLogged -->
 
     <owl:DatatypeProperty rdf:about="&individuos;systemNumberOfUsersLogged"/>
     
 
 
-    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#systemSSHFailed -->
+    <!-- file:///root/RECLAMO/ontologies/individuos.owl#systemSSHFailed -->
 
     <owl:DatatypeProperty rdf:about="&individuos;systemSSHFailed"/>
     
 
 
-    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#systemStatus -->
+    <!-- file:///root/RECLAMO/ontologies/individuos.owl#systemStatus -->
 
     <owl:DatatypeProperty rdf:about="&individuos;systemStatus"/>
     
@@ -339,103 +339,103 @@
     
 
 
-    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Active -->
+    <!-- file:///root/RECLAMO/ontologies/individuos.owl#Active -->
 
     <owl:Class rdf:about="&individuos;Active"/>
     
 
 
-    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#AutomatedIntrusionResponseSystem -->
+    <!-- file:///root/RECLAMO/ontologies/individuos.owl#AutomatedIntrusionResponseSystem -->
 
     <owl:Class rdf:about="&individuos;AutomatedIntrusionResponseSystem"/>
     
 
 
-    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#BackDoors -->
+    <!-- file:///root/RECLAMO/ontologies/individuos.owl#BackDoors -->
 
     <owl:Class rdf:about="&individuos;BackDoors"/>
     
 
 
-    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#DoS -->
+    <!-- file:///root/RECLAMO/ontologies/individuos.owl#DoS -->
 
     <owl:Class rdf:about="&individuos;DoS"/>
     
 
 
-    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#FormattedIntrusion -->
+    <!-- file:///root/RECLAMO/ontologies/individuos.owl#FormattedIntrusion -->
 
     <owl:Class rdf:about="&individuos;FormattedIntrusion"/>
     
 
 
-    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#NetworkContext -->
+    <!-- file:///root/RECLAMO/ontologies/individuos.owl#NetworkContext -->
 
     <owl:Class rdf:about="&individuos;NetworkContext"/>
     
 
 
-    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#NotThreat -->
+    <!-- file:///root/RECLAMO/ontologies/individuos.owl#NotThreat -->
 
     <owl:Class rdf:about="&individuos;NotThreat"/>
     
 
 
-    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Passive -->
+    <!-- file:///root/RECLAMO/ontologies/individuos.owl#Passive -->
 
     <owl:Class rdf:about="&individuos;Passive"/>
     
 
 
-    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#PasswordAttacks -->
+    <!-- file:///root/RECLAMO/ontologies/individuos.owl#PasswordAttacks -->
 
     <owl:Class rdf:about="&individuos;PasswordAttacks"/>
     
 
 
-    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Recovery -->
+    <!-- file:///root/RECLAMO/ontologies/individuos.owl#Recovery -->
 
     <owl:Class rdf:about="&individuos;Recovery"/>
     
 
 
-    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Result -->
+    <!-- file:///root/RECLAMO/ontologies/individuos.owl#Result -->
 
     <owl:Class rdf:about="&individuos;Result"/>
     
 
 
-    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#SpecificThreat -->
+    <!-- file:///root/RECLAMO/ontologies/individuos.owl#SpecificThreat -->
 
     <owl:Class rdf:about="&individuos;SpecificThreat"/>
     
 
 
-    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#SystemContext -->
+    <!-- file:///root/RECLAMO/ontologies/individuos.owl#SystemContext -->
 
     <owl:Class rdf:about="&individuos;SystemContext"/>
     
 
 
-    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Trojan -->
+    <!-- file:///root/RECLAMO/ontologies/individuos.owl#Trojan -->
 
     <owl:Class rdf:about="&individuos;Trojan"/>
     
 
 
-    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#UndefinedThreat -->
+    <!-- file:///root/RECLAMO/ontologies/individuos.owl#UndefinedThreat -->
 
     <owl:Class rdf:about="&individuos;UndefinedThreat"/>
     
 
 
-    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Virus -->
+    <!-- file:///root/RECLAMO/ontologies/individuos.owl#Virus -->
 
     <owl:Class rdf:about="&individuos;Virus"/>
     
 
 
-    <!-- file:///home/vmateos/Documents/OntAIRS/ontologies/individuos.owl#Worms -->
+    <!-- file:///root/RECLAMO/ontologies/individuos.owl#Worms -->
 
     <owl:Class rdf:about="&individuos;Worms"/>
     

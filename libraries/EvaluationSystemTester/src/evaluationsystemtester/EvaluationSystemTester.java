@@ -59,7 +59,7 @@ public class EvaluationSystemTester{
     static String[] initAdParam;
     static TrainingModeParams train;
 
-    public static  void main(String args [] ) {
+    public static void main(String args [] ) {
     // Los argumentos dan:
     // el nombre de la máquina receptora y 2 mensajes
      String initResponseID = "001Protection";
@@ -80,8 +80,9 @@ public class EvaluationSystemTester{
       ArrayList<String> responseSet = new ArrayList();
       responseSet.add("blockInAttack");
 
-
-    train = new TrainingModeParams( null,4, "success", responseSet, null, 512, "10.0.1.1", "255.255.255.0");
+    String[] nullArray = {};
+   
+    train = new TrainingModeParams("", 4, "success", responseSet, nullArray, 512, "10.0.1.1", "255.255.255.0");
     train.setTrainingSetType("success");
     para = new ExecutionModeParams(initResponseID, initResponseType, initType, initTargetIP, intAnomaly, initAdParam);
     System.out.println("comienza");

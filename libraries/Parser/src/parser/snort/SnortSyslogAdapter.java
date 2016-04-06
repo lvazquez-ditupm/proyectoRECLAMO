@@ -181,7 +181,6 @@ public class SnortSyslogAdapter {
             targetOfIntrusionID = destination;
             IntrusionTarget target1 = new IntrusionTarget();
             target1.setAddressIP(targetOfIntrusionID);
-            target1.set
             _intAlert.setIntrusionTarget(_intTarget);
 
             intrusionID = classtype+intrusionCount;
