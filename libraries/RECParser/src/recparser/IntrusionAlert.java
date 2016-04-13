@@ -334,17 +334,12 @@ public class IntrusionAlert {
         System.out.println(getIntrusionTarget());
         System.out.println(getIntName());
         
+        /*Necesario para la integración de Murcia*/
         if (getIntCount()!=null && getIntAlertCreateTime()!=null && getIntDetectionTime()!=null && getAnalyzerID()!=null && getIntID()!=null
-                && getIntType()!=null && getIntSeverity()>-1 &&
+                && getIntType()!=null && getAnalyzerConfidence()>=0.0 && getIntSeverity()>-1 &&
                 !(getIntrusionTarget().isEmpty()) && getIntName()!=null){
             return true;
         }
-        /*Necesario para la integración de Murcia
-        if (getIntCount()!=null && getIntAlertCreateTime()!=null && getIntDetectionTime()!=null && getAnalyzerID()!=null && getIntID()!=null
-                && getIntType()!=null && getAnalyzerConfidence()!=0.0 && getIntSeverity()>-1 &&
-                !(getIntrusionTarget().isEmpty()) && getIntName()!=null){
-            return true;
-        }*/
         else{
             return false;
         }

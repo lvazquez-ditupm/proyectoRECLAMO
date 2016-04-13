@@ -60,6 +60,7 @@ public class PropsUtil {
 
     private static String ONTAIRS_PROPERTIES_FILE;
     //private static final String ONTAIRS_PROPERTIES_FILE= "/resources/ontairs.properties";
+    private static final String URI_PROP = "ontologies.uri";
     private static final String PRELUDE_LOG_FILE_PATH_PROP = "prelude.log-file";
     private static final String PRELUDE_ALERTS_PATH_PROP = "prelude.alerts.path";
     private static final String IDMEF_ALERT_PATH_PROP = "idmef.alerts.path";
@@ -70,7 +71,6 @@ public class PropsUtil {
     private static final String ONTAIRS_ONTOLOGY_ASSESSED_ALERT_NAMESPACE_PROP = "ontairs.ontology.assessed.alert.namespace";
     private static final String ONTAIRS_ONTOLOGY_ASSESSED_ALERT_FILE_PROP = "ontairs.ontology.assessed.alert.file";
     private static final String ONTAIRS_ONTOLOGY_RESULT_NAMESPACE_PROP = "ontairs.ontology.result.namespace";
-    private static final String ONTAIRS_ONTOLOGY_RESULT_FILE_PROP = "ontairs.ontology.result.file";
     private static final String ALERT_THRESHOLD_PROP = "alert.threshold";
     private static final String INFERRED_FILE_PROP = "inferred.file";
     private static final String INFERRED_URI_PROP = "inferred.uri";
@@ -83,6 +83,7 @@ public class PropsUtil {
     private static final String NETWORK_ASSETS_TABLE_NAME_PROP = "network.assets.table.name";
 
     //Valores de los parametros del fichero properties
+    private static String URI_VALUE;
     private static String PRELUDE_LOG_FILE_PATH_VALUE;
     private static String PRELUDE_ALERTS_PATH_VALUE;
     private static String ONTAIRS_ONTOLOGY_RULES_NAMESPACE_VALUE;
@@ -92,7 +93,6 @@ public class PropsUtil {
     private static String ONTAIRS_ONTOLOGY_ASSESSED_ALERT_NAMESPACE_VALUE;
     private static String ONTAIRS_ONTOLOGY_ASSESSED_ALERT_FILE_VALUE;
     private static String ONTAIRS_ONTOLOGY_RESULT_NAMESPACE_VALUE;
-    private static String ONTAIRS_ONTOLOGY_RESULT_FILE_VALUE;
     private static String ONTAIRS_DATABASE_NAME_VALUE;
     private static String MYSQL_CONNECTION_USERNAME_VALUE;
     private static String MYSQL_CONNECTION_PASSWORD_VALUE;
@@ -115,6 +115,7 @@ public class PropsUtil {
             is = new FileInputStream(f);
             // is = PropsUtil.class.getResourceAsStream(ONTAIRS_PROPERTIES_FILE);
             ontairsproperties.load(is);
+            URI_VALUE = ontairsproperties.getProperty(URI_PROP);
             PRELUDE_LOG_FILE_PATH_VALUE = ontairsproperties.getProperty(PRELUDE_LOG_FILE_PATH_PROP);
             PRELUDE_ALERTS_PATH_VALUE = ontairsproperties.getProperty(PRELUDE_ALERTS_PATH_PROP);
             ONTAIRS_ONTOLOGY_RULES_NAMESPACE_VALUE = ontairsproperties.getProperty(ONTAIRS_ONTOLOGY_RULES_NAMESPACE_PROP);
@@ -124,7 +125,6 @@ public class PropsUtil {
             ONTAIRS_ONTOLOGY_ASSESSED_ALERT_NAMESPACE_VALUE = ontairsproperties.getProperty(ONTAIRS_ONTOLOGY_ASSESSED_ALERT_NAMESPACE_PROP);
             ONTAIRS_ONTOLOGY_ASSESSED_ALERT_FILE_VALUE = ontairsproperties.getProperty(ONTAIRS_ONTOLOGY_ASSESSED_ALERT_FILE_PROP);
             ONTAIRS_ONTOLOGY_RESULT_NAMESPACE_VALUE = ontairsproperties.getProperty(ONTAIRS_ONTOLOGY_RESULT_NAMESPACE_PROP);
-            ONTAIRS_ONTOLOGY_RESULT_FILE_VALUE = ontairsproperties.getProperty(ONTAIRS_ONTOLOGY_RESULT_FILE_PROP);
             ONTAIRS_DATABASE_NAME_VALUE = ontairsproperties.getProperty(ONTAIRS_DATABASE_NAME_PROP);
             MYSQL_CONNECTION_USERNAME_VALUE = ontairsproperties.getProperty(MYSQL_CONNECTION_USERNAME_PROP);
             MYSQL_CONNECTION_PASSWORD_VALUE = ontairsproperties.getProperty(MYSQL_CONNECTION_PASSWORD_PROP);
@@ -151,6 +151,10 @@ public class PropsUtil {
     private void validate() {
         StringWriter swError = new StringWriter();
         PrintWriter pwError = new PrintWriter(swError);
+        if (null == URI_VALUE) {
+            System.out.println("File \"" + URI_PROP
+                    + "\" not defined.");
+        }
         if (null == PRELUDE_LOG_FILE_PATH_VALUE) {
             System.out.println("File \"" + PRELUDE_LOG_FILE_PATH_PROP
                     + "\" not defined.");
@@ -186,10 +190,6 @@ public class PropsUtil {
         }
         if (null == ONTAIRS_ONTOLOGY_RESULT_NAMESPACE_VALUE) {
             System.out.println("Property \"" + ONTAIRS_ONTOLOGY_RESULT_NAMESPACE_PROP
-                    + "\" not defined.");
-        }
-        if (null == ONTAIRS_ONTOLOGY_RESULT_FILE_VALUE) {
-            System.out.println("Property \"" + ONTAIRS_ONTOLOGY_RESULT_FILE_PROP
                     + "\" not defined.");
         }
         if (null == ONTAIRS_DATABASE_NAME_VALUE) {
@@ -256,7 +256,7 @@ public class PropsUtil {
     }
 
     public String getOntAIRSOntologyAssessedAlertNamespaceValue() {
-        return ONTAIRS_ONTOLOGY_ASSESSED_ALERT_NAMESPACE_VALUE;
+        return URI_VALUE + ONTAIRS_ONTOLOGY_ASSESSED_ALERT_NAMESPACE_VALUE;
     }
 
     public String getOntAIRSOntologyAssessedAlertFileValue() {
@@ -265,10 +265,6 @@ public class PropsUtil {
 
     public String getOntAIRSOntologyResultNamespaceValue() {
         return ONTAIRS_ONTOLOGY_RESULT_NAMESPACE_VALUE;
-    }
-
-    public String getOntAIRSOntologyResultFileValue() {
-        return ONTAIRS_ONTOLOGY_RESULT_FILE_VALUE;
     }
 
     public String getOntairsDatabaseNameValue() {
@@ -304,6 +300,6 @@ public class PropsUtil {
     }
 
     public String getInferredURI() {
-        return INFERRED_URI_VALUE;
+        return URI_VALUE + INFERRED_URI_VALUE;
     }
 }

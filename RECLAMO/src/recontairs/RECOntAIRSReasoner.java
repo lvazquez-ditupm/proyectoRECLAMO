@@ -105,12 +105,12 @@ public class RECOntAIRSReasoner {
     private final static String ontology_assessed_alert_uri = props.getOntAIRSOntologyAssessedAlertNamespaceValue();
 
     /*NAMESPACES DE LAS TRES ONTOLOGÍAS*/
-    //private final String INTRUSIONALERTNAMESPACE = props.getOntAIRSOntologyIntrusionAlertNamespaceValue()+"#";
-    //private final String AIRSNAMESPACE = props.getOntAIRSOntologyAirsNamespaceValue()+"#";
-    //private final String RESULTNAMESPACE = props.getOntAIRSOntologyResultNamespaceValue()+"#";
-    private final String INTRUSIONALERTNAMESPACE = "http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#";
-    private final String AIRSNAMESPACE = "http://www.dit.upm.es/~reclamo/ontologies/RECAIRS.owl#";
-    private final String RESULTNAMESPACE = "http://www.dit.upm.es/~reclamo/ontologies/RECAIRSResult.owl#";
+    private final String INTRUSIONALERTNAMESPACE = props.getOntAIRSOntologyIntrusionAlertNamespaceValue()+"#";
+    private final String AIRSNAMESPACE = props.getOntAIRSOntologyAirsNamespaceValue()+"#";
+    private final String RESULTNAMESPACE = props.getOntAIRSOntologyResultNamespaceValue()+"#";
+    //private final String INTRUSIONALERTNAMESPACE = "http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#";
+    //private final String AIRSNAMESPACE = "http://www.dit.upm.es/~reclamo/ontologies/RECAIRS.owl#";
+    //private final String RESULTNAMESPACE = "http://www.dit.upm.es/~reclamo/ontologies/RECAIRSResult.owl#";
 
     /*WINDOWS: PATH a los ficheros de las 3 ontologías */
     /* private String ontology_airs_file="C:\\Users\\Vero\\Desktop\\test\\RECAIRStest.owl";
@@ -122,7 +122,7 @@ public class RECOntAIRSReasoner {
     private final String ontology_assessed_alert_file = props.getOntAIRSOntologyAssessedAlertFileValue();
     private final String inferred_file = props.getInferredFile();
     private final String inferred_uri = props.getInferredURI();
-    private final String ontology_result_file = props.getOntAIRSOntologyResultFileValue();
+    //private final String ontology_result_file = props.getOntAIRSOntologyResultFileValue();
 
     private String ejemplarIntrusionNuevo;
     static String ejemplarContextoRedNuevo;

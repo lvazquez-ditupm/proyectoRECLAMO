@@ -61,6 +61,7 @@ public class PropsUtil {
     private static  Properties evaluationsystemexecutorproperties;
 
 
+    private static final String URI_PROP = "ontologies.uri";
     private static String EVALUATION_SYSTEM_EXECUTOR_PROPERTIES_FILE;
     private static final String SYSTEM_EVALUATION_THRESHOLD_LEVEL_SUCCESS_PROP="system.evaluation.threshold.level.success";
     private static final String ONTAIRS_ONTOLOGY_URI_PROP= "ontairs.airs.ontology.uri";
@@ -68,7 +69,8 @@ public class PropsUtil {
     private static final String ONTAIRS_ONTOLOGY_NAMESPACE_PROP= "ontairs.airs.ontology.namespace";
     private static final String RED_NEURONAL_FILE_PATH_PROP="red.neuronal.file";
 
-    private static  String SYSTEM_EVALUATION_THRESHOLD_LEVEL_SUCCESS_VALUE;
+    private static String URI_VALUE;
+    private static String SYSTEM_EVALUATION_THRESHOLD_LEVEL_SUCCESS_VALUE;
     private static String ONTAIRS_ONTOLOGY_URI_VALUE;
     private static String ONTAIRS_ONTOLOGY_NAMESPACE_VALUE;
     private static String ONTAIRS_ONTOLOGY_FILE_VALUE;
@@ -88,6 +90,7 @@ public class PropsUtil {
            // is = PropsUtil.class.getResourceAsStream(EVALUATION_SYSTEM_EXECUTOR_PROPERTIES_FILE);
             evaluationsystemexecutorproperties.load(is);
         
+            URI_VALUE = evaluationsystemexecutorproperties.getProperty(URI_PROP);
             SYSTEM_EVALUATION_THRESHOLD_LEVEL_SUCCESS_VALUE = evaluationsystemexecutorproperties.getProperty(SYSTEM_EVALUATION_THRESHOLD_LEVEL_SUCCESS_PROP);
             ONTAIRS_ONTOLOGY_URI_VALUE = evaluationsystemexecutorproperties.getProperty(ONTAIRS_ONTOLOGY_URI_PROP);
             ONTAIRS_ONTOLOGY_FILE_VALUE = evaluationsystemexecutorproperties.getProperty(ONTAIRS_ONTOLOGY_FILE_PROP);
@@ -111,6 +114,10 @@ public class PropsUtil {
     private  void validate() {
         StringWriter swError = new StringWriter();
         PrintWriter pwError = new PrintWriter(swError);
+        if (null == URI_VALUE) {
+            System.out.println("File \"" + URI_PROP
+                    + "\" not defined.");
+        }
         if (null == ONTAIRS_ONTOLOGY_URI_VALUE) {
             System.out.println("File \"" + ONTAIRS_ONTOLOGY_URI_PROP
                     + "\" not defined.");
@@ -144,7 +151,7 @@ public class PropsUtil {
     }
     
     public  String getOntAIRSOntologyUriValue() {
-        return ONTAIRS_ONTOLOGY_URI_VALUE;
+        return URI_VALUE + ONTAIRS_ONTOLOGY_URI_VALUE;
     }
     
     public  String getOntAIRSOntologyFileValue() {

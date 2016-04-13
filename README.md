@@ -24,5 +24,8 @@ http://reclamoairsupm.wikidot.com/
 * vnx_scenarios: Contiene los ficheros necesarios para virtualizar la red del escenario con VNX
 
 ## Consideraciones:
-* Se debe colocar todo el proyecto en el directorio /root/RECLAMO
+
 * Los distintos ficheros de configuración están situados en RECLAMO/build y RECLAMO/lib
+
+* Deben modificarse estos ficheros para que las URIs de las ontologías apunten a la ruta en la que se ejecuta el código (además de otros parámetros necesarios para poder ejecutarse en cualquier sistema)
+

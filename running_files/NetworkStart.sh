@@ -1,7 +1,7 @@
 # Script to throw the main scenario
 clear
-vnx -f /root/RECLAMO/vnx_scenarios/AIRSNetwork.xml -v -t
-vnx -f /root/RECLAMO/vnx_scenarios/attacker-kali.xml -v -t
+vnx -f ../vnx_scenarios/AIRSNetwork.xml -v -t
+vnx -f ../vnx_scenarios/attacker-kali.xml -v -t
 
 # Reglas iniciales de filtrado 
 #Politica inicial
@@ -44,7 +44,7 @@ iptables -A PREROUTING -t nat -p udp --dport 514 -j DNAT --to-destination 10.0.1
 #iptables -A OUTPUT -t nat -p udp -o lo --dport 4690 -j DNAT --to-destination 10.0.1.1:512
 sleep 120
 
-vnx -f /root/RECLAMO/vnx_scenarios/AIRSNetwork.xml -v -M R2 -x loadcfg
+vnx -f ../vnx_scenarios/AIRSNetwork.xml -v -M R2 -x loadcfg
 
 # Inicia los agentes ejecutores
-/root/RECLAMO/responseModule/./executorAgent-debug &
+../responseModule/./executorAgent-debug &
