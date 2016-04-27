@@ -105,19 +105,19 @@ public class RECOntAIRSReasoner {
     private final static String ontology_assessed_alert_uri = props.getOntAIRSOntologyAssessedAlertNamespaceValue();
 
     /*NAMESPACES DE LAS TRES ONTOLOGÍAS*/
-    private final String INTRUSIONALERTNAMESPACE = props.getOntAIRSOntologyIntrusionAlertNamespaceValue()+"#";
-    private final String AIRSNAMESPACE = props.getOntAIRSOntologyAirsNamespaceValue()+"#";
-    private final String RESULTNAMESPACE = props.getOntAIRSOntologyResultNamespaceValue()+"#";
+    private final String INTRUSIONALERTNAMESPACE = props.getOntAIRSOntologyIntrusionAlertNamespaceValue() + "#";
+    private final String AIRSNAMESPACE = props.getOntAIRSOntologyAirsNamespaceValue() + "#";
+    private final String RESULTNAMESPACE = props.getOntAIRSOntologyResultNamespaceValue() + "#";
     //private final String INTRUSIONALERTNAMESPACE = "http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#";
     //private final String AIRSNAMESPACE = "http://www.dit.upm.es/~reclamo/ontologies/RECAIRS.owl#";
     //private final String RESULTNAMESPACE = "http://www.dit.upm.es/~reclamo/ontologies/RECAIRSResult.owl#";
 
     /*WINDOWS: PATH a los ficheros de las 3 ontologías */
-    /* private String ontology_airs_file="C:\\Users\\Vero\\Desktop\\test\\RECAIRStest.owl";
+ /* private String ontology_airs_file="C:\\Users\\Vero\\Desktop\\test\\RECAIRStest.owl";
      private String ontology_assessed_alert_file="C:\\Users\\Vero\\Desktop\\test\\RECIntrusionAlertInstances.owl";
      private String ontology_result_file="C:\\Users\\Vero\\Desktop\\test\\RECAIRSResultTest.owl";ontology_assessed_alert_file
      */
-    /*LINUX: PATH a los ficheros de las 3 ontologías */
+ /*LINUX: PATH a los ficheros de las 3 ontologías */
     private final String ontology_airs_file = props.getOntAIRSOntologyAirsFileValue();
     private final String ontology_assessed_alert_file = props.getOntAIRSOntologyAssessedAlertFileValue();
     private final String inferred_file = props.getInferredFile();
@@ -405,7 +405,9 @@ public class RECOntAIRSReasoner {
         String intrusionTypeFI = alertmap.getIntType();
         try {
             // doy valor al tipo de itnrusión.
-            if (intrusionTypeFI.equals("DenialOfService")){intrusionTypeFI = "DoS";}
+            if (intrusionTypeFI.equals("DenialOfService")) {
+                intrusionTypeFI = "DoS";
+            }
             intrusionType = intrusionTypeFI;
             Resource threat_res = ontologyModel.getResource(AIRSNAMESPACE + "SpecificThreat");
             OntClass threat_class = (OntClass) threat_res.as(OntClass.class);
@@ -431,7 +433,7 @@ public class RECOntAIRSReasoner {
                     assessment.addProperty(hasIntrusionType_prop, threat_unde_indiv);
                 }
             }
-           
+
         } catch (Exception e) {
             _log.log(Level.SEVERE, null, e);
         } // fin de añadir tipo de intrusion detectada
@@ -664,7 +666,7 @@ public class RECOntAIRSReasoner {
         _infeInfoList.printInferredInformationList();
     }
 
-        synchronized boolean checkSimilarIntrusion2(IntrusionAlert map) {
+    synchronized boolean checkSimilarIntrusion2(IntrusionAlert map) {
         synchronized (ontology_assessed_alert_uri) {
 
             System.out.println("____________________________________________________________________________________________");
@@ -676,138 +678,137 @@ public class RECOntAIRSReasoner {
             inferedIndividuosModel.read(ontology_assessed_alert_uri);
             inferedIndividuosModel.add(ontologyModel);
             inferedIndividuosModel.prepare();
-            
+
             Individual repeatedAlert = inferedIndividuosModel.getIndividual(INTRUSIONALERTNAMESPACE + map.getIntID());
- 
-                if (repeatedAlert != null){
-                    isARepeatedFormattedIntrusion = true;
+
+            if (repeatedAlert != null) {
+                isARepeatedFormattedIntrusion = true;
+            } else {
+                String sameAlertDate = null;
+                String existingIntrusionDate = null;
+                String alertType = map.getIntType();
+                if (alertType.equals("DenialOfService")) {
+                    alertType = "dos";
                 }
-                else {
-                    String sameAlertDate = null;
-                    String existingIntrusionDate = null;
-                    String alertType = map.getIntType();
-                    if (alertType.equals("DenialOfService"))alertType = "dos";
-                    String alertName = map.getIntName();
-                    String sourceIP = null;
-                    Iterator alert_source_it = map.getIntrusionSource().iterator();
-                    while (alert_source_it.hasNext()) {
-                        IntrusionSource _intSource = (IntrusionSource) alert_source_it.next();
-                        List<Address> address_list = _intSource.getNode();
-                        sourceIP = address_list.get(0).getAddress();
-                    }
-                    try {
-                        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
-                        long time = (simpleDateFormat.parse(map.getIntDetectionTime())).getTime();
-                        long timesamealert= time -2000;
-                        long timeexistingalert = time - 5000;
-                        DateToXsdDatetimeFormatter xdf = new DateToXsdDatetimeFormatter();
-                        sameAlertDate = xdf.format(new Date(timesamealert));
-                        existingIntrusionDate = xdf.format(new Date(timeexistingalert));
+                String alertName = map.getIntName();
+                String sourceIP = null;
+                Iterator alert_source_it = map.getIntrusionSource().iterator();
+                while (alert_source_it.hasNext()) {
+                    IntrusionSource _intSource = (IntrusionSource) alert_source_it.next();
+                    List<Address> address_list = _intSource.getNode();
+                    sourceIP = address_list.get(0).getAddress();
+                }
+                try {
+                    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+                    long time = (simpleDateFormat.parse(map.getIntDetectionTime())).getTime();
+                    long timesamealert = time - 2000;
+                    long timeexistingalert = time - 5000;
+                    DateToXsdDatetimeFormatter xdf = new DateToXsdDatetimeFormatter();
+                    sameAlertDate = xdf.format(new Date(timesamealert));
+                    existingIntrusionDate = xdf.format(new Date(timeexistingalert));
 
-                    } catch (Exception e) {
-                    }
-                    int numeroAddressDistintos = 0;
-                    try {
-                        Iterator alert_target_it = map.getIntrusionTarget().iterator();
-                        while (alert_target_it.hasNext()) {
-                            IntrusionTarget _intTarget = (IntrusionTarget) alert_target_it.next();
-                            Iterator address_target_it = _intTarget.getAddress().iterator();
-                            while (address_target_it.hasNext()) {
-                                numeroAddressDistintos++;
-                                Address address = (Address) address_target_it.next();
-                                String targetAddressIP = address.getAddress();
-                                
-                                String sameAlert = "PREFIX RECAIRS: <" + AIRSNAMESPACE + ">"
-                                + " PREFIX RECIntrusionAlert: <" + INTRUSIONALERTNAMESPACE + ">"
-                                + " PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>"
-                                + " PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>"
-                                + " PREFIX owl: <http://www.w3.org/2002/07/owl#>"
-                                + " PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>"
-                                + " SELECT DISTINCT ?formattedintrusion"
-                                + " WHERE {"       
-                                + "?classification a RECIntrusionAlert:Classification."
-                                + "?classification RECIntrusionAlert:text ?classtext ."
-                                + "FILTER (?classtext = \"" + alertName + "\")."
-                                + "?node a RECAIRS:Node ."
-                                + "?target a RECIntrusionAlert:Target ."
-                                + "?target RECIntrusionAlert:hasNode ?node ."
-                                + "?node RECAIRS:hasAddress ?address ."
-                                + "?address RECAIRS:addressIP ?ip ."
-                                + "FILTER (?ip = \"" + targetAddressIP + "\")."
-                                + "?source a RECIntrusionAlert:ExternalSource ."
-                                + "?source RECIntrusionAlert:addressIP ?sourceip. "
-                                + "FILTER (?sourceip = \"" + sourceIP + "\")."
-                                + "?formattedintrusion RECIntrusionAlert:detectTime ?idt ."
-                                + "FILTER (xsd:dateTime(?idt) >= \"" + sameAlertDate + "\"^^xsd:dateTime) ."        
-                                + "?formattedintrusion RECIntrusionAlert:hasClassification ?classification ;"
-                                + "RECIntrusionAlert:hasTarget ?target ;"
-                                + "RECIntrusionAlert:hasSource ?source ."        
-                                + " } ";
+                } catch (Exception e) {
+                }
+                int numeroAddressDistintos = 0;
+                try {
+                    Iterator alert_target_it = map.getIntrusionTarget().iterator();
+                    while (alert_target_it.hasNext()) {
+                        IntrusionTarget _intTarget = (IntrusionTarget) alert_target_it.next();
+                        Iterator address_target_it = _intTarget.getAddress().iterator();
+                        while (address_target_it.hasNext()) {
+                            numeroAddressDistintos++;
+                            Address address = (Address) address_target_it.next();
+                            String targetAddressIP = address.getAddress();
 
+                            String sameAlert = "PREFIX RECAIRS: <" + AIRSNAMESPACE + ">"
+                                    + " PREFIX RECIntrusionAlert: <" + INTRUSIONALERTNAMESPACE + ">"
+                                    + " PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>"
+                                    + " PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>"
+                                    + " PREFIX owl: <http://www.w3.org/2002/07/owl#>"
+                                    + " PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>"
+                                    + " SELECT DISTINCT ?formattedintrusion"
+                                    + " WHERE {"
+                                    + "?classification a RECIntrusionAlert:Classification."
+                                    + "?classification RECIntrusionAlert:text ?classtext ."
+                                    + "FILTER (?classtext = \"" + alertName + "\")."
+                                    + "?node a RECAIRS:Node ."
+                                    + "?target a RECIntrusionAlert:Target ."
+                                    + "?target RECIntrusionAlert:hasNode ?node ."
+                                    + "?node RECAIRS:hasAddress ?address ."
+                                    + "?address RECAIRS:addressIP ?ip ."
+                                    + "FILTER (?ip = \"" + targetAddressIP + "\")."
+                                    + "?source a RECIntrusionAlert:ExternalSource ."
+                                    + "?source RECIntrusionAlert:addressIP ?sourceip. "
+                                    + "FILTER (?sourceip = \"" + sourceIP + "\")."
+                                    + "?formattedintrusion RECIntrusionAlert:detectTime ?idt ."
+                                    + "FILTER (xsd:dateTime(?idt) >= \"" + sameAlertDate + "\"^^xsd:dateTime) ."
+                                    + "?formattedintrusion RECIntrusionAlert:hasClassification ?classification ;"
+                                    + "RECIntrusionAlert:hasTarget ?target ;"
+                                    + "RECIntrusionAlert:hasSource ?source ."
+                                    + " } ";
 
-                                Query qsisa = QueryFactory.create(sameAlert);
-                                QueryExecution qesisa = QueryExecutionFactory.create(qsisa, inferedIndividuosModel);
-                                ResultSet rssisa = qesisa.execSelect();
-                                List<QuerySolution> listaSisa = ResultSetFormatter.toList(rssisa);
-                                for (int j = 0; j < listaSisa.size(); j++) {
-                                     QuerySolution solution = listaSisa.get(j);
-                                     isARepeatedFormattedIntrusion = solution.contains("formattedintrusion");
-                                     Individual indsame = inferedIndividuosModel.getIndividual(solution.get("formattedintrusion").toString());
-                                     sameIndi.add(indsame);
-                                }
-                                if (!isARepeatedFormattedIntrusion){
-                                    String existingAlert = "PREFIX RECAIRS: <" + AIRSNAMESPACE + ">"
-                                + " PREFIX RECIntrusionAlert: <" + INTRUSIONALERTNAMESPACE + ">"
-                                + " PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>"
-                                + " PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>"
-                                + " PREFIX owl: <http://www.w3.org/2002/07/owl#>"
-                                + " PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>"
-                                + " SELECT DISTINCT ?formattedintrusion"
-                                + " WHERE {"       
-                                + "?classification a RECIntrusionAlert:Classification."
-                                + "?classification RECIntrusionAlert:text ?classtext ."
-                                + "FILTER (?classtext = \"" + alertName + "\")."
-                                + "?node a RECAIRS:Node ."
-                                + "?target a RECIntrusionAlert:Target ."
-                                + "?target RECIntrusionAlert:hasNode ?node ."
-                                + "?node RECAIRS:hasAddress ?address ."
-                                + "?address RECAIRS:addressIP ?ip ."
-                                + "FILTER (?ip = \"" + targetAddressIP + "\")."
-                                + "?source a RECIntrusionAlert:ExternalSource ."
-                                + "?source RECIntrusionAlert:addressIP ?sourceip. "
-                                + "FILTER (?sourceip = \"" + sourceIP + "\")."
-                                + "?formattedintrusion RECIntrusionAlert:detectTime ?idt ."
-                                + "FILTER (xsd:dateTime(?idt) >= \"" + existingIntrusionDate + "\"^^xsd:dateTime) ."        
-                                + "?formattedintrusion RECIntrusionAlert:hasClassification ?classification ;"
-                                + "RECIntrusionAlert:hasTarget ?target ;"
-                                + "RECIntrusionAlert:hasSource ?source ."        
-                                + " } ";
-
+                            Query qsisa = QueryFactory.create(sameAlert);
+                            QueryExecution qesisa = QueryExecutionFactory.create(qsisa, inferedIndividuosModel);
+                            ResultSet rssisa = qesisa.execSelect();
+                            List<QuerySolution> listaSisa = ResultSetFormatter.toList(rssisa);
+                            for (int j = 0; j < listaSisa.size(); j++) {
+                                QuerySolution solution = listaSisa.get(j);
+                                isARepeatedFormattedIntrusion = solution.contains("formattedintrusion");
+                                Individual indsame = inferedIndividuosModel.getIndividual(solution.get("formattedintrusion").toString());
+                                sameIndi.add(indsame);
+                            }
+                            if (!isARepeatedFormattedIntrusion) {
+                                String existingAlert = "PREFIX RECAIRS: <" + AIRSNAMESPACE + ">"
+                                        + " PREFIX RECIntrusionAlert: <" + INTRUSIONALERTNAMESPACE + ">"
+                                        + " PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>"
+                                        + " PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>"
+                                        + " PREFIX owl: <http://www.w3.org/2002/07/owl#>"
+                                        + " PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>"
+                                        + " SELECT DISTINCT ?formattedintrusion"
+                                        + " WHERE {"
+                                        + "?classification a RECIntrusionAlert:Classification."
+                                        + "?classification RECIntrusionAlert:text ?classtext ."
+                                        + "FILTER (?classtext = \"" + alertName + "\")."
+                                        + "?node a RECAIRS:Node ."
+                                        + "?target a RECIntrusionAlert:Target ."
+                                        + "?target RECIntrusionAlert:hasNode ?node ."
+                                        + "?node RECAIRS:hasAddress ?address ."
+                                        + "?address RECAIRS:addressIP ?ip ."
+                                        + "FILTER (?ip = \"" + targetAddressIP + "\")."
+                                        + "?source a RECIntrusionAlert:ExternalSource ."
+                                        + "?source RECIntrusionAlert:addressIP ?sourceip. "
+                                        + "FILTER (?sourceip = \"" + sourceIP + "\")."
+                                        + "?formattedintrusion RECIntrusionAlert:detectTime ?idt ."
+                                        + "FILTER (xsd:dateTime(?idt) >= \"" + existingIntrusionDate + "\"^^xsd:dateTime) ."
+                                        + "?formattedintrusion RECIntrusionAlert:hasClassification ?classification ;"
+                                        + "RECIntrusionAlert:hasTarget ?target ;"
+                                        + "RECIntrusionAlert:hasSource ?source ."
+                                        + " } ";
 
                                 Query qex = QueryFactory.create(existingAlert);
                                 QueryExecution qeex = QueryExecutionFactory.create(qex, inferedIndividuosModel);
                                 ResultSet rseex = qeex.execSelect();
                                 List<QuerySolution> listaEex = ResultSetFormatter.toList(rseex);
                                 for (int j = 0; j < listaEex.size(); j++) {
-                                     QuerySolution solution = listaEex.get(j);
-                                     isAExistingFormattedIntrusion = solution.contains("formattedintrusion");
-                                     Individual indexisting = inferedIndividuosModel.getIndividual(solution.get("formattedintrusion").toString());
-                                     existingIntrusionIndi.add(indexisting);
+                                    QuerySolution solution = listaEex.get(j);
+                                    isAExistingFormattedIntrusion = solution.contains("formattedintrusion");
+                                    Individual indexisting = inferedIndividuosModel.getIndividual(solution.get("formattedintrusion").toString());
+                                    existingIntrusionIndi.add(indexisting);
                                 }
-                               }
                             }
                         }
-                    }catch (Exception e) {
-                        System.out.println(e);
                     }
-               
+                } catch (Exception e) {
+                    System.out.println(e);
                 }
-            
+
+            }
+
             addFormattedIntrusion(map, isARepeatedFormattedIntrusion, isAExistingFormattedIntrusion, sameIndi, existingIntrusionIndi);
             updateIndividuals();
             return isARepeatedFormattedIntrusion;
         }
-        
+
     }
 
     boolean checkSimilarIntrusion(IntrusionAlert map) {
@@ -1103,7 +1104,7 @@ public class RECOntAIRSReasoner {
             while (optim_responses_it.hasNext()) {
                 Resource res_optimum_resource = (Resource) optim_responses_it.next();
                 if (res_optimum_resource != null) {
-                    System.out.println(Thread.currentThread() + "intrusion: " + formattedIntrusionOptim.toString()+"-> RESPUESTA OPTIMA: "+ res_optimum_resource.getLocalName());
+                    System.out.println(Thread.currentThread() + "intrusion: " + formattedIntrusionOptim.toString() + "-> RESPUESTA OPTIMA: " + res_optimum_resource.getLocalName());
                     opt_response_list.add(res_optimum_resource);
                 } else {
                     System.out.println(intrusionOptim.getLocalName() + " " + prop_optimum_resp.getLocalName() + ": null");
@@ -1265,7 +1266,7 @@ public class RECOntAIRSReasoner {
                             }
 
                             //MIGUEL ResponseActionParams params = new ResponseActionParams(hids, "ALL", alertmap.getIntType(), Integer.toString(alertmap.getIntrusionSource().get(0).getPortSrc()), inferred_info.getIP(), protocolo, servicePorts, user, "hola");
-                           ResponseActionParams params = new ResponseActionParams(hids, "ALL", alertmap.getIntType(), alertmap.getIntrusionSource().get(0).getNode().get(0).getAddress(), alertmap.getIntrusionTarget().get(0).getAddress().get(0).getAddress(), protocolo, Integer.toString(alertmap.getIntrusionTarget().get(0).getServicePort()), user, "hola");
+                            ResponseActionParams params = new ResponseActionParams(hids, "ALL", alertmap.getIntType(), alertmap.getIntrusionSource().get(0).getNode().get(0).getAddress(), alertmap.getIntrusionTarget().get(0).getAddress().get(0).getAddress(), protocolo, Integer.toString(alertmap.getIntrusionTarget().get(0).getServicePort()), user, "hola");
                             if (ExecuteResponse(accion, params)) {
                                 //        System.out.println("RESPUESTA EJECUTADA!!");
                                 assessment.addProperty(prop_optimum_resp, opt_response_individual);
@@ -1369,8 +1370,7 @@ public class RECOntAIRSReasoner {
 
         //OBTENEMOS EL TIPO DE INTRUSION QUE INDICA EL CONTEXTO
         Property prop_indicates = inferedModel.getObjectProperty(AIRSNAMESPACE + "indicates");
-        
-        
+
         Iterator indicates = null;
         try {
             indicates = (Iterator) systemContext.listPropertyValues(prop_indicates);
@@ -1615,7 +1615,7 @@ public class RECOntAIRSReasoner {
                 System.out.println("Error al actualizar el fichero");
             }
         }
-      
+
     }
 
     void writeFile() {
@@ -1641,7 +1641,7 @@ public class RECOntAIRSReasoner {
                 inferedModel.write(out);
                 //ontologyModel.write(out2);
                 out.close();
-                    //out2.close();
+                //out2.close();
                 //out2.close();
 
             } catch (Exception e) {
@@ -1708,7 +1708,7 @@ public class RECOntAIRSReasoner {
         }
 
         synchronized (ontology_airs_uri) {
-        //    OntModel current_model = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM);
+            //    OntModel current_model = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM);
             //  RDFReader inf_modelReader = current_model.getReader();
             //inf_modelReader.setProperty("WARN_UNQUALIFIED_RDF_ATTRIBUTE", "EM_IGNORE");
             // inf_modelReader.read(current_model, ontology_airs_uri);
@@ -1725,6 +1725,7 @@ public class RECOntAIRSReasoner {
         }
 
     }
+
     /*  synchronized void writeFile(){
      synchronized (ontology_infered_instances) {
             
@@ -1752,7 +1753,6 @@ public class RECOntAIRSReasoner {
      }
   
      }}   */
-
     public int getIntrusionImpact(IntrusionAlert intru) {
         IntrusionAlert alert_map = intru;
         int intrusion_efecto = 0;
@@ -1899,7 +1899,9 @@ public class RECOntAIRSReasoner {
 
     private HashMap getSecurityGoalThreaten(String intrusionType) {
         //MIGUEL
-        if (intrusionType.equals("DenialOfService")){intrusionType = "DoS";}
+        if (intrusionType.equals("DenialOfService")) {
+            intrusionType = "DoS";
+        }
         HashMap security_goal = new HashMap();
         String intrusion_name = null;
         try {
@@ -1966,29 +1968,34 @@ public class RECOntAIRSReasoner {
     }
 
     public int getIntrusionDefaultSeverity(IntrusionAlert intru) {
-        String threatType = intru.getIntType();
-         //MIGUEL
+
+        String intrusion_name = intru.getIntType();
+        int defaultSeverity = 0;
+
+        /*String threatType = intru.getIntType();
+        //MIGUEL
         if (threatType.equals("DenialOfService")){threatType = "DoS";}
         String intrusion_name = null;
-        int defaultSeverity = 0;
         try {
             Resource threat_res = ontologyModel.getResource(AIRSNAMESPACE + "SomeThreat");
             OntClass threat_class = (OntClass) threat_res.as(OntClass.class);
             Iterator threat_subclass_it = threat_class.listSubClasses();
             while (threat_subclass_it.hasNext()) {
                 OntClass threat_subclass = (OntClass) threat_subclass_it.next();
+                System.out.println(threat_subclass.getLocalName());
                 if (threatType.equals(threat_subclass.getLocalName())) {
                     Iterator threat_indiv_it = threat_subclass.listInstances();
                     while (threat_indiv_it.hasNext()) {
                         Individual threat_indiv = (Individual) threat_indiv_it.next();
-                        intrusion_name = threat_indiv.getLocalName();
+                        System.out.println(threat_indiv.getLocalName());
+                        //intrusion_name = threat_indiv.getLocalName();
                     }
                 }
             }
 
         } catch (Exception e) {
             _log.log(Level.SEVERE, null, e);
-        }
+        }*/
         if (intrusion_name != null) {
             String defaultSeverityQuery = "PREFIX individuos: <" + AIRSNAMESPACE + ">"
                     + "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>"
@@ -1997,7 +2004,7 @@ public class RECOntAIRSReasoner {
                     + "PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>"
                     + " SELECT ?threatDefaultSeverityValue"
                     + " WHERE {"
-                    + "?threat a individuos:" + threatType + " ."
+                    + "?threat a individuos:" + intrusion_name + " ."
                     + "?threat individuos:threatDefaultSeverity ?threatDefaultSeverityValue ."
                     + " } ";
 
@@ -2011,8 +2018,10 @@ public class RECOntAIRSReasoner {
                     QuerySolution solution = lista.get(i);
                     // _log.info(solution.toString());
                     //solution.get("successThresholdHihg");
-                    Resource default_severity_result = (Resource) solution.get("threatDefaultSeverityValue");
-                    defaultSeverity = Integer.parseInt(default_severity_result.getLocalName());
+                    //Resource default_severity_result = (Resource) solution.get("threatDefaultSeverityValue");
+                    String severity = solution.getLiteral("threatDefaultSeverityValue").toString();
+                    int a = severity.indexOf("^");
+                    defaultSeverity = Integer.parseInt(severity.substring(0, a));
                     //System.out.println("LA INTRUSION "+intrusion_name+" amenaza "+security_goal_result_string);
                 }
             }

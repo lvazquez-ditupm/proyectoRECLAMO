@@ -35,9 +35,9 @@
  *   names, trademarks, or service marks.
  *
  * You should have received a copy of the GNU Lesser General Public License
- * along with this program (lgpl.txt).  If not, see <http://www.gnu.org/licenses/>
+ * along with this program (lgpl.txt).  If not, see
+ * <http://www.gnu.org/licenses/>
  */
-
 package recparser.util;
 
 import java.io.File;
@@ -50,45 +50,45 @@ import java.net.URLDecoder;
 import java.util.Properties;
 
 /**
- * This class allows to get the required configuration parameters to run the 
+ * This class allows to get the required configuration parameters to run the
  * Parser package.
- * 
+ *
  * @author UPM (member of RECLAMO Development Team)(http://reclamo.inf.um.es)
  * @version 1.0
  */
 public class PropsUtil {
 
-    private static  Properties parserproperties;
+    private static Properties parserproperties;
 
     private static String PARSER_PROPERTIES_FILE;
     //private static final String AIRS_PROPERTIES_FILE = "/resources/airs.properties";
     private static final String RESOURCES_RELEVANCE_FILE = "resources.relevance.file";
     private static final String IDS_RELIABILITY_FILE = "ids.reliability.file";
-    private static final String SNORT_INTRUSION_CLASSIFICATION_FILE="snort.intrusion.file";
-    private static final String IDMEF_INTRUSION_CLASSIFICATION_FILE="idmef.intrusion.file";
+    private static final String SNORT_INTRUSION_CLASSIFICATION_FILE = "snort.intrusion.file";
+    private static final String IDMEF_INTRUSION_CLASSIFICATION_FILE = "idmef.intrusion.file";
 
-    private static  String RESOURCE_RELEVANCE;
-    private static  String IDS_RELIABILITY;
-    private static  String SNORT_INTRUSION_CLASSIFICATION;
-    private static  String IDMEF_INTRUSION_CLASSIFICATION;
+    private static String RESOURCE_RELEVANCE;
+    private static String IDS_RELIABILITY;
+    private static String SNORT_INTRUSION_CLASSIFICATION;
+    private static String IDMEF_INTRUSION_CLASSIFICATION;
 
-    public  PropsUtil() {
+    public PropsUtil() {
         parserproperties = new Properties();
         InputStream is = null;
         try {
             String configFile = "parser.conf";
             String path = this.getClass().getProtectionDomain().getCodeSource().getLocation().getPath();
             path = URLDecoder.decode(path, "UTF-8");
-            PARSER_PROPERTIES_FILE = (new File(path).getParentFile().getPath()+File.separator+configFile).toString();
-            File f = new File (PARSER_PROPERTIES_FILE);
+            PARSER_PROPERTIES_FILE = (new File(path).getParentFile().getPath() + File.separator + configFile).toString();
+            File f = new File(PARSER_PROPERTIES_FILE);
             is = new FileInputStream(f);
-           // is = PropsUtil.class.getResourceAsStream(PARSER_PROPERTIES_FILE);
+            // is = PropsUtil.class.getResourceAsStream(PARSER_PROPERTIES_FILE);
             parserproperties.load(is);
             RESOURCE_RELEVANCE = parserproperties.getProperty(RESOURCES_RELEVANCE_FILE);
             IDS_RELIABILITY = parserproperties.getProperty(IDS_RELIABILITY_FILE);
             SNORT_INTRUSION_CLASSIFICATION = parserproperties.getProperty(SNORT_INTRUSION_CLASSIFICATION_FILE);
             IDMEF_INTRUSION_CLASSIFICATION = parserproperties.getProperty(IDMEF_INTRUSION_CLASSIFICATION_FILE);
-                      
+
             validate();
         } catch (IOException e) {
             //System.out.println("Could not read AIRS config. (File: " + AIRS_PROPERTIES_FILE );
@@ -104,7 +104,7 @@ public class PropsUtil {
         }
     }
 
-    private  void validate() {
+    private void validate() {
         StringWriter swError = new StringWriter();
         PrintWriter pwError = new PrintWriter(swError);
         if (null == RESOURCE_RELEVANCE) {
@@ -131,20 +131,20 @@ public class PropsUtil {
         }*/
     }
 
-    public  String getResourceRelevanceFile() {
+    public String getResourceRelevanceFile() {
         return RESOURCE_RELEVANCE;
     }
 
-    public  String getIDSReliabilityFile() {
+    public String getIDSReliabilityFile() {
         return IDS_RELIABILITY;
     }
 
-    public  String getSnortIntrusionClassificationFile() {
+    public String getSnortIntrusionClassificationFile() {
         return SNORT_INTRUSION_CLASSIFICATION;
     }
-    
-    public  String getIdmefIntrusionClassificationFile() {
+
+    public String getIdmefIntrusionClassificationFile() {
         return IDMEF_INTRUSION_CLASSIFICATION;
-    }   
- 
+    }
+
 }

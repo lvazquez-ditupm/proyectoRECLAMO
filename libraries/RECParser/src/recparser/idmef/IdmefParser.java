@@ -283,8 +283,9 @@ public class IdmefParser {
                     if (attribute !=null){
                         tipo_alert = attribute.getValue();
                         intrusionAlert.setIntName(tipo_alert);
-                        String path = "/"+getClass().getProtectionDomain().getCodeSource().getLocation().toString().substring(6);
-                        String classtype=this.obtainParameter(path+props.getIdmefIntrusionClassificationFile(), tipo_alert);
+                        String path = "/"+getClass().getProtectionDomain().getCodeSource().getLocation().toString();
+                        String path2=path.substring(6, path.length()-13);
+                        String classtype=this.obtainParameter(path2 + props.getIdmefIntrusionClassificationFile(), tipo_alert);
                   
                         intrusionAlert.setIntType(classtype);
                     }

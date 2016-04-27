@@ -107,7 +107,7 @@ public class ResponseAction {
             cmd = " -v -du " +getDuration() + " -sid " + actionParams.getSid() +
                     " -plugin " + getPlugin().getNumber() + " -who " + getWho() ;
             //Solo se envìan los paràmetros no nulos
-            if(actionParams.getPortConn() != null){  //Alerta desde un NIDS
+            if(Integer.parseInt(actionParams.getPortConn()) >= 1){  //Alerta desde un NIDS
                cmd = cmd + " -port " + actionParams.getPortConn();
             }
             if(actionParams.getMainIP() != null){

@@ -95,8 +95,8 @@ public class AlertReceiver {
         try {
             // socket = new DatagramSocket(port, InetAddress.getByName("192.168.1.39"));
             socketUDP = new DatagramSocket(UDPport, InetAddress.getByName(airsIP));
-            //socketTCP = new ServerSocket(TCPport, 50, InetAddress.getByName(airsIP));
-            socketTCP = new ServerSocket(512, 50, InetAddress.getByName(airsIP));
+            socketTCP = new ServerSocket(TCPport, 50, InetAddress.getByName(airsIP));
+            //socketTCP = new ServerSocket(512, 50, InetAddress.getByName(airsIP));
 
         } // try
         catch (Exception e) {
@@ -204,13 +204,13 @@ public class AlertReceiver {
             int alertaUnica = 0;
 
             try {
-                byte[] buf = new byte[1024];
+                byte[] buf = new byte[4096];
                 while (alertaUnica < 1) {
                 //while (true) {
                     DatagramPacket packet = new DatagramPacket(buf, buf.length);
                     socketUDP.receive(packet);
                     String alert = new String(packet.getData(), packet.getOffset(), packet.getLength());
-                    System.out.println("Syslog recibido: " + alert);
+                    System.out.println("Alerta recibida: " + alert);
                     if (alert.contains("IDMEF-Message")) {
                         if (!alert.equals("")) {
                             IdmefParser parser = new IdmefParser();
@@ -221,6 +221,7 @@ public class AlertReceiver {
                                 putAlert(alertFormatted);
                             }
                         }
+                        
                     } else if (alert.contains("snort")) {
                         //Proceso la alerta y la convierto alert formato IntrusionAlert
                         alertFormatted = new IntrusionAlert();
@@ -283,7 +284,7 @@ public class AlertReceiver {
                                 j++;
                                 putAlert(alertFormatted);
                             }
-                            System.out.println("NUmero de alertas IDMEF: " + j);
+                            System.out.println("Numero de alertas IDMEF: " + j);
                             System.out.println("Alertas IDMEF enviadas al AIRS");
                         }
                     }
