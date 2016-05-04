@@ -54,7 +54,7 @@ import java.util.TimeZone;
  * @version 1.0
  */
 public class DateToXsdDatetimeFormatter {
-    private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+    private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX");
 
     public DateToXsdDatetimeFormatter () {}
     /*public DateToXsdDatetimeFormatter (TimeZone timeZone)  {

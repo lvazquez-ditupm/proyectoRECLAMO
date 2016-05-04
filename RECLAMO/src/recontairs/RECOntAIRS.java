@@ -117,128 +117,150 @@ public class RECOntAIRS implements Runnable {
             alert_map.setIntImpact(intrusionImpact);//Calcular mejor
 
             //long timeBeforeAddIntrusion =System.currentTimeMillis ();
-            //MODIFICAR CUANDO SE ARREGLE LA FUNCION DE CHECK DE INTRUSIONES SIMILARES
-            boolean sameintrusion = reasoner.checkSimilarIntrusion2(alert_map);
-            //boolean sameintrusion = false;
-            if (sameintrusion) {
-                System.out.println(Thread.currentThread() + "alerta similar TRUE");
-            } // fin de procesamiento. NO es necesario inferir respuesta
-            else {
-                // DESCOMENTAR SI SE DESACTIVA la comprobacion de "sameintrusion"
-                reasoner.addFormattedIntrusion(alert_map, false, false, null, null);
-                long startContextAnomalyTime = System.currentTimeMillis();
-                System.out.println("__________________________________________________________");
-                System.out.println(Thread.currentThread() + " ****INIT CONTEXT ANOMALY ****");
-                String contextInfDate = alert_map.getIntDetectionTime();
-                List<IntrusionTarget> intrusion_target_list = alert_map.getIntrusionTarget();
+            List<String> responsesSameIntrusion = reasoner.checkSimilarIntrusion2(alert_map);
+            if (responsesSameIntrusion != null) {
 
-                // String ip = alert_map.getIntrusionTarget().getAddressIP();
-                if (intrusion_target_list.size() > 0) {
-                    for (int j = 0; j < intrusion_target_list.size(); j++) {
-                        IntrusionTarget target = intrusion_target_list.get(j);
-                        List<Address> intrusion_address_list = target.getAddress();
-                        for (int z = 0; z < intrusion_address_list.size(); z++) {
-                            String ip = target.getAddress().get(z).getAddress();
-                            String hostname = null;
-                            String subnetworkName = null;
-                            BDManagerIF bd = DataManagerFactory.getInstance().createDataManager();
+                long startInferOptimumTime = System.currentTimeMillis();
+                System.out.println("__________________________________________________________________________");
+                System.out.println(Thread.currentThread() + " **** INIT EXECUTE LAST RESPONSES ****");
+
+                for (int i = 0; i < responsesSameIntrusion.size(); i++) {
+                    reasoner.directExecution(responsesSameIntrusion.get(i));
+                }
+
+                long endInferOptimumTime = System.currentTimeMillis();
+                System.out.println(Thread.currentThread() + " **** END EXECUTE LAST RESPONSES *** Total time: " + (endInferOptimumTime - startInferOptimumTime) + " (ms)****");
+
+                long startEfficiencyTime = System.currentTimeMillis();
+                /* System.out.println("___________________________________________________________");
+                System.out.println(Thread.currentThread() + " **** INIT RESPONSE EFFICIENCY ****");
+
+                reasoner.getResponseEfficiency();
+
+                long endEfficiencyTime = System.currentTimeMillis();
+                System.out.println(Thread.currentThread() + " **** END RESPONSE EFFICENCY *** Total time: " + (endEfficiencyTime - startEfficiencyTime) + " (ms)****");
+                reasoner.updateIndividuals();
+                reasoner.writeFile();*/
+                long timeAfter = System.currentTimeMillis();
+                System.out.println("___________________________________________________________________");
+                System.out.println(Thread.currentThread() + " -> TIEMPO TOTAL: " + (timeAfter - initialTime));
+
+                return;
+
+            }
+
+            long startContextAnomalyTime = System.currentTimeMillis();
+            System.out.println("__________________________________________________________");
+            System.out.println(Thread.currentThread() + " ****INIT CONTEXT ANOMALY ****");
+            String contextInfDate = alert_map.getIntDetectionTime();
+            List<IntrusionTarget> intrusion_target_list = alert_map.getIntrusionTarget();
+
+            // String ip = alert_map.getIntrusionTarget().getAddressIP();
+            if (intrusion_target_list.size() > 0) {
+                for (int j = 0; j < intrusion_target_list.size(); j++) {
+                    IntrusionTarget target = intrusion_target_list.get(j);
+                    List<Address> intrusion_address_list = target.getAddress();
+                    for (int z = 0; z < intrusion_address_list.size(); z++) {
+                        String ip = target.getAddress().get(z).getAddress();
+                        String hostname = null;
+                        String subnetworkName = null;
+                        BDManagerIF bd = DataManagerFactory.getInstance().createDataManager();
+                        try {
                             try {
-                                try {
-                                    hostname = bd.obtainHostName(ip);
-                                    subnetworkName = bd.obtainSubNetworkInfo(ip);
-                                    System.out.println("TARGET--> hostname: " + hostname + " ;subnetwork: " + subnetworkName);
-                                } catch (SQLException ex) {
-                                    Logger.getLogger(RECOntAIRS.class.getName()).log(Level.SEVERE, null, ex);
-                                } catch (DAOException ex) {
-                                    Logger.getLogger(RECOntAIRS.class.getName()).log(Level.SEVERE, null, ex);
-                                }
-                            } catch (Exception e) {
-                                Logger.getLogger(RECOntAIRS.class.getName()).log(Level.SEVERE, null, e);
+                                hostname = bd.obtainHostName(ip);
+                                subnetworkName = bd.obtainSubNetworkInfo(ip);
+                                System.out.println("TARGET--> hostname: " + hostname + " ;subnetwork: " + subnetworkName);
+                            } catch (SQLException ex) {
+                                Logger.getLogger(RECOntAIRS.class.getName()).log(Level.SEVERE, null, ex);
+                            } catch (DAOException ex) {
+                                Logger.getLogger(RECOntAIRS.class.getName()).log(Level.SEVERE, null, ex);
                             }
-                            if (hostname == null && subnetworkName == null) {
-                                continue;
-                            } else if (_hostnameTargetList.contains(hostname)) {
-                                continue;
-                            } else {
-                                String contextUDN = "context" + alert_map.getIntID() + hostname;
-                                _hostnameTargetList.add(hostname);
-                                /* Obtenemos el grado de anomalia del contexto de sistemas para este hostname
+                        } catch (Exception e) {
+                            Logger.getLogger(RECOntAIRS.class.getName()).log(Level.SEVERE, null, e);
+                        }
+                        if (hostname == null && subnetworkName == null) {
+                            continue;
+                        } else if (_hostnameTargetList.contains(hostname)) {
+                            continue;
+                        } else {
+                            String contextUDN = "context" + alert_map.getIntID() + hostname;
+                            _hostnameTargetList.add(hostname);
+                            /* Obtenemos el grado de anomalia del contexto de sistemas para este hostname
                                  * Params: targetIP, targetName
-                                 */
-                                system_anomaly_params = new AnomalyDetectionModeParams(ip, hostname, null);
-                                SystemContextModeSelector syssel = new SystemContextModeSelector("anomalydetection", system_anomaly_params);
-                                if (syssel.start()) {
-                                    system_anomaly = syssel.getSystemAnomaly();
-                                    system_anomaly.printAnomaly();
+                             */
+                            system_anomaly_params = new AnomalyDetectionModeParams(ip, hostname, null);
+                            SystemContextModeSelector syssel = new SystemContextModeSelector("anomalydetection", system_anomaly_params);
+                            if (syssel.start()) {
+                                system_anomaly = syssel.getSystemAnomaly();
+                                system_anomaly.printAnomaly();
+                            } else {
+                                System.out.println("Ha habido un error al obtener la anomalia del contexto de sistemas");
+                                continue;
+                            }
+                            /* Obtenemos el grado de anomalia del contexto de red
+                                * Params: targetIP, targetName
+                             */
+
+                            if (networkContextAnomaly.containsKey(subnetworkName)) {
+                                network_anomaly = (Integer) networkContextAnomaly.get(subnetworkName);
+                            } else {
+                                net_anomaly_params = new NetAnomalyDetectionModeParams(subnetworkName, null);
+                                NetworkContextModeSelector netsel = new NetworkContextModeSelector("anomalydetection", net_anomaly_params);
+                                if (netsel.start()) {
+                                    network_anomaly = netsel.getNetworkAnomaly();
+                                    System.out.println("El grado de anomalia del contexto de red es: " + network_anomaly);
                                 } else {
-                                    System.out.println("Ha habido un error al obtener la anomalia del contexto de sistemas");
+                                    System.out.println("Ha habido un error obteniendo la anomalia del contexto de red");
                                     continue;
                                 }
-                                /* Obtenemos el grado de anomalia del contexto de red
-                                * Params: targetIP, targetName
-                                 */
-
-                                if (networkContextAnomaly.containsKey(subnetworkName)) {
-                                    network_anomaly = (Integer) networkContextAnomaly.get(subnetworkName);
-                                } else {
-                                    net_anomaly_params = new NetAnomalyDetectionModeParams(subnetworkName, null);
-                                    NetworkContextModeSelector netsel = new NetworkContextModeSelector("anomalydetection", net_anomaly_params);
-                                    if (netsel.start()) {
-                                        network_anomaly = netsel.getNetworkAnomaly();
-                                        System.out.println("El grado de anomalia del contexto de red es: " + network_anomaly);
-                                    } else {
-                                        System.out.println("Ha habido un error obteniendo la anomalia del contexto de red");
-                                        continue;
-                                    }
-                                    networkContextAnomaly.put(subnetworkName, network_anomaly);
-                                }
-                                /* Añado la anomalía de contexto asociada a este Target */
-                                reasoner.addContextAnomaly(contextUDN, hostname, ip, subnetworkName, contextInfDate, network_anomaly, system_anomaly);
+                                networkContextAnomaly.put(subnetworkName, network_anomaly);
                             }
+                            /* Añado la anomalía de contexto asociada a este Target */
+                            reasoner.addContextAnomaly(contextUDN, hostname, ip, subnetworkName, contextInfDate, network_anomaly, system_anomaly);
                         }
                     }
+                }
 
-                    long endContextAnomalyTime = System.currentTimeMillis();
-                    System.out.println(Thread.currentThread() + " **** END CONTEXT ANOMALY *** Total time: " + (endContextAnomalyTime - startContextAnomalyTime) + " (ms)****");
+                long endContextAnomalyTime = System.currentTimeMillis();
+                System.out.println(Thread.currentThread() + " **** END CONTEXT ANOMALY *** Total time: " + (endContextAnomalyTime - startContextAnomalyTime) + " (ms)****");
 
-                    if (_hostnameTargetList.size() > 0) {
-                        long startPelletTime = System.currentTimeMillis();
-                        System.out.println("__________________________________________________________");
-                        System.out.println(Thread.currentThread() + " **** INIT REASONER PELLET ****");
-                        reasoner.reasonerPellet();
-                        long endPelletTime = System.currentTimeMillis();
-                        System.out.println(Thread.currentThread() + " **** END REASONER PELLET *** Total time: " + (endPelletTime - startPelletTime) + " (ms)****");
+                if (_hostnameTargetList.size() > 0) {
+                    long startPelletTime = System.currentTimeMillis();
+                    System.out.println("__________________________________________________________");
+                    System.out.println(Thread.currentThread() + " **** INIT REASONER PELLET ****");
+                    reasoner.reasonerPellet();
+                    long endPelletTime = System.currentTimeMillis();
+                    System.out.println(Thread.currentThread() + " **** END REASONER PELLET *** Total time: " + (endPelletTime - startPelletTime) + " (ms)****");
 
-                        long startInferRecommendedTime = System.currentTimeMillis();
-                        System.out.println("__________________________________________________________________");
-                        System.out.println(Thread.currentThread() + " **** INIT INFER RECOMMENDED RESPONSES ****");
-                        reasoner.inferRecommendedResponses();
-                        long endInferRecommendedTime = System.currentTimeMillis();
-                        System.out.println(Thread.currentThread() + " **** END INFER RECOMMENDED RESPONSES *** Total time: " + (endInferRecommendedTime - startInferRecommendedTime) + " (ms)****");
+                    long startInferRecommendedTime = System.currentTimeMillis();
+                    System.out.println("__________________________________________________________________");
+                    System.out.println(Thread.currentThread() + " **** INIT INFER RECOMMENDED RESPONSES ****");
+                    reasoner.inferRecommendedResponses();
+                    long endInferRecommendedTime = System.currentTimeMillis();
+                    System.out.println(Thread.currentThread() + " **** END INFER RECOMMENDED RESPONSES *** Total time: " + (endInferRecommendedTime - startInferRecommendedTime) + " (ms)****");
 
-                        long startInferOptimumTime = System.currentTimeMillis();
-                        System.out.println("__________________________________________________________________________");
-                        System.out.println(Thread.currentThread() + " **** INIT INFER and EXECUTE OPTIMUM RESPONSES ****");
-                        reasoner.inferOptimumResponses();
-                        long endInferOptimumTime = System.currentTimeMillis();
-                        System.out.println(Thread.currentThread() + " **** END INFER AND EXECUTE OPTIMUM RESPONSES *** Total time: " + (endInferOptimumTime - startInferOptimumTime) + " (ms)****");
+                    long startInferOptimumTime = System.currentTimeMillis();
+                    System.out.println("__________________________________________________________________________");
+                    System.out.println(Thread.currentThread() + " **** INIT INFER and EXECUTE OPTIMUM RESPONSES ****");
+                    reasoner.inferOptimumResponses();
+                    long endInferOptimumTime = System.currentTimeMillis();
+                    System.out.println(Thread.currentThread() + " **** END INFER AND EXECUTE OPTIMUM RESPONSES *** Total time: " + (endInferOptimumTime - startInferOptimumTime) + " (ms)****");
 
-                        long startEfficiencyTime = System.currentTimeMillis();
-                        System.out.println("___________________________________________________________");
-                        System.out.println(Thread.currentThread() + " **** INIT RESPONSE EFFICIENCY ****");
+                    long startEfficiencyTime = System.currentTimeMillis();
+                    System.out.println("___________________________________________________________");
+                    System.out.println(Thread.currentThread() + " **** INIT RESPONSE EFFICIENCY ****");
 
-                        reasoner.getResponseEfficiency();
+                    reasoner.getResponseEfficiency();
 
-                        long endEfficiencyTime = System.currentTimeMillis();
-                        System.out.println(Thread.currentThread() + " **** END RESPONSE EFFICENCY *** Total time: " + (endEfficiencyTime - startEfficiencyTime) + " (ms)****");
-                        reasoner.updateIndividuals();
-                        reasoner.writeFile();
-                        long timeAfter = System.currentTimeMillis();
-                        System.out.println("___________________________________________________________________");
-                        System.out.println(Thread.currentThread() + " -> TIEMPO TOTAL: " + (timeAfter - initialTime));
-                    } else {
-                        System.out.println("ningun objetivo esta dentro de la red protegida");
-                    }
+                    long endEfficiencyTime = System.currentTimeMillis();
+                    System.out.println(Thread.currentThread() + " **** END RESPONSE EFFICENCY *** Total time: " + (endEfficiencyTime - startEfficiencyTime) + " (ms)****");
+                    reasoner.updateIndividuals();
+                    reasoner.writeFile();
+                    long timeAfter = System.currentTimeMillis();
+                    System.out.println("___________________________________________________________________");
+                    System.out.println(Thread.currentThread() + " -> TIEMPO TOTAL: " + (timeAfter - initialTime));
+                } else {
+                    System.out.println("ningun objetivo esta dentro de la red protegida");
                 }
             }
         }
