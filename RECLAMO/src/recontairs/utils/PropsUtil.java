@@ -74,6 +74,8 @@ public class PropsUtil {
     private static final String ALERT_THRESHOLD_PROP = "alert.threshold";
     private static final String INFERRED_FILE_PROP = "inferred.file";
     private static final String INFERRED_URI_PROP = "inferred.uri";
+    private static final String SUCCESS_PROP = "success.threshold";
+    private static final String DISCARD_PROP = "discard.threshold";
 
     //Parámetros para interactuar con la base de datos
     private static final String ONTAIRS_DATABASE_NAME_PROP = "airs.database.name";
@@ -102,12 +104,14 @@ public class PropsUtil {
     private static String ALERT_THRESHOLD_VALUE;
     private static String INFERRED_FILE_VALUE;
     private static String INFERRED_URI_VALUE;
+    private static String SUCCESS_VALUE;
+    private static String DISCARD_VALUE;
 
     public PropsUtil() {
         ontairsproperties = new Properties();
         InputStream is = null;
         try {
-            String configFile = "ontairs.conf";
+            String configFile = "/config_files/ontairs.conf";
             String path = this.getClass().getProtectionDomain().getCodeSource().getLocation().getPath();
             path = URLDecoder.decode(path, "UTF-8");
             ONTAIRS_PROPERTIES_FILE = (new File(path).getParentFile().getPath() + File.separator + configFile).toString();
@@ -134,6 +138,8 @@ public class PropsUtil {
             ALERT_THRESHOLD_VALUE = ontairsproperties.getProperty(ALERT_THRESHOLD_PROP);
             INFERRED_FILE_VALUE = ontairsproperties.getProperty(INFERRED_FILE_PROP);
             INFERRED_URI_VALUE = ontairsproperties.getProperty(INFERRED_URI_PROP);
+            SUCCESS_VALUE = ontairsproperties.getProperty(SUCCESS_PROP);
+            DISCARD_VALUE = ontairsproperties.getProperty(DISCARD_PROP);
             validate();
         } catch (IOException e) {
             throw new RuntimeException("Could not read SystemContext module config. (File: " + ONTAIRS_PROPERTIES_FILE + ")", e);
@@ -228,6 +234,14 @@ public class PropsUtil {
             System.out.println("Property \"" + INFERRED_URI_PROP
                     + "\" not defined.");
         }
+        if (null == SUCCESS_VALUE) {
+            System.out.println("Property \"" + SUCCESS_PROP
+                    + "\" not defined.");
+        }
+        if (null == DISCARD_VALUE) {
+            System.out.println("Property \"" + DISCARD_PROP
+                    + "\" not defined.");
+        }
 
     }
 
@@ -301,5 +315,13 @@ public class PropsUtil {
 
     public String getInferredURI() {
         return URI_VALUE + INFERRED_URI_VALUE;
+    }
+    
+    public double getSuccessThreshold() {
+        return Double.parseDouble(SUCCESS_VALUE);
+    }
+    
+    public int getDiscardThreshold() {
+        return Integer.parseInt(DISCARD_VALUE);
     }
 }

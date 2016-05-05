@@ -67,7 +67,7 @@ public class PropsUtil {
     
     public  PropsUtil() {        
         try {
-            String configFile = "airsResponseExecutor.conf";
+            String configFile = "../config_files/airsResponseExecutor.conf";
             String pluginNumberFile = "plugin-numbers.conf";
             String path = this.getClass().getProtectionDomain().getCodeSource().getLocation().getPath();
             path = URLDecoder.decode(path, "UTF-8");

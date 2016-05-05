@@ -118,29 +118,44 @@ public class RECOntAIRS implements Runnable {
 
             //long timeBeforeAddIntrusion =System.currentTimeMillis ();
             List<String> responsesSameIntrusion = reasoner.checkSimilarIntrusion2(alert_map);
+
             if (responsesSameIntrusion != null) {
+
+                boolean discard = true;
 
                 long startInferOptimumTime = System.currentTimeMillis();
                 System.out.println("__________________________________________________________________________");
                 System.out.println(Thread.currentThread() + " **** INIT EXECUTE LAST RESPONSES ****");
 
                 for (int i = 0; i < responsesSameIntrusion.size(); i++) {
-                    reasoner.directExecution(responsesSameIntrusion.get(i));
+                    if (!"kill".equals(responsesSameIntrusion.get(i))) {
+                        reasoner.directExecution(responsesSameIntrusion.get(i));
+                        discard = false;
+                    } else {
+                        System.out.println("La alerta "+alert_map.getIntID()+" se ha descartado por formar parte del mismo ataque.");
+                        discard=true;
+                    }
                 }
 
                 long endInferOptimumTime = System.currentTimeMillis();
                 System.out.println(Thread.currentThread() + " **** END EXECUTE LAST RESPONSES *** Total time: " + (endInferOptimumTime - startInferOptimumTime) + " (ms)****");
 
-                long startEfficiencyTime = System.currentTimeMillis();
-                /* System.out.println("___________________________________________________________");
-                System.out.println(Thread.currentThread() + " **** INIT RESPONSE EFFICIENCY ****");
+                if (!discard) {
+                    
+                    System.err.println("(TBD) CHECK EFICIENCIA RESPUESTA ALERTA REPETIDA");
+                    
+                    /*long startEfficiencyTime = System.currentTimeMillis();
+                    System.out.println("___________________________________________________________");
+                    System.out.println(Thread.currentThread() + " **** INIT RESPONSE EFFICIENCY ****");
 
-                reasoner.getResponseEfficiency();
+                    reasoner.getResponseEfficiency(false);
 
-                long endEfficiencyTime = System.currentTimeMillis();
-                System.out.println(Thread.currentThread() + " **** END RESPONSE EFFICENCY *** Total time: " + (endEfficiencyTime - startEfficiencyTime) + " (ms)****");
-                reasoner.updateIndividuals();
-                reasoner.writeFile();*/
+                    long endEfficiencyTime = System.currentTimeMillis();
+                    System.out.println(Thread.currentThread() + " **** END RESPONSE EFFICENCY *** Total time: " + (endEfficiencyTime - startEfficiencyTime) + " (ms)****");
+                    reasoner.updateIndividuals();
+                    reasoner.writeFile();*/
+                }
+               
                 long timeAfter = System.currentTimeMillis();
                 System.out.println("___________________________________________________________________");
                 System.out.println(Thread.currentThread() + " -> TIEMPO TOTAL: " + (timeAfter - initialTime));
@@ -250,7 +265,7 @@ public class RECOntAIRS implements Runnable {
                     System.out.println("___________________________________________________________");
                     System.out.println(Thread.currentThread() + " **** INIT RESPONSE EFFICIENCY ****");
 
-                    reasoner.getResponseEfficiency();
+                    reasoner.getResponseEfficiency(true);
 
                     long endEfficiencyTime = System.currentTimeMillis();
                     System.out.println(Thread.currentThread() + " **** END RESPONSE EFFICENCY *** Total time: " + (endEfficiencyTime - startEfficiencyTime) + " (ms)****");

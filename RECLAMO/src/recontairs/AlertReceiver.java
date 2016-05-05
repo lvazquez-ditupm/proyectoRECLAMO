@@ -205,8 +205,8 @@ public class AlertReceiver {
 
             try {
                 byte[] buf = new byte[4096];
-                while (alertaUnica < 1) {
-                //while (true) {
+                //while (alertaUnica < 1) {
+                while (true) {
                     DatagramPacket packet = new DatagramPacket(buf, buf.length);
                     socketUDP.receive(packet);
                     String alert = new String(packet.getData(), packet.getOffset(), packet.getLength());

@@ -81,7 +81,7 @@ public class PropsUtil {
         evaluationsystemexecutorproperties = new Properties();
         InputStream is = null;
         try {
-            String configFile = "evaluationSystemExecutor.conf";
+            String configFile = "../config_files/evaluationSystemExecutor.conf";
             String path = this.getClass().getProtectionDomain().getCodeSource().getLocation().getPath();
             path = URLDecoder.decode(path, "UTF-8");
             EVALUATION_SYSTEM_EXECUTOR_PROPERTIES_FILE = (new File(path).getParentFile().getPath()+File.separator+configFile).toString();
