@@ -111,7 +111,7 @@ public class PropsUtil {
         ontairsproperties = new Properties();
         InputStream is = null;
         try {
-            String configFile = "/config_files/ontairs.conf";
+            String configFile = "/config_files/reclamo.conf";
             String path = this.getClass().getProtectionDomain().getCodeSource().getLocation().getPath();
             path = URLDecoder.decode(path, "UTF-8");
             ONTAIRS_PROPERTIES_FILE = (new File(path).getParentFile().getPath() + File.separator + configFile).toString();

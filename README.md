@@ -1,31 +1,43 @@
 # Proyecto RECLAMO
+## Contenido
+* RECLAMO: Contiene el sistema RECLAMO como tal:
+    * RECLAMO.jar: Ejecutable del sistema
+	* GeneradorAlertas.jar: Envía alertas al puerto 512 (UDP) de la IP establecida
+	* communication-debug: Ejecuta las respuestas en el sistema 
+	* build/: Código del sistema RECLAMO
+	* config_files/: Ficheros de configuración del sistema RECLAMO
+	    * airsResponseExecutor.conf: Configuración del módulo de respuestas (se pueden variar las duraciones de las respuestas)
+	    * evaluationSystemExecutor.conf: Configuración del sistema de evaluación de eficacia de las respuestas
+	    * networkContextAnomalyDetector.conf: Configuración del módulo de contexto de red
+	    * parser.conf: Configuración del parser
+	    * reclamo.conf: Configuración de RECLAMO (se pueden variar distintos umbrales para la toma de decisiones)
+	    * systemContextAnomalyDetector.conf: Configuración del módulo de contexto de sistema
+	* lib/: Librerías compiladas
+* ext_config_files: Contiene los distintos ficheros de configuración necesarios para el funcionamiento correcto del software externo a RECLAMO (Nagios, SANCP...). Su uso se explica en la Wiki
+* libraries: Contiene el código de las librerías que se usan en RECLAMO
+* ontologies: Contiene todos los ficheros .owl para el funcionamiento del sistema
+* running_files: Contiene los scripts de arranque del escenario y otros necesarios para pruebas
+* vnx_scenarios: Contiene los ficheros necesarios para virtualizar la red del escenario con VNX
 
-## Instalación:
+## Consideraciones
+* Para que el módulo de respuestas funcione, debe copiarse el fichero ext_config_files/agent.conf a /etc)
+* Los ficheros situados en RECLAMO/config_files deben modificarse para que las URIs de las ontologías apunten a la ruta en la que se ejecuta el código (además de otros parámetros necesarios para poder ejecutarse en cualquier sistema, en los propios ficheros se explica para qué sirve cada uno)
 
+## Instalación
+### Instalación del sistema
 Toda la información se puede encontrar en el siguiente link:
 http://reclamoairsupm.wikidot.com/
 
-## Contenido:
-
-* RECLAMO: Contiene el código preparado para ser ejecutado, con las librerías compiladas y los distintos ficheros de configuración
-
-* config_files: Contiene los distintos ficheros de configuración necesarios para el funcionamiento correcto del software externo a RECLAMO (Nagios, SANCP...)
-
-* libraries: Contiene el código de las librerías que se usan en RECLAMO
-
-* ontologies: Contiene todos los ficheros .owl para el funcionamiento del sistema
-
-* responseModule: Módulo de respuestas del sistema (debe copiarse el fichero agents.conf a /etc)
-
-* running_files: Contiene los scripts de arranque del escenario y otros necesarios para pruebas
-
-* sensor: Contiene logs de SANCP
-
-* vnx_scenarios: Contiene los ficheros necesarios para virtualizar la red del escenario con VNX
-
-## Consideraciones:
-
-* Los distintos ficheros de configuración están situados en RECLAMO/build y RECLAMO/lib
-
-* Deben modificarse estos ficheros para que las URIs de las ontologías apunten a la ruta en la que se ejecuta el código (además de otros parámetros necesarios para poder ejecutarse en cualquier sistema)
-
+### Ejecución de RECLAMO y Generador de Alertas
+Una vez se haya preparado el sistema correctamente (apartado anterior), y se hayan modificado los ficheros de configuración, se podrá ejecutar el sistema con el comando:
+```sh
+$ sudo java -jar RECLAMO.jar [Puerto_UDP] [Puerto_TCP] [IP_local] [Máscara de red]
+# Ejemplo: 
+$ sudo java -jar RECLAMO.jar 512 6868 10.0.1.1 255.255.255.0
+```
+Para enviar alertas al puerto 512 del sistema de forma manual, se puede usar el siguiente comando:
+```sh
+$ java -jar GeneradorAlertas.jar [IP_destino] ['Mensaje']
+# Ejemplo
+$ java -jar GeneradorAlertas 10.0.1.1 'Alerta de prueba: "ALERTA"'
+```
