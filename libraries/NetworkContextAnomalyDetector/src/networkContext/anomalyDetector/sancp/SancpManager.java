@@ -191,10 +191,28 @@ public class SancpManager {
     // Se intenta matar al proceso con un determinado PID hasta que se consigue
     private Snapshot tryStopSancp(int pidsancp) {
 
-        if (stopSancp(pidsancp)) {
-            return new SnapshotCreator().createSnap(sancpDir, interfaceID);
+        Snapshot snap = new SnapshotCreator().createSnap(sancpDir, interfaceID);
+
+        if (snap != null) {
+            stopSancp(pidsancp);
+            return snap;
         } else {
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException ex) {
+                System.err.println(ex);
+            }
             return tryStopSancp(pidsancp);
+        }
+    }
+
+    private void cleanDir() {
+        String command = "sudo rm " + sancpDir + "/*";
+        try {
+            System.out.println(command);
+            sancp = LinuxUtils.runCommand(command, false, false, false);
+        } catch (Exception e) {
+            System.err.println(e);
         }
     }
 
@@ -211,6 +229,9 @@ public class SancpManager {
             System.err.println(ex);
         }
         Snapshot snapshot = tryStopSancp(pidsancp);
+
+        cleanDir();
+
         return snapshot;
     }
 }

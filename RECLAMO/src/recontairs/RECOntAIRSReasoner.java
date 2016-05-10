@@ -148,7 +148,6 @@ public class RECOntAIRSReasoner {
     private IntrusionAlert alertmap;
     private CentralModuleExecution MCER;
     private InferredInformationList _infeInfoList;
-    private HashMap resp_data = new HashMap();
     List success_level_values_entropy = new ArrayList();
     List success_level_values_neural_net = new ArrayList();
 
@@ -706,7 +705,7 @@ public class RECOntAIRSReasoner {
             try {
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS");
                 long time = (simpleDateFormat.parse(map.getIntDetectionTime())).getTime();
-                long timesamealert = time - (discardThreshold*1000);
+                long timesamealert = time - (discardThreshold * 1000);
                 //long timeexistingalert = time - 5000;
                 DateToXsdDatetimeFormatter xdf = new DateToXsdDatetimeFormatter();
                 sameAlertDate = xdf.format(new Date(timesamealert));
@@ -741,48 +740,15 @@ public class RECOntAIRSReasoner {
                         QueryExecution qesisa = QueryExecutionFactory.create(qsisa, inferedIndividuosModel);
                         ResultSet rssisa = qesisa.execSelect();
                         List<QuerySolution> listaSisa = ResultSetFormatter.toList(rssisa);
-                        String targetNameURI = listaSisa.get(0).get("node").toString();
 
-                        String sameAlert = "PREFIX RECIntrusionAlert: <" + INTRUSIONALERTNAMESPACE + ">"
-                                + " PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>"
-                                + " PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>"
-                                + " PREFIX owl: <http://www.w3.org/2002/07/owl#>"
-                                + " PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>"
-                                + " SELECT DISTINCT ?formattedintrusion WHERE {"
-                                + "?classification a RECIntrusionAlert:Classification."
-                                + "?classification RECIntrusionAlert:text ?classtext ."
-                                + "FILTER (?classtext = \"" + alertName + "\")."
-                                + "?source a RECIntrusionAlert:ExternalSource ."
-                                + "?source RECIntrusionAlert:addressIP ?sourceip. "
-                                + "FILTER (?sourceip = \"" + sourceIP + "\")."
-                                + "?target a RECIntrusionAlert:Target ."
-                                + "?target RECIntrusionAlert:hasNode ?node ."
-                                + "FILTER (?node = IRI(\"" + targetNameURI + "\"))."
-                                + "?formattedintrusion RECIntrusionAlert:detectTime ?idt ."
-                                + "FILTER (?idt < \"" + sameAlertDate + "\"^^xsd:dateTime) ."
-                                + "?formattedintrusion RECIntrusionAlert:hasClassification ?classification ;"
-                                + "RECIntrusionAlert:hasTarget ?target ;"
-                                + "RECIntrusionAlert:hasSource ?source ."
-                                + " } ";
-
-                        qsisa = QueryFactory.create(sameAlert);
-                        qesisa = QueryExecutionFactory.create(qsisa, inferedIndividuosModel);
-                        rssisa = qesisa.execSelect();
-                        listaSisa = ResultSetFormatter.toList(rssisa);
-                        for (int j = 0; j < listaSisa.size(); j++) {
-                            QuerySolution solution = listaSisa.get(j);
-                            isARepeatedFormattedIntrusion = solution.contains("formattedintrusion");
-                            Individual indsame = inferedIndividuosModel.getIndividual(solution.get("formattedintrusion").toString());
-                            sameIndi.add(indsame);
-                        }
-                        
-                        if (!isARepeatedFormattedIntrusion) {
-                            String existingAlert = "PREFIX RECIntrusionAlert: <" + INTRUSIONALERTNAMESPACE + ">"
+                        if (listaSisa.size() > 0) {
+                            String targetNameURI = listaSisa.get(0).get("node").toString();
+                            String sameAlert = "PREFIX RECIntrusionAlert: <" + INTRUSIONALERTNAMESPACE + ">"
                                     + " PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>"
                                     + " PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>"
                                     + " PREFIX owl: <http://www.w3.org/2002/07/owl#>"
                                     + " PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>"
-                                    + " SELECT DISTINCT ?formattedintrusion ?target WHERE {"
+                                    + " SELECT DISTINCT ?formattedintrusion WHERE {"
                                     + "?classification a RECIntrusionAlert:Classification."
                                     + "?classification RECIntrusionAlert:text ?classtext ."
                                     + "FILTER (?classtext = \"" + alertName + "\")."
@@ -793,34 +759,67 @@ public class RECOntAIRSReasoner {
                                     + "?target RECIntrusionAlert:hasNode ?node ."
                                     + "FILTER (?node = IRI(\"" + targetNameURI + "\"))."
                                     + "?formattedintrusion RECIntrusionAlert:detectTime ?idt ."
-                                    + "FILTER (?idt >= \"" + sameAlertDate + "\"^^xsd:dateTime) ."
+                                    + "FILTER (?idt < \"" + sameAlertDate + "\"^^xsd:dateTime) ."
                                     + "?formattedintrusion RECIntrusionAlert:hasClassification ?classification ;"
                                     + "RECIntrusionAlert:hasTarget ?target ;"
                                     + "RECIntrusionAlert:hasSource ?source ."
                                     + " } ";
 
-                            Query qex = QueryFactory.create(existingAlert);
-                            QueryExecution qeex = QueryExecutionFactory.create(qex, inferedIndividuosModel);
-                            ResultSet rseex = qeex.execSelect();
-                            List<QuerySolution> listaEex = ResultSetFormatter.toList(rseex);
-                            for (int j = 0; j < listaEex.size(); j++) {
-                                QuerySolution solution = listaEex.get(j);
-                                isAExistingFormattedIntrusion = solution.contains("formattedintrusion");
-                                /*Individual indexisting = inferedIndividuosModel.getIndividual(solution.get("formattedintrusion").toString());
-                                existingIntrusionIndi.add(indexisting);*/
-                                
-                                if (isAExistingFormattedIntrusion){
-                                    
-                                    ArrayList<String> killAlert = new ArrayList<>();
-                                    killAlert.add("kill");
-                                    return killAlert;
-                                }
+                            qsisa = QueryFactory.create(sameAlert);
+                            qesisa = QueryExecutionFactory.create(qsisa, inferedIndividuosModel);
+                            rssisa = qesisa.execSelect();
+                            listaSisa = ResultSetFormatter.toList(rssisa);
+                            for (int j = 0; j < listaSisa.size(); j++) {
+                                QuerySolution solution = listaSisa.get(j);
+                                isARepeatedFormattedIntrusion = solution.contains("formattedintrusion");
+                                Individual indsame = inferedIndividuosModel.getIndividual(solution.get("formattedintrusion").toString());
+                                sameIndi.add(indsame);
+                            }
 
+                            if (!isARepeatedFormattedIntrusion) {
+                                String existingAlert = "PREFIX RECIntrusionAlert: <" + INTRUSIONALERTNAMESPACE + ">"
+                                        + " PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>"
+                                        + " PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>"
+                                        + " PREFIX owl: <http://www.w3.org/2002/07/owl#>"
+                                        + " PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>"
+                                        + " SELECT DISTINCT ?formattedintrusion ?target WHERE {"
+                                        + "?classification a RECIntrusionAlert:Classification."
+                                        + "?classification RECIntrusionAlert:text ?classtext ."
+                                        + "FILTER (?classtext = \"" + alertName + "\")."
+                                        + "?source a RECIntrusionAlert:ExternalSource ."
+                                        + "?source RECIntrusionAlert:addressIP ?sourceip. "
+                                        + "FILTER (?sourceip = \"" + sourceIP + "\")."
+                                        + "?target a RECIntrusionAlert:Target ."
+                                        + "?target RECIntrusionAlert:hasNode ?node ."
+                                        + "FILTER (?node = IRI(\"" + targetNameURI + "\"))."
+                                        + "?formattedintrusion RECIntrusionAlert:detectTime ?idt ."
+                                        + "FILTER (?idt >= \"" + sameAlertDate + "\"^^xsd:dateTime) ."
+                                        + "?formattedintrusion RECIntrusionAlert:hasClassification ?classification ;"
+                                        + "RECIntrusionAlert:hasTarget ?target ;"
+                                        + "RECIntrusionAlert:hasSource ?source ."
+                                        + " } ";
+
+                                Query qex = QueryFactory.create(existingAlert);
+                                QueryExecution qeex = QueryExecutionFactory.create(qex, inferedIndividuosModel);
+                                ResultSet rseex = qeex.execSelect();
+                                List<QuerySolution> listaEex = ResultSetFormatter.toList(rseex);
+                                for (int j = 0; j < listaEex.size(); j++) {
+                                    QuerySolution solution = listaEex.get(j);
+                                    isAExistingFormattedIntrusion = solution.contains("formattedintrusion");
+                                    /*Individual indexisting = inferedIndividuosModel.getIndividual(solution.get("formattedintrusion").toString());
+                                existingIntrusionIndi.add(indexisting);*/
+
+                                    if (isAExistingFormattedIntrusion) {
+
+                                        ArrayList<String> killAlert = new ArrayList<>();
+                                        killAlert.add("kill");
+                                        return killAlert;
+                                    }
+
+                                }
                             }
                         }
                     }
-
-                    resp_data.put("_IPs", lastIPs);
                 }
             } catch (Exception e) {
                 System.out.println(e);
@@ -1555,26 +1554,15 @@ public class RECOntAIRSReasoner {
         }
     }
 
-    public void getResponseEfficiency(boolean inferred) {
+    public void getResponseEfficiency() {
 
         List evaluation_individuos_set = new ArrayList();
-        if (inferred) {
-            evaluation_individuos_set = _infeInfoList.getInferredInformationList();
-        } else {
-
-            List IPs = (ArrayList<String>) resp_data.get("_IPs");
-
-            for (int i = 0; i < IPs.size(); i++) {
-                InferredInformation info = new InferredInformation(IPs.get(i).toString(), null, getLastContext(), null, resp_data.get("_responseID").toString(), resp_data.get("_responseType").toString(), null);
-                evaluation_individuos_set.add(info);
-            }
-
-        }
+        evaluation_individuos_set = _infeInfoList.getInferredInformationList();
 
         for (int j = 0; j < evaluation_individuos_set.size(); j++) {
             InferredInformation inferred_info = (InferredInformation) evaluation_individuos_set.get(j);
             if (inferred_info.getResponseID() != null) {
-                if (getSuccess(alertmap, inferred_info.getContextAnomalyIndicatorList(), inferred_info.getIP(), inferred_info.getResponseID(), inferred_info.getResponseType())) {
+                if (getSuccess(alertmap, null, inferred_info.getIP(), inferred_info.getResponseID(), inferred_info.getResponseType())) {
                     //            Sytem.out.println("Eficiencia de la respuesta "+inferred_info.getResponseID()+" actualizada con exito");
                 } else {
                     System.out.println("Error al actualizar la eficiencia de la respuesta " + inferred_info.getResponseID());
@@ -1764,7 +1752,6 @@ public class RECOntAIRSReasoner {
                         responsesMap.put(responseID, res);
                         ress = response.getPropertyValue(responseType_prop).toString();
                         ress = ress.substring(0, ress.indexOf("^"));
-                        resp_data.put("_responseType", res);
                     } catch (NullPointerException e) {
                         responsesMap.put(responseID, -1.0);
                     }
@@ -2181,8 +2168,6 @@ public class RECOntAIRSReasoner {
 
                     responseMap.put("response", response);
                     responseMap.put("passiveResponse", passiveResponse);
-
-                    resp_data.put("_responseID", response);
 
                 }
             }

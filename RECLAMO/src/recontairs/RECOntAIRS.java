@@ -148,7 +148,7 @@ public class RECOntAIRS implements Runnable {
                     System.out.println("___________________________________________________________");
                     System.out.println(Thread.currentThread() + " **** INIT RESPONSE EFFICIENCY ****");
 
-                    reasoner.getResponseEfficiency(false);
+                    reasoner.getResponseEfficiency();
 
                     long endEfficiencyTime = System.currentTimeMillis();
                     System.out.println(Thread.currentThread() + " **** END RESPONSE EFFICENCY *** Total time: " + (endEfficiencyTime - startEfficiencyTime) + " (ms)****");
@@ -265,7 +265,7 @@ public class RECOntAIRS implements Runnable {
                     System.out.println("___________________________________________________________");
                     System.out.println(Thread.currentThread() + " **** INIT RESPONSE EFFICIENCY ****");
 
-                    reasoner.getResponseEfficiency(true);
+                    reasoner.getResponseEfficiency();
 
                     long endEfficiencyTime = System.currentTimeMillis();
                     System.out.println(Thread.currentThread() + " **** END RESPONSE EFFICENCY *** Total time: " + (endEfficiencyTime - startEfficiencyTime) + " (ms)****");

@@ -5,4 +5,978 @@
     xmlns:owl="http://www.w3.org/2002/07/owl#"
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema#" > 
+  <rdf:Description rdf:nodeID="A0">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#isGeneratedBy"/>
+    <owl:onClass rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECAIRS.owl#Analyzer"/>
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#neededRecommendedInference">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#Assessment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:intersectionOf rdf:nodeID="A2"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#optimumProactiveResponse">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECAIRS.owl#Proactive"/>
+    <rdfs:domain rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#Assessment"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECAIRS.owl#Deception">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A3">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#intrusionAlertReliability"/>
+    <owl:hasValue>low</owl:hasValue>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A4">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#ident"/>
+    <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+    <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#meaning">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#Reference"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A5">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
+    <owl:oneOf rdf:nodeID="A6"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A7">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#realIntrusionImpact"/>
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    <owl:onDataRange rdf:nodeID="A8"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Nothing">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A2">
+    <rdf:first rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#RECIntrusionAlert"/>
+    <rdf:rest rdf:nodeID="A9"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A10">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#intrusionAlertID"/>
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#Target">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:nodeID="A4"/>
+    <rdfs:subClassOf rdf:nodeID="A11"/>
+    <rdfs:subClassOf rdf:nodeID="A12"/>
+    <rdfs:subClassOf rdf:nodeID="A13"/>
+    <rdfs:subClassOf rdf:nodeID="A14"/>
+    <rdfs:subClassOf rdf:nodeID="A15"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#decoy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#Target"/>
+    <rdfs:range rdf:nodeID="A16"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#hasNode">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECAIRS.owl#Node"/>
+    <rdfs:domain rdf:nodeID="A17"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#createTime">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#RECIntrusionAlert"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A8">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
+    <owl:unionOf rdf:nodeID="A18"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A19">
+    <rdf:first rdf:nodeID="A3"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A11">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#hasUser"/>
+    <owl:onClass rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECAIRS.owl#User"/>
+    <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A6">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Complete</rdf:first>
+    <rdf:rest rdf:nodeID="A20"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#numberOfRecommendedResponses">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#Assessment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#responseStatus">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#Assessment"/>
+    <rdfs:range rdf:nodeID="A5"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#hasService">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECAIRS.owl#Service"/>
+    <rdfs:domain rdf:nodeID="A21"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A22">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#impact"/>
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A23">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#intrusionAlertReliability"/>
+    <owl:hasValue>high</owl:hasValue>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A24">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#hasAssessment"/>
+    <owl:onClass rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#Assessment"/>
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A20">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Pending</rdf:first>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A18">
+    <rdf:first rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    <rdf:rest rdf:nodeID="A25"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A26">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:intersectionOf rdf:nodeID="A27"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A12">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#decoy"/>
+    <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+    <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#hasProcess">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECAIRS.owl#Process"/>
+    <rdfs:domain rdf:nodeID="A28"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A29">
+    <rdf:first rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#Source">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:nodeID="A30"/>
+    <rdfs:subClassOf rdf:nodeID="A31"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#Classificationtcpdump_dmz13">
+    <rdf:type rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#Classification"/>
+    <text rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DoS</text>
+    <ident rdf:datatype="http://www.w3.org/2001/XMLSchema#string">tcpdump_dmz13Classification</ident>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A32">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#responseStatus"/>
+    <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+    <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A9">
+    <rdf:first rdf:nodeID="A23"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A33">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#analyzerTime"/>
+    <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+    <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A34">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
+    <owl:oneOf rdf:nodeID="A35"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A36">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
+    <owl:oneOf rdf:nodeID="A37"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A25">
+    <rdf:first rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#portlist">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#ExternalSource"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A27">
+    <rdf:first rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#RECIntrusionAlert"/>
+    <rdf:rest rdf:nodeID="A38"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECAIRS.owl#User">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECAIRS.owl#SNMPService">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A13">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#hasNode"/>
+    <owl:onClass rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECAIRS.owl#Node"/>
+    <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#hasFile">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECAIRS.owl#File"/>
+    <rdfs:domain rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#Target"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#MediumReliabilityFI">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:equivalentClass rdf:nodeID="A26"/>
+    <rdfs:subClassOf rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#RECIntrusionAlert"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#origin">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#Reference"/>
+    <rdfs:range rdf:nodeID="A39"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#isGeneratedBy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECAIRS.owl#Analyzer"/>
+    <rdfs:domain rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#RECIntrusionAlert"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A40">
+    <rdf:first rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECAIRS.owl#Active"/>
+    <rdf:rest rdf:nodeID="A41"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#optimumPassiveResponses">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECAIRS.owl#Passive"/>
+    <rdfs:domain rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#Assessment"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A42">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#hasService"/>
+    <owl:onClass rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECAIRS.owl#Service"/>
+    <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#ExternalSource">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#Source"/>
+    <rdfs:subClassOf rdf:nodeID="A43"/>
+    <rdfs:subClassOf rdf:nodeID="A44"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A45">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#name"/>
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A46">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
+    <owl:unionOf rdf:nodeID="A47"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#messageid">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#RECIntrusionAlert"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A14">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#hasService"/>
+    <owl:onClass rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECAIRS.owl#Service"/>
+    <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#tcpdump_dmz13Target11">
+    <rdf:type rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#Target"/>
+    <hasNode rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECAIRS.owl#DMZ-S1"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A48">
+    <rdf:first rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#Target"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#ident">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:nodeID="A49"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#potentialOptimumResponses">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECAIRS.owl#Active"/>
+    <rdfs:domain rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#Assessment"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#targetLevelOfImportance">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#Assessment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#hasSource">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#RECIntrusionAlert"/>
+    <rdfs:range rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#Source"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A41">
+    <rdf:first rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECAIRS.owl#Passive"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECAIRS.owl#Proactive">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#severity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#Assessment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#topObjectProperty">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#tcpdump_dmz13">
+    <intrusionAlertID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">tcpdump_dmz13</intrusionAlertID>
+    <isARepeatedFormattedIntrusion rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isARepeatedFormattedIntrusion>
+    <description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DoS</description>
+    <createTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-03-17T10:17:09Z</createTime>
+    <hasAssessment rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#tcpdump_dmz13Assessment"/>
+    <detectTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-11-07T16:59:11.742+01:00</detectTime>
+    <hasTarget rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#tcpdump_dmz13Target11"/>
+    <analyzerTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-11-07T16:59:11.742+01:00</analyzerTime>
+    <hasClassification rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#Classificationtcpdump_dmz13"/>
+    <rdf:type rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#RECIntrusionAlert"/>
+    <hasSource rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#tcpdump_dmz13Source1"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A50">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#hasProcess"/>
+    <owl:onClass rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECAIRS.owl#Process"/>
+    <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A51">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#url"/>
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECAIRS.owl#Threat">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#InternalSource">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#Source"/>
+    <rdfs:subClassOf rdf:nodeID="A52"/>
+    <rdfs:subClassOf rdf:nodeID="A53"/>
+    <rdfs:subClassOf rdf:nodeID="A42"/>
+    <rdfs:subClassOf rdf:nodeID="A50"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#LowReliabilityFI">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:equivalentClass rdf:nodeID="A54"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A21">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="A55"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A47">
+    <rdf:first rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    <rdf:rest rdf:nodeID="A56"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A15">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#hasProcess"/>
+    <owl:onClass rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECAIRS.owl#Process"/>
+    <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECAIRS.owl#Service">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A57">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#createTime"/>
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#description">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#RECIntrusionAlert"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECAIRS.owl#WebService">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#continuatedBy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#RECIntrusionAlert"/>
+    <rdfs:domain rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#RECIntrusionAlert"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECAIRS.owl#Passive">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#hasIntrusionType">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECAIRS.owl#Threat"/>
+    <rdfs:domain rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#Assessment"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#Assessment">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:nodeID="A58"/>
+    <rdfs:subClassOf rdf:nodeID="A7"/>
+    <rdfs:subClassOf rdf:nodeID="A59"/>
+    <rdfs:subClassOf rdf:nodeID="A60"/>
+    <rdfs:subClassOf rdf:nodeID="A61"/>
+    <rdfs:subClassOf rdf:nodeID="A62"/>
+    <rdfs:subClassOf rdf:nodeID="A63"/>
+    <rdfs:subClassOf rdf:nodeID="A64"/>
+    <rdfs:subClassOf rdf:nodeID="A32"/>
+    <rdfs:subClassOf rdf:nodeID="A22"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A62">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#severity"/>
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A54">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:intersectionOf rdf:nodeID="A65"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A30">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#ident"/>
+    <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+    <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECAIRS.owl#Response">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A55">
+    <rdf:first rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#InternalSource"/>
+    <rdf:rest rdf:nodeID="A66"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECAIRS.owl#Protection">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#nextIntrusionID">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#RECIntrusionAlert"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#Reference">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:nodeID="A67"/>
+    <rdfs:subClassOf rdf:nodeID="A45"/>
+    <rdfs:subClassOf rdf:nodeID="A51"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A68">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#detectTime"/>
+    <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+    <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#port">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#ExternalSource"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#detectTime">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#RECIntrusionAlert"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECAIRS.owl#File">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A31">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#spoofed"/>
+    <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+    <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#impact">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#Assessment"/>
+    <rdfs:range rdf:nodeID="A46"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#HighReliabilityFI">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:equivalentClass rdf:nodeID="A1"/>
+    <rdfs:subClassOf rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#RECIntrusionAlert"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A59">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#targetLevelOfImportance"/>
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A65">
+    <rdf:first rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#RECIntrusionAlert"/>
+    <rdf:rest rdf:nodeID="A19"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECAIRS.owl#Analyzer">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A66">
+    <rdf:first rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#Target"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#name">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:nodeID="A69"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A70">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="A71"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A72">
+    <rdf:first rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#Source"/>
+    <rdf:rest rdf:nodeID="A73"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A74">
+    <rdf:first rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    <rdf:rest rdf:nodeID="A75"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#bottomObjectProperty">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#hasUser">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECAIRS.owl#User"/>
+    <rdfs:domain rdf:nodeID="A70"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A76">
+    <rdf:first rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#InternalSource"/>
+    <rdf:rest rdf:nodeID="A77"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#hasReference">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#Classification"/>
+    <rdfs:range rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#Reference"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#intrusionAlertID">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#RECIntrusionAlert"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A49">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="A78"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A79">
+    <rdf:first rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#Source"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A60">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#numberOfRecommendedProactiveResponses"/>
+    <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+    <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#recommendedResponses">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#Assessment"/>
+    <rdfs:range rdf:nodeID="A80"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#tcpdump_dmz13Assessment">
+    <intrusionAlertReliability rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.68</intrusionAlertReliability>
+    <numberOfRecommendedResponses rdf:datatype="http://www.w3.org/2001/XMLSchema#int">0</numberOfRecommendedResponses>
+    <impact rdf:datatype="http://www.w3.org/2001/XMLSchema#int">15</impact>
+    <numberOfPotentialOptimumResponses rdf:datatype="http://www.w3.org/2001/XMLSchema#int">0</numberOfPotentialOptimumResponses>
+    <severity rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3</severity>
+    <realIntrusionImpact rdf:datatype="http://www.w3.org/2001/XMLSchema#double">15.68</realIntrusionImpact>
+    <responseStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Pending</responseStatus>
+    <targetLevelOfImportance rdf:datatype="http://www.w3.org/2001/XMLSchema#string">medium</targetLevelOfImportance>
+    <rdf:type rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#Assessment"/>
+    <hasIntrusionType rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECAIRS.owl#dos"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#numberOfRecommendedProactiveResponses">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#Assessment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#hasTarget">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#RECIntrusionAlert"/>
+    <rdfs:range rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#Target"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A71">
+    <rdf:first rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#InternalSource"/>
+    <rdf:rest rdf:nodeID="A81"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A73">
+    <rdf:first rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#Target"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A75">
+    <rdf:first rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECAIRS.owl#Recovery">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#AdditionalData">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A77">
+    <rdf:first rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#Target"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#hasClassification">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#Classification"/>
+    <rdfs:domain rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#RECIntrusionAlert"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A78">
+    <rdf:first rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#Classification"/>
+    <rdf:rest rdf:nodeID="A82"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A39">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
+    <owl:oneOf rdf:nodeID="A83"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A58">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#numberOfPotentialOptimumResponses"/>
+    <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+    <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECAIRS.owl#Node">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#topDataProperty">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A84">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#hasClassification"/>
+    <owl:onClass rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#Classification"/>
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A81">
+    <rdf:first rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#Target"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A85">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
+    <owl:unionOf rdf:nodeID="A86"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#intrusionAlertReliability">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#Assessment"/>
+    <rdfs:range rdf:nodeID="A85"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#isARepeatedRECIntrusionAlert">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#RECIntrusionAlert"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A28">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="A87"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A82">
+    <rdf:first rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#Source"/>
+    <rdf:rest rdf:nodeID="A88"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A83">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">bugtraqid</rdf:first>
+    <rdf:rest rdf:nodeID="A89"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#analyzerTime">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#RECIntrusionAlert"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A80">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="A40"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A86">
+    <rdf:first rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    <rdf:rest rdf:nodeID="A29"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A67">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#origin"/>
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A89">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cve</rdf:first>
+    <rdf:rest rdf:nodeID="A90"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#Classification">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:nodeID="A91"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A87">
+    <rdf:first rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#InternalSource"/>
+    <rdf:rest rdf:nodeID="A48"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#addressIP">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#ExternalSource"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A88">
+    <rdf:first rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#Target"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A90">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">osvdb</rdf:first>
+    <rdf:rest rdf:nodeID="A92"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECAIRS.owl#Active">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A64">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#intrusionAlertReliability"/>
+    <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+    <owl:onDataRange rdf:nodeID="A93"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A52">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#hasUser"/>
+    <owl:onClass rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECAIRS.owl#User"/>
+    <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECAIRS.owl#Reaction">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#realIntrusionImpact">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#Assessment"/>
+    <rdfs:range rdf:nodeID="A94"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A16">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
+    <owl:oneOf rdf:nodeID="A95"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A35">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">failed</rdf:first>
+    <rdf:rest rdf:nodeID="A96"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A37">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">no</rdf:first>
+    <rdf:rest rdf:nodeID="A97"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A63">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#numberOfRecommendedResponses"/>
+    <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+    <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A98">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#intrusionAlertReliability"/>
+    <owl:hasValue>medium</owl:hasValue>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECAIRS.owl#Process">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A92">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">unknown</rdf:first>
+    <rdf:rest rdf:nodeID="A99"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A93">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
+    <owl:unionOf rdf:nodeID="A100"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#tcpdump_dmz13Source1">
+    <rdf:type rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#ExternalSource"/>
+    <addressIP rdf:datatype="http://www.w3.org/2001/XMLSchema#string">10.1.100.26</addressIP>
+    <port rdf:datatype="http://www.w3.org/2001/XMLSchema#int">36509</port>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#url">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#Reference"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A53">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#hasNode"/>
+    <owl:onClass rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECAIRS.owl#Node"/>
+    <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A95">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">no</rdf:first>
+    <rdf:rest rdf:nodeID="A101"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A96">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">succeeded</rdf:first>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A97">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">unknown</rdf:first>
+    <rdf:rest rdf:nodeID="A102"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A91">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#text"/>
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A38">
+    <rdf:first rdf:nodeID="A98"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A56">
+    <rdf:first rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#hasSimilarResult">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#RECIntrusionAlert"/>
+    <rdfs:domain rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#RECIntrusionAlert"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A99">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">user-specific</rdf:first>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A100">
+    <rdf:first rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    <rdf:rest rdf:nodeID="A103"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A101">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">unknown</rdf:first>
+    <rdf:rest rdf:nodeID="A104"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A69">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="A105"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#spoofed">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#Source"/>
+    <rdfs:range rdf:nodeID="A36"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#text">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#Classification"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A102">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">yes</rdf:first>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#numberOfPotentialOptimumResponses">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#Assessment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A43">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#addressIP"/>
+    <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+    <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A106">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="A72"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#recommendedProactiveResponses">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECAIRS.owl#Proactive"/>
+    <rdfs:domain rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#Assessment"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#interface">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:nodeID="A106"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A94">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
+    <owl:unionOf rdf:nodeID="A74"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A103">
+    <rdf:first rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#isContinuationOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#RECIntrusionAlert"/>
+    <rdfs:range rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#RECIntrusionAlert"/>
+    <owl:inverseOf rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#continuatedBy"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#optimumResponse">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECAIRS.owl#Active"/>
+    <rdfs:domain rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#Assessment"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A17">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="A76"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A104">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">yes</rdf:first>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#timingOfIntrusionDetection">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#RECIntrusionAlert"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#intrusionCompletion">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#Assessment"/>
+    <rdfs:range rdf:nodeID="A34"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A105">
+    <rdf:first rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#Reference"/>
+    <rdf:rest rdf:nodeID="A79"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A61">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#intrusionCompletion"/>
+    <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+    <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#RECIntrusionAlert">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:nodeID="A57"/>
+    <rdfs:subClassOf rdf:nodeID="A68"/>
+    <rdfs:subClassOf rdf:nodeID="A0"/>
+    <rdfs:subClassOf rdf:nodeID="A10"/>
+    <rdfs:subClassOf rdf:nodeID="A24"/>
+    <rdfs:subClassOf rdf:nodeID="A33"/>
+    <rdfs:subClassOf rdf:nodeID="A84"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A44">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#port"/>
+    <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+    <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#hasAssessment">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#Assessment"/>
+    <rdfs:domain rdf:resource="http://www.dit.upm.es/~reclamo/ontologies/RECIntrusionAlert.owl#RECIntrusionAlert"/>
+  </rdf:Description>
 </rdf:RDF>

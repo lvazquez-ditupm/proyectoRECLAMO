@@ -229,7 +229,7 @@ public class AlertReceiver {
                         int i1 = alert.indexOf("Priority:", 0);
                         int i2 = alert.indexOf("]", i1);
                         String process = alert.substring(i1 + 10, i2);
-                        if (Integer.parseInt(process) > threshold) {
+                        if (Integer.parseInt(process) < threshold) {
                             i1 = alert.indexOf(">", 0);
                             i2 = alert.indexOf(" ", i1 + 1);
                             process = alert.substring(i1 + 1, i2 - 1);
