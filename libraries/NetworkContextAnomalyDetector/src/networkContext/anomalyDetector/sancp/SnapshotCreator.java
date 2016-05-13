@@ -65,19 +65,19 @@ public class SnapshotCreator {
         Vector<File> candidates = new Vector<File>();
         //System.out.println(folder.getPath());
         File[] listOfFiles = folder.listFiles();
-        for (int i = 0; i < listOfFiles.length; i++) {
-            if (listOfFiles[i].isFile()) {
-                name = listOfFiles[i].getName();
-                if (name.startsWith("realtime") && name.length() > 8) {
-                    shortname = name.substring(9);
-                    if (shortname.startsWith(interName)) {
-                        //System.out.println("candidate: "+name);
-                        candidates.add(listOfFiles[i]);
+        try {
+            for (int i = 0; i < listOfFiles.length; i++) {
+                if (listOfFiles[i].isFile()) {
+                    name = listOfFiles[i].getName();
+                    if (name.startsWith("realtime") && name.length() > 8) {
+                        shortname = name.substring(9);
+                        if (shortname.startsWith(interName)) {
+                            //System.out.println("candidate: "+name);
+                            candidates.add(listOfFiles[i]);
+                        }
                     }
                 }
             }
-        }
-        try {
             File f = obtainMostRecent(candidates, interName);
 
             // System.out.println("El fichero a procesar es el siguiente: "+ f.getPath());
@@ -87,7 +87,7 @@ public class SnapshotCreator {
             is.elementAt(i).printData();
              }*/
             return new Snapshot(is, interName);
-        } catch (Exception e){
+        } catch (Exception e) {
             return null;
         }
     }

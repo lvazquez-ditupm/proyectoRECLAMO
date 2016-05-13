@@ -35,9 +35,9 @@
  *   names, trademarks, or service marks.
  *
  * You should have received a copy of the GNU Lesser General Public License
- * along with this program (lgpl.txt).  If not, see <http://www.gnu.org/licenses/>
+ * along with this program (lgpl.txt).  If not, see
+ * <http://www.gnu.org/licenses/>
  */
-
 package evaluation.system.mode.selector;
 
 import evaluation.system.executor.EvaluationSystemExecutor;
@@ -50,14 +50,16 @@ import java.util.Iterator;
 import java.util.logging.Logger;
 
 /**
- * This class represents a component responsible for selecting the operation mode
- * to run the intrusion response evaluation module: training or execution. Also, this
- * component checks if the required parameters are provided in the right way.
+ * This class represents a component responsible for selecting the operation
+ * mode to run the intrusion response evaluation module: training or execution.
+ * Also, this component checks if the required parameters are provided in the
+ * right way.
  *
  * @author UPM (member of RECLAMO Development Team) (http://reclamo.inf.um.es)
  * @version 1.0
  */
 public class EvaluationSystemModeSelector {
+
     private static Logger _log = Logger.getLogger(EvaluationSystemModeSelector.class.getName());
     private ExecutionModeParams paramsEx;
     private TrainingModeParams paramsTr;
@@ -66,42 +68,45 @@ public class EvaluationSystemModeSelector {
     private EvaluationSystemTrainerInit trainer;
     private ResponseTotalEfficiency resultado;
     private double threshold;
+
     /*Constructor de la clase si los parametros son en modo ejecucion*/
-    public EvaluationSystemModeSelector(String mode, ExecutionModeParams paramsEx){
+    public EvaluationSystemModeSelector(String mode, ExecutionModeParams paramsEx) {
         this.mode = mode;
         this.paramsEx = paramsEx;
     }
-    
+
     /* Constructor de la clase si los parametros son en modo entrenamiento */
-    public EvaluationSystemModeSelector (String mode, TrainingModeParams paramsTr){
+    public EvaluationSystemModeSelector(String mode, TrainingModeParams paramsTr) {
         this.mode = mode;
         this.paramsTr = paramsTr;
-        
-    }
-    
-    public boolean start(){
-        /*Alguien ha invocado al sistema de evaluación del exito de  la respuesta */
-	long startTime = System.currentTimeMillis();
-	System.out.println("**** INIT EvaluationSystemModeSelector at "+mode+" mode. ****");         
 
-        if(checkModeParams(mode)){
+    }
+
+    public boolean start() {
+        /*Alguien ha invocado al sistema de evaluación del exito de  la respuesta */
+        long startTime = System.currentTimeMillis();
+        System.out.println("**** INIT EvaluationSystemModeSelector at " + mode + " mode. ****");
+
+        if (checkModeParams(mode)) {
             //Invocamos al modulo encargado de ejecutar el modo seleccionado.
-            if(mode.equalsIgnoreCase("execution")){
+            if (mode.equalsIgnoreCase("execution")) {
                 String intrusionType = paramsEx.getIntrusionType();
                 String responseID = paramsEx.getResponseID();
                 String responseType = paramsEx.getResponseType();
                 String targetip = paramsEx.getTargetIP();
-                HashMap anomalyMap = paramsEx.getAnomalyMap();
+                //HashMap anomalyMap = paramsEx.getAnomalyMap();
                 String[] addParam = paramsEx.getAdParam();
-                executor = new EvaluationSystemExecutor (intrusionType, responseID, responseType, targetip, anomalyMap, addParam);
-                if(executor.init()){
+                executor = new EvaluationSystemExecutor(intrusionType, responseID, responseType, targetip, null, addParam);
+                if (executor.init()) {
                     resultado = executor.getRTE();
-		    long endTime = System.currentTimeMillis();
-		    System.out.println("**** END EvaluationSystemModeSelector at "+mode+ " mode *** Total time : "+(endTime - startTime)+" (ms)****");
+                    long endTime = System.currentTimeMillis();
+                    System.out.println("**** END EvaluationSystemModeSelector at " + mode + " mode *** Total time : " + (endTime - startTime) + " (ms)****");
                     return true;
-                }else  return false;
+                } else {
+                    return false;
+                }
 
-            }else if(mode.equalsIgnoreCase("training")){
+            } else if (mode.equalsIgnoreCase("training")) {
                 String intrusionType = paramsTr.getIntrusionType();
                 String systemIP = paramsTr.getTrainingSystemIP();
                 String systemNet = paramsTr.getTrainingSystemNetmask();
@@ -110,71 +115,78 @@ public class EvaluationSystemModeSelector {
                 String[] addParam = paramsTr.getAdParam();
                 int num = paramsTr.getNumberOfExecution();
                 int port = paramsTr.getTrainingSystemPort();
-                trainer = new EvaluationSystemTrainerInit (trainingSet, num, trainingSetType, intrusionType, port, systemIP, systemNet, addParam);
-           
+                trainer = new EvaluationSystemTrainerInit(trainingSet, num, trainingSetType, intrusionType, port, systemIP, systemNet, addParam);
+
                 threshold = trainer.init();
-		long endTime = System.currentTimeMillis();
-                System.out.println("Threshold: "+threshold);
-                System.out.println("**** END EvaluationSystemModeSelector at "+mode+ " mode *** Total time : "+(endTime - startTime)+" (ms)****");
+                long endTime = System.currentTimeMillis();
+                System.out.println("Threshold: " + threshold);
+                System.out.println("**** END EvaluationSystemModeSelector at " + mode + " mode *** Total time : " + (endTime - startTime) + " (ms)****");
                 return true;
-            } else return false;
-        }else return false;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
 
     }
-    
-    private boolean checkModeParams(String mode){
-        if(mode.equals("execution")){
-            if((paramsEx.getResponseID()!= null) &&(paramsEx.getIntrusionType()!=null) && (paramsEx.getTargetIP()!=null)){
-                if (paramsEx.getAnomalyMap().size() == 9){
+
+    private boolean checkModeParams(String mode) {
+        if (mode.equals("execution")) {
+            /* if ((paramsEx.getResponseID() != null) && (paramsEx.getIntrusionType() != null) && (paramsEx.getTargetIP() != null)) {
+                if (paramsEx.getAnomalyMap().size() == 9) {
                     HashMap map = paramsEx.getAnomalyMap();
                     Iterator anomalyit = map.keySet().iterator();
-                    while (anomalyit.hasNext()){
-                        try{
-                            int anomalyValue = (Integer)map.get(anomalyit.next().toString());
-                        }
-                        catch (Exception e){
+                    while (anomalyit.hasNext()) {
+                        try {
+                            int anomalyValue = (Integer) map.get(anomalyit.next().toString());
+                        } catch (Exception e) {
                             _log.warning("Ha habido un error obteniendo parámetros de anomalía");
                             return false;
                         }
                     }
                     return true;
-                }else{
-                    _log.warning ("El número de indicadores de contexto no es correcto");
+                } else {
+                    _log.warning("El número de indicadores de contexto no es correcto");
                     return false;
                 }
-            }
-            else
+            } else {
                 return false;
-        }else if (mode.equals("training")){
+            }
+        } */
+            if ((paramsEx.getResponseID() != null) && (paramsEx.getIntrusionType() != null) && (paramsEx.getTargetIP() != null)) {
+                return true;
+            } else {
+                return false;
+            }
+        } else if (mode.equals("training")) {
             paramsTr.PrintTrainingSet();
-            System.out.println("IntrusionTYpe: "+paramsTr.getIntrusionType());
-            System.out.println("Mode: "+paramsTr.getMode());
-            System.out.println("TrainingSEt: "+paramsTr.getTrainingSetType());
-            System.out.println("NumberOfExecution: "+paramsTr.getNumberOfExecution());
-            if((paramsTr.getTrainingSetType()!=null)&&(paramsTr.getNumberOfExecution()>0)){
-                if ((paramsTr.getTrainingSet().size()>0)){
+            System.out.println("IntrusionTYpe: " + paramsTr.getIntrusionType());
+            System.out.println("Mode: " + paramsTr.getMode());
+            System.out.println("TrainingSEt: " + paramsTr.getTrainingSetType());
+            System.out.println("NumberOfExecution: " + paramsTr.getNumberOfExecution());
+            if ((paramsTr.getTrainingSetType() != null) && (paramsTr.getNumberOfExecution() > 0)) {
+                if ((paramsTr.getTrainingSet().size() > 0)) {
                     return true;
-                }else{
-                    _log.warning ("El conjunto de entrenamiento está vacio");
+                } else {
+                    _log.warning("El conjunto de entrenamiento está vacio");
                     return false;
                 }
-            }
-            else{
-                _log.warning ("no se ha especificado el tipo de conjunto de entrenamiento o tipo de intrusion");
+            } else {
+                _log.warning("no se ha especificado el tipo de conjunto de entrenamiento o tipo de intrusion");
                 return false;
             }
-        }
-        else {
+        } else {
             _log.warning("El modo seleccionado no es correcto");
             return false;
         }
     }
-    
-    public ResponseTotalEfficiency getExecutionModeResult(){
+
+    public ResponseTotalEfficiency getExecutionModeResult() {
         return resultado;
     }
-    
-    public double getTrainingModeResult(){
+
+    public double getTrainingModeResult() {
         return threshold;
     }
 }

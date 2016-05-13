@@ -166,7 +166,7 @@ public class AlertReceiver {
         ExecutorService exec;
 
         public Receiver() {
-            exec = Executors.newFixedThreadPool(1);
+            exec = Executors.newFixedThreadPool(10);
 
         }
 

@@ -38,10 +38,13 @@
  */
 package networkContext.anomalyDetector.sancp;
 
+import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Field;
+import java.util.AbstractSet;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import networkContext.anomalyDetector.util.LinuxUtils;
@@ -61,82 +64,96 @@ public class SancpManager {
 
     private volatile PropsUtil props = new PropsUtil();
     private Process sancp;
-    private static volatile ArrayList<Integer> pids = new ArrayList<Integer>();
+    private static volatile ArrayList<Integer> pids = new ArrayList<>();
     private final String sancpDir;
     private final String interfaceID;
     private final String sancpConf;
     private final String sancpLog;
-    private static volatile boolean accessFlag = true;
-    private Object lock = new Object();
+    private static final Object lock = new Object();
 
     public SancpManager(String iface) {
         this.interfaceID = iface;
-        sancpDir = props.getNetworkContextSancpSensorPathValue();
+        sancpDir = props.getNetworkContextSancpSensorPathValue() + "/" + Thread.currentThread();
         sancpConf = props.getNetworkContextSancpConfigFilePathValue();
         sancpLog = props.getNetworkContextSancpLogFilePathValue();
 
     }
 
-    private int startSancp() {
-        synchronized (lock) {
-            int pid = -1;
-            int equality = 0;
-            int testUnique = 0;
-            String command = "sudo sancp --human-readable -d " + sancpDir + " -i " + interfaceID + " -c " + sancpConf + " > " + sancpLog;
-            try {
-                System.out.println("Starting sancp: " + command);
-                // Se ejecuta el comando para arrancar sancp sin ningún log interno
-                sancp = LinuxUtils.runCommand(command, false, false, false);
-            } catch (Exception e) {
-                System.err.println(e);
-            } finally {
-                // Devuelve un set con los PID de todos los procesos de sancp en ejecución y se pasa a un array  
-                Set<Integer> setPids = LinuxUtils.getProcessId("sancp");;
-                while (setPids.size() == 0) {
-                    setPids = LinuxUtils.getProcessId("sancp");
-                }
-
-                int[] ids = new int[setPids.size()];
-                int i = 0;
-                for (Integer val : setPids) {
-                    ids[i++] = val;
-                }
-
-                // Si la lista está vacía, se añade el único valor del array (el PID creado en este hilo)
-                if (pids.isEmpty()) {
-                    pids.add(ids[0]);
-                    pid = ids[0];
-
-                    // Si tiene valores, se comparan el array y la lista. El valor del array que no está en la lista es
-                    // el PID creado, que se añade a la lista.
-                } else {
-
-                    for (int j = 0; j < ids.length; j++) {
-                        for (int k = 0; k < pids.size(); k++) {
-                            if (pids.get(k) == ids[j]) {
-                                equality++;
-                            }
-                        }
-                        if (equality == 0) {
-                            testUnique++;
-                            if (testUnique == 1) {
-                                pids.add(ids[j]);
-                                pid = ids[j];
-
-                                // Si hubiera más de un valor distinto (un hilo crea varios procesos), se eliminan.
-                            } else {
-                                try {
-                                    sancp.destroy();
-                                    LinuxUtils.killProcess(ids[j]);
-                                } catch (Exception e) {
-                                }
-                            }
-                        }
-                        equality = 0;
-                    }
-                }
-                return pid;
+    private void deleteFolder(File folder) {
+        File[] files = folder.listFiles();
+        if (files != null) {
+            for (File f : files) {
+                f.delete();
             }
+        }
+        folder.delete();
+    }
+
+    synchronized private int startSancp() {
+
+        File folder = new File(sancpDir);
+        deleteFolder(folder);
+        folder.mkdir();
+        int pid = -1;
+        int equality = 0;
+        int testUnique = 0;
+        String command = "sudo sancp --human-readable -d " + sancpDir + " -i " + interfaceID + " -c " + sancpConf + " > " + sancpLog;
+        try {
+            System.out.println("Starting sancp: " + command);
+            // Se ejecuta el comando para arrancar sancp sin ningún log interno
+            sancp = LinuxUtils.runCommand(command, false, false, false);
+        } catch (Exception e) {
+            System.err.println(e);
+        } finally {
+            // Devuelve un set con los PID de todos los procesos de sancp en ejecución y se pasa a un array  
+            Set<Integer> setPids = new HashSet<>();
+            while (setPids.size() <= pids.size()) {
+                setPids = LinuxUtils.getProcessId("sancp");
+            }
+
+            int[] ids = new int[setPids.size()];
+            int i = 0;
+            for (Integer val : setPids) {
+                ids[i++] = val;
+            }
+
+            // Si la lista está vacía, se añade el único valor del array (el PID creado en este hilo)
+            if (pids.isEmpty()) {
+                pids.add(ids[0]);
+                pid = ids[0];
+
+                // Si tiene valores, se comparan el array y la lista. El valor del array que no está en la lista es
+                // el PID creado, que se añade a la lista.
+            } else {
+
+                for (int j = 0; j < ids.length; j++) {
+                    for (int k = 0; k < pids.size(); k++) {
+                        if (pids.get(k) == ids[j]) {
+                            equality++;
+                        }
+                    }
+                    if (equality == 0) {
+                        testUnique++;
+                        if (testUnique == 1) {
+                            pids.add(ids[j]);
+                            pid = ids[j];
+
+                            // Si hubiera más de un valor distinto (un hilo crea varios procesos), se eliminan.
+                        } else {
+                            try {
+                                sancp.destroy();
+                                LinuxUtils.killProcess(ids[j]);
+                            } catch (Exception e) {
+                            }
+                        }
+                    }
+                    equality = 0;
+                }
+            }
+            if (pid == -1) {
+                System.out.println("HOLA");
+            }
+            return pid;
         }
     }
 
@@ -147,32 +164,25 @@ public class SancpManager {
     private boolean stopSancp(int pid) {
         synchronized (pids) {
             try {
-                int sancppid = pid;
 
-                if (!isSancpRunning(pid)) {
-                    return true;
-                }
-
-                if (sancp != null) {
+                if (isSancpRunning(pid) && sancp != null) {
+                    int sancppid = pid;
                     try {
-                        boolean kill = false;
                         try {
                             sancp.destroy();
-                            kill = LinuxUtils.killProcess(sancppid);
+                            LinuxUtils.killProcess(sancppid);
                         } catch (Exception e) {
                         }
 
-                        if (kill) {
-
-                            // Si se ha matado al proceso, se elimina el PID de la lista.
-                            for (int i = 0; i < pids.size(); i++) {
-                                if (pids.get(i) == sancppid) {
-                                    pids.remove(i);
-                                }
+                        // Si se ha matado al proceso, se elimina el PID de la lista.
+                        for (int i = 0; i < pids.size(); i++) {
+                            if (pids.get(i) == sancppid) {
+                                pids.remove(i);
                             }
-                            System.out.println("Mata el proceso sancp " + sancppid);
                         }
-                        return kill;
+                        System.out.println("Mata el proceso sancp " + sancppid);
+
+                        return true;
 
                     } catch (Exception e) {
                         System.out.println("Error matando el proceso " + e);
@@ -194,8 +204,10 @@ public class SancpManager {
         Snapshot snap = new SnapshotCreator().createSnap(sancpDir, interfaceID);
 
         if (snap != null) {
-            stopSancp(pidsancp);
+            while (!stopSancp(pidsancp)) {
+            }
             return snap;
+
         } else {
             try {
                 Thread.sleep(1000);
@@ -206,31 +218,28 @@ public class SancpManager {
         }
     }
 
-    private void cleanDir() {
-        String command = "sudo rm " + sancpDir + "/*";
-        try {
-            System.out.println(command);
-            sancp = LinuxUtils.runCommand(command, false, false, false);
-        } catch (Exception e) {
-            System.err.println(e);
-        }
-    }
-
     public Snapshot obtainCurrentValues() {
 
         int pidsancp = -1;
-        while (pidsancp == -1) {
-            pidsancp = startSancp();
+        synchronized (pids) {
+            while (pidsancp == -1) {
+                pidsancp = startSancp();
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException ex) {
+                    System.err.println(ex);
+                }
+            }
+
+            System.out.println("Corriendo SANCP con valor :" + pidsancp);
         }
-        System.out.println("Corriendo SANCP con valor :" + pidsancp);
         try {
             Thread.sleep(3000);
         } catch (InterruptedException ex) {
             System.err.println(ex);
         }
-        Snapshot snapshot = tryStopSancp(pidsancp);
 
-        cleanDir();
+        Snapshot snapshot = tryStopSancp(pidsancp);
 
         return snapshot;
     }
