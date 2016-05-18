@@ -869,6 +869,7 @@ public class RECOntAIRSReasoner {
 
     private void getOptimumResponses() {
 
+        int intSeverity = alertmap.getIntSeverity();
         Resource intrusionOptim = inferedModel.getResource(INTRUSIONALERTNAMESPACE + this.ejemplarIntrusionNuevo);
         //MIGUEL Individual formattedIntrusionOptim = inferedModel.getIndividual(INTRUSIONALERTNAMESPACE + intrusionOptim.getLocalName());
         Individual formattedIntrusionOptim = inferedModel.getIndividual(intrusionOptim.toString());
@@ -879,14 +880,19 @@ public class RECOntAIRSReasoner {
         Property targetLOI = inferedModel.getProperty(INTRUSIONALERTNAMESPACE + "targetLevelOfImportance");
         Property response_cost = inferedModel.getProperty(AIRSNAMESPACE + "cost");
         Property response_complexity = inferedModel.getProperty(AIRSNAMESPACE + "complexity");
+        Property response_severity = inferedModel.getProperty(AIRSNAMESPACE + "severity");
+        Property response_efficiency = inferedModel.getProperty(AIRSNAMESPACE + "efficiency");
+        Property response_action = inferedModel.getProperty(AIRSNAMESPACE + "responseAction");
 
         Iterator alert_assessment_it = (Iterator) formattedIntrusionOptim.listPropertyValues(prop_has_assessment);
+
         int v = 0;
         while (alert_assessment_it.hasNext()) {
             v++;
             List<Resource> opt_response_list = new ArrayList();
             List<Resource> opt_response_final_list = new ArrayList();
             Resource alert_assessment_resource = (Resource) alert_assessment_it.next();
+
             //MIGUEL Individual alert_assessment_individual = inferedModel.getIndividual(INTRUSIONALERTNAMESPACE+alert_assessment_resource.getLocalName());
             Individual alert_assessment_individual = inferedModel.getIndividual(alert_assessment_resource.toString());
             //MIGUEL Individual assessment = alert_intrusion_model.getIndividual(INTRUSIONALERTNAMESPACE+alert_assessment_resource.getLocalName());
@@ -914,12 +920,157 @@ public class RECOntAIRSReasoner {
                 String loi = a.substring(0, i1);
 
                 if (loi.equals("high")) {
-                    int cost_min = 0;
-                    int j = 0;
-                    for (j = 0; j < opt_response_list.size(); j++) {
-                        Resource resp_op = opt_response_list.get(j);
+                    double sever_max = 0;
+                    double effic_max = 0;
+                    int num_opt_res = 0;
+                    List<Resource> candidates_list = new ArrayList();
+                    List<Resource> opt_candidates_list = new ArrayList();
+
+                    for (int x = 0; x < opt_response_list.size(); x++) {
+                        Resource resp_cand = opt_response_list.get(x);
                         //MIGUEL Individual resp_op_indi = inferedModel.getIndividual(AIRSNAMESPACE + resp_op.getLocalName());
+                        Individual resp_cand_indi = inferedModel.getIndividual(resp_cand.toString());
+                        String severity = resp_cand_indi.getPropertyValue(response_severity).toString();
+                        int i2 = severity.indexOf("^");
+                        int sever_number = Integer.parseInt(severity.substring(0, i2));
+                        String eficciency = resp_cand_indi.getPropertyValue(response_efficiency).toString();
+                        i2 = eficciency.indexOf("^");
+                        double efic_number = Double.parseDouble(eficciency.substring(0, i2));
+                        String action = resp_cand_indi.getPropertyValue(response_action).toString();
+                        i2 = action.indexOf("^");
+                        action = action.substring(0, i2);
+                        double RE = getRE(action);
+
+                        if (RE * sever_number >= intSeverity) {
+                            candidates_list.add(resp_cand);
+
+                            if (sever_max == 0) {
+                                sever_max = RE * sever_number;
+                            } else if (RE * sever_number >= sever_max) {
+                                sever_max = RE * sever_number;
+                            }
+
+                            if (effic_max == 0) {
+                                effic_max = efic_number;
+                            } else if (efic_number >= effic_max) {
+                                effic_max = efic_number;
+                            }
+                        }
+                    }
+
+                    for (int j = 0; j < candidates_list.size(); j++) {
+
+                        Resource resp_op_cand = candidates_list.get(j);
+                        Individual resp_op_cand_indi = inferedModel.getIndividual(resp_op_cand.toString());
+                        String severity = resp_op_cand_indi.getPropertyValue(response_severity).toString();
+                        int i2 = severity.indexOf("^");
+                        int sever_number = Integer.parseInt(severity.substring(0, i2));
+
+                        if (sever_number == sever_max) {
+                            opt_candidates_list.add(resp_op_cand);
+                            num_opt_res++;
+                        }
+                    }
+
+                    if (num_opt_res > 1) {
+
+                        for (int j = 0; j < opt_candidates_list.size(); j++) {
+
+                            Resource resp_op = opt_candidates_list.get(j);
+                            Individual resp_op_indi = inferedModel.getIndividual(resp_op.toString());
+                            String efficiency = resp_op_indi.getPropertyValue(response_severity).toString();
+                            int i2 = efficiency.indexOf("^");
+                            int effic_number = Integer.parseInt(efficiency.substring(0, i2));
+
+                            if (effic_number == effic_max) {
+                                opt_response_final_list.add(resp_op);
+                            }
+                        }
+
+                    } else if (num_opt_res == 1) {
+                        opt_response_final_list.add(opt_candidates_list.get(0));
+                    }
+
+                } else if (loi.equals("medium")) {
+                    int cost_min = 0;
+                    double effic_max = 0;
+                    int num_opt_res = 0;
+                    List<Resource> candidates_list = new ArrayList();
+                    List<Resource> opt_candidates_list = new ArrayList();
+
+                    for (int j = 0; j < opt_response_list.size(); j++) {
+                        Resource resp_cand = opt_response_list.get(j);
+                        Individual resp_cand_indi = inferedModel.getIndividual(resp_cand.toString());
+                        String severity = resp_cand_indi.getPropertyValue(response_severity).toString();
+                        int i2 = severity.indexOf("^");
+                        int sever_number = Integer.parseInt(severity.substring(0, i2));
+                        String cost = resp_cand_indi.getPropertyValue(response_cost).toString();
+                        i2 = cost.indexOf("^");
+                        int cost_number = Integer.parseInt(cost.substring(0, i2));
+                        String efficiency = resp_cand_indi.getPropertyValue(response_efficiency).toString();
+                        i2 = efficiency.indexOf("^");
+                        double effic_number = Double.parseDouble(efficiency.substring(0, i2));
+                        String action = resp_cand_indi.getPropertyValue(response_action).toString();
+                        i2 = action.indexOf("^");
+                        action = action.substring(0, i2);
+                        double RE = getRE(action);
+
+                        if (RE * sever_number >= intSeverity) {
+                            candidates_list.add(resp_cand);
+
+                            if (cost_min == 0) {
+                                cost_min = cost_number;
+                            } else if (cost_number <= cost_min) {
+                                cost_min = cost_number;
+                            }
+
+                            if (effic_max == 0) {
+                                effic_max = effic_number;
+                            } else if (effic_number >= effic_max) {
+                                effic_max = effic_number;
+                            }
+                        }
+                    }
+
+                    for (int x = 0; x < candidates_list.size(); x++) {
+                        Resource resp_op_cand = candidates_list.get(x);
+
+                        Individual resp_op_cand_indi = inferedModel.getIndividual(resp_op_cand.toString());
+                        String cost = resp_op_cand_indi.getPropertyValue(response_cost).toString();
+                        int i2 = cost.indexOf("^");
+                        int cost_number = Integer.parseInt(cost.substring(0, i2));
+
+                        if (cost_number == cost_min) {
+                            opt_candidates_list.add(resp_op_cand);
+                            num_opt_res++;
+                        }
+                    }
+
+                    if (num_opt_res > 1) {
+
+                        for (int j = 0; j < opt_candidates_list.size(); j++) {
+
+                            Resource resp_op = opt_candidates_list.get(j);
+                            Individual resp_op_indi = inferedModel.getIndividual(resp_op.toString());
+                            String efficiency = resp_op_indi.getPropertyValue(response_severity).toString();
+                            int i2 = efficiency.indexOf("^");
+                            double effic_number = Double.parseDouble(efficiency.substring(0, i2));
+
+                            if (effic_number == effic_max) {
+                                opt_response_final_list.add(resp_op);
+                            }
+                        }
+
+                    } else if (num_opt_res == 1) {
+                        opt_response_final_list.add(opt_candidates_list.get(0));
+                    }
+
+                } else if (loi.equals("low")) {
+                    int cost_min = 0;
+                    for (int j = 0; j < opt_response_list.size(); j++) {
+                        Resource resp_op = opt_response_list.get(j);
                         Individual resp_op_indi = inferedModel.getIndividual(resp_op.toString());
+
                         String cost = resp_op_indi.getPropertyValue(response_cost).toString();
                         int i2 = cost.indexOf("^");
                         int cost_number = Integer.parseInt(cost.substring(0, i2));
@@ -931,52 +1082,18 @@ public class RECOntAIRSReasoner {
 
                     }
 
-                    //  System.out.println("EL coste mínimo de las respuestas optimas es "+cost_min);
-                    int x = 0;
-                    for (x = 0; x < opt_response_list.size(); x++) {
+                    for (int x = 0; x < opt_response_list.size(); x++) {
                         Resource resp_op = opt_response_list.get(x);
-                        //MIGUEL Individual resp_op_indi = inferedModel.getIndividual(AIRSNAMESPACE + resp_op.getLocalName());
+
                         Individual resp_op_indi = inferedModel.getIndividual(resp_op.toString());
                         String cost = resp_op_indi.getPropertyValue(response_cost).toString();
                         int i2 = cost.indexOf("^");
                         int cost_number = Integer.parseInt(cost.substring(0, i2));
+
                         if (cost_number == cost_min) {
                             opt_response_final_list.add(resp_op);
                         }
                     }
-
-                } else if (loi.equals("medium") || loi.equals("low")) {
-                    int complexity_min = 0;
-                    int j = 0;
-                    for (j = 0; j < opt_response_list.size(); j++) {
-                        Resource resp_op = opt_response_list.get(j);
-                        //MIGUEL Individual resp_op_indi = inferedModel.getIndividual(AIRSNAMESPACE + resp_op.getLocalName());
-                        Individual resp_op_indi = inferedModel.getIndividual(resp_op.toString());
-                        String compl = resp_op_indi.getPropertyValue(response_complexity).toString();
-                        int i2 = compl.indexOf("^");
-                        int complexity_number = Integer.parseInt(compl.substring(0, i2));
-                        if (complexity_min == 0) {
-                            complexity_min = complexity_number;
-                        } else if (complexity_number <= complexity_min) {
-                            complexity_min = complexity_number;
-                        }
-
-                    }
-
-                    System.out.println("EL coste mínimo de las respuestas optimas es " + complexity_min);
-                    int x = 0;
-                    for (x = 0; x < opt_response_list.size(); x++) {
-                        Resource resp_op = opt_response_list.get(x);
-                        //MIGUEL Individual resp_op_indi = inferedModel.getIndividual(AIRSNAMESPACE + resp_op.getLocalName());
-                        Individual resp_op_indi = inferedModel.getIndividual(resp_op.toString());
-                        String compl = resp_op_indi.getPropertyValue(response_complexity).toString();
-                        int i2 = compl.indexOf("^");
-                        int complexity_number = Integer.parseInt(compl.substring(0, i2));
-                        if (complexity_number == complexity_min) {
-                            opt_response_final_list.add(resp_op);
-                        }
-                    }
-
                 }
             } else {
                 opt_response_final_list = opt_response_list;
@@ -1486,7 +1603,8 @@ public class RECOntAIRSReasoner {
             inf_modelReader.read(responseModel, ontology_airs_uri);
         }
         Resource response_resource = responseModel.getResource(AIRSNAMESPACE + "Response");
-        OntClass class_Response = (OntClass) response_resource.as(OntClass.class);
+        OntClass class_Response = (OntClass) response_resource.as(OntClass.class
+        );
         Property responseEff_prop = responseModel.getProperty(AIRSNAMESPACE + "efficiency");
         Property responseID_prop = responseModel.getProperty(AIRSNAMESPACE + "responseAction");
         Property responseType_prop = responseModel.getProperty(AIRSNAMESPACE + "responseType");
@@ -1541,7 +1659,8 @@ public class RECOntAIRSReasoner {
             inf_modelReader.read(responseModel, ontology_airs_uri);
         }
         Resource response_resource = responseModel.getResource(AIRSNAMESPACE + "Response");
-        OntClass class_Response = (OntClass) response_resource.as(OntClass.class);
+        OntClass class_Response = (OntClass) response_resource.as(OntClass.class
+        );
         Property responseEff_prop = responseModel.getProperty(AIRSNAMESPACE + "efficiency");
         Property responseID_prop = responseModel.getProperty(AIRSNAMESPACE + "responseAction");
         Property responseNumExec_prop = responseModel.getProperty(AIRSNAMESPACE + "numExecutions");
@@ -1561,6 +1680,10 @@ public class RECOntAIRSReasoner {
                 responseID = responseID.substring(0, responseID.indexOf("^"));
                 System.out.println("responseID:" + responseID);
                 if (responseID.equals(rid)) {
+                    String eff_prev = response.getPropertyValue(responseEff_prop).toString();
+                    int i2 = eff_prev.indexOf("^");
+                    double eff_prev_number = Double.parseDouble(eff_prev.substring(0, i2));
+                    rteValue = ((eff_prev_number*(num_exe_value-1))+rteValue)/num_exe_value;
                     response.removeAll(responseEff_prop);
                     addIndividualProperty(response, rteValue, responseEff_prop.getLocalName(), responseModel, AIRSNAMESPACE);
                     response.removeAll(responseNumExec_prop);
@@ -1666,9 +1789,12 @@ public class RECOntAIRSReasoner {
                         intrusion_impact = intrusion_impact + (intrusion_efecto * severity);
 
                     } catch (SQLException ex) {
-                        Logger.getLogger(RECOntAIRSReasoner.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(RECOntAIRSReasoner.class
+                                .getName()).log(Level.SEVERE, null, ex);
+
                     } catch (recontairs.DAO.DAOException ex) {
-                        Logger.getLogger(RECOntAIRSReasoner.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(RECOntAIRSReasoner.class
+                                .getName()).log(Level.SEVERE, null, ex);
                     }
                 }
             }
@@ -1711,9 +1837,12 @@ public class RECOntAIRSReasoner {
                         tloi_total = tloi_total + importance;
 
                     } catch (SQLException ex) {
-                        Logger.getLogger(RECOntAIRSReasoner.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(RECOntAIRSReasoner.class
+                                .getName()).log(Level.SEVERE, null, ex);
+
                     } catch (recontairs.DAO.DAOException ex) {
-                        Logger.getLogger(RECOntAIRSReasoner.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(RECOntAIRSReasoner.class
+                                .getName()).log(Level.SEVERE, null, ex);
                     }
 
                     number_of_targets++;
@@ -1751,11 +1880,15 @@ public class RECOntAIRSReasoner {
                 }
             } else if (levelOfImportance instanceof String) {
                 target_level_of_importance = (String) levelOfImportance;
+
             }
         } catch (SQLException ex) {
-            Logger.getLogger(RECOntAIRSReasoner.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(RECOntAIRSReasoner.class
+                    .getName()).log(Level.SEVERE, null, ex);
+
         } catch (recontairs.DAO.DAOException ex) {
-            Logger.getLogger(RECOntAIRSReasoner.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(RECOntAIRSReasoner.class
+                    .getName()).log(Level.SEVERE, null, ex);
         }
         return target_level_of_importance;
 
@@ -1766,7 +1899,8 @@ public class RECOntAIRSReasoner {
         String intrusion_name = null;
         try {
             Resource threat_res = ontologyModel.getResource(AIRSNAMESPACE + "SpecificThreat");
-            OntClass threat_class = (OntClass) threat_res.as(OntClass.class);
+            OntClass threat_class = (OntClass) threat_res.as(OntClass.class
+            );
             Iterator threat_subclass_it = threat_class.listSubClasses();
             while (threat_subclass_it.hasNext()) {
                 OntClass threat_subclass = (OntClass) threat_subclass_it.next();
@@ -1779,7 +1913,8 @@ public class RECOntAIRSReasoner {
                 }
             }
             Resource threat_unde_res = ontologyModel.getResource(AIRSNAMESPACE + "UndefinedThreat");
-            OntClass threat_unde_class = (OntClass) threat_unde_res.as(OntClass.class);
+            OntClass threat_unde_class = (OntClass) threat_unde_res.as(OntClass.class
+            );
             if ((intrusionType.equalsIgnoreCase("unknown")) || (intrusionType.equalsIgnoreCase("other")) || (intrusionType.equalsIgnoreCase("UndefinedThreat"))) {
                 Iterator threat_unde_indiv_it = threat_unde_class.listInstances();
                 while (threat_unde_indiv_it.hasNext()) {
@@ -1945,5 +2080,52 @@ public class RECOntAIRSReasoner {
 
         return null;
 
+    }
+
+    private double getRE(String responseIDToGet) {
+
+        OntModel responseModel;
+        synchronized (ontology_airs_uri) {
+            responseModel = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM);
+            RDFReader inf_modelReader = responseModel.getReader();
+            inf_modelReader.setProperty("WARN_UNQUALIFIED_RDF_ATTRIBUTE", "EM_IGNORE");
+            inf_modelReader.read(responseModel, ontology_airs_uri);
+        }
+        Resource response_resource = responseModel.getResource(AIRSNAMESPACE + "Response");
+        OntClass class_Response = (OntClass) response_resource.as(OntClass.class);
+        Property responseEff_prop = responseModel.getProperty(AIRSNAMESPACE + "efficiency");
+        Property responseID_prop = responseModel.getProperty(AIRSNAMESPACE + "responseAction");
+
+        String responseID = null;
+        Iterator response_subclass_it = class_Response.listSubClasses();
+        HashMap<String, Double> responsesMap = new HashMap<>();
+
+        while (response_subclass_it.hasNext()) {
+
+            OntClass response_subclass = (OntClass) response_subclass_it.next();
+            Iterator response_instances = response_subclass.listInstances();
+            while (response_instances.hasNext()) {
+                Individual response = (Individual) response_instances.next();
+                responseID = response.getPropertyValue(responseID_prop).toString();
+                responseID = responseID.substring(0, responseID.indexOf("^"));
+                if (responseIDToGet.equals(responseID)) {
+                    try {
+                        String ress = response.getPropertyValue(responseEff_prop).toString();
+                        Double res = Double.parseDouble(ress.substring(0, ress.indexOf("^")));
+                        if (res == 0) {
+                            return 1;
+                        } else {
+                            return res;
+                        }
+
+                    } catch (NullPointerException e) {
+                        responsesMap.put(responseID, -1.0);
+                    }
+
+                }
+            }
+        }
+
+        return 1;
     }
 }

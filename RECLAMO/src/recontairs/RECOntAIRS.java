@@ -103,6 +103,7 @@ public class RECOntAIRS implements Runnable {
             alert_map.printAlert();
             long initialTime = System.currentTimeMillis();
             RECOntAIRSReasoner reasoner = new RECOntAIRSReasoner(alert_map, executor);
+                
             //System.out.println(Thread.currentThread()+"Comienza la inferencia de parÃ¡metros de la ontologÃ­a");
             reasoner.inicializarModelos();
             //Actualizalizamos valores de severity e intrusion en caso de no tenerlso
@@ -210,9 +211,9 @@ public class RECOntAIRS implements Runnable {
                         } else {
                             String contextUDN = "context" + alert_map.getIntID() + hostname;
                             _hostnameTargetList.add(hostname);
-                            /* Obtenemos el grado de anomalia del contexto de sistemas para este hostname
-                                 * Params: targetIP, targetName
-                             */
+                            // Obtenemos el grado de anomalia del contexto de sistemas para este hostname
+                            //  Params: targetIP, targetName
+
                             system_anomaly_params = new AnomalyDetectionModeParams(ip, hostname, null);
                             SystemContextModeSelector syssel = new SystemContextModeSelector("anomalydetection", system_anomaly_params);
                             if (syssel.start()) {
@@ -222,9 +223,8 @@ public class RECOntAIRS implements Runnable {
                                 System.out.println("Ha habido un error al obtener la anomalia del contexto de sistemas");
                                 continue;
                             }
-                            /* Obtenemos el grado de anomalia del contexto de red
-                                * Params: targetIP, targetName
-                             */
+                            // Obtenemos el grado de anomalia del contexto de red
+                            //    Params: targetIP, targetName
 
                             if (networkContextAnomaly.containsKey(subnetworkName)) {
                                 network_anomaly = (Integer) networkContextAnomaly.get(subnetworkName);
@@ -240,7 +240,7 @@ public class RECOntAIRS implements Runnable {
                                 }
                                 networkContextAnomaly.put(subnetworkName, network_anomaly);
                             }
-                            /* Añado la anomalía de contexto asociada a este Target */
+                            // Añado la anomalía de contexto asociada a este Target 
                             reasoner.addContextAnomaly(contextUDN, hostname, ip, subnetworkName, contextInfDate, network_anomaly, system_anomaly);
                         }
                     }

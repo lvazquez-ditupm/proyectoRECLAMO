@@ -72,10 +72,12 @@ public class SancpManager {
     private static final Object lock = new Object();
 
     public SancpManager(String iface) {
-        this.interfaceID = iface;
-        sancpDir = props.getNetworkContextSancpSensorPathValue() + "/" + Thread.currentThread();
-        sancpConf = props.getNetworkContextSancpConfigFilePathValue();
-        sancpLog = props.getNetworkContextSancpLogFilePathValue();
+        synchronized (lock) {
+            this.interfaceID = iface;
+            sancpDir = props.getNetworkContextSancpSensorPathValue() + "/" + Thread.currentThread();
+            sancpConf = props.getNetworkContextSancpConfigFilePathValue();
+            sancpLog = props.getNetworkContextSancpLogFilePathValue();
+        }
 
     }
 
@@ -149,9 +151,6 @@ public class SancpManager {
                     }
                     equality = 0;
                 }
-            }
-            if (pid == -1) {
-                System.out.println("HOLA");
             }
             return pid;
         }
