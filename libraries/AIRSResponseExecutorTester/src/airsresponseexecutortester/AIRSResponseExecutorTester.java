@@ -24,6 +24,8 @@ public class AIRSResponseExecutorTester {
         params.setMainIP("10.1.100.26");
         params.setPeerIP("192.168.100.130");
         params.setPortConn("80");
+        //params.setProtocol(args[1]);
+        params.setUser("dummy");
       
         String respuesta = args[0];
         // TODO code application logic here
