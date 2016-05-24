@@ -67,9 +67,11 @@ public class PropsUtil {
     private static final String ONTAIRS_ONTOLOGY_RULES_NAMESPACE_PROP = "ontairs.ontology.rules.namespace";
     private static final String ONTAIRS_ONTOLOGY_AIRS_NAMESPACE_PROP = "ontairs.ontology.airs.namespace";
     private static final String ONTAIRS_ONTOLOGY_AIRS_FILE_PROP = "ontairs.ontology.airs.file";
+    private static final String ONTAIRS_ONTOLOGY_AIRS_FILE_URI_PROP = "ontairs.ontology.airs.uri";
     private static final String ONTAIRS_ONTOLOGY_INTRUSION_ALERT_NAMESPACE_PROP = "ontairs.ontology.intrusion.alert.namespace";
     private static final String ONTAIRS_ONTOLOGY_ASSESSED_ALERT_NAMESPACE_PROP = "ontairs.ontology.assessed.alert.namespace";
     private static final String ONTAIRS_ONTOLOGY_ASSESSED_ALERT_FILE_PROP = "ontairs.ontology.assessed.alert.file";
+    private static final String ONTAIRS_ONTOLOGY_ASSESSED_ALERT_FILE_URI_PROP = "ontairs.ontology.assessed.alert.uri";
     private static final String ONTAIRS_ONTOLOGY_RESULT_NAMESPACE_PROP = "ontairs.ontology.result.namespace";
     private static final String ALERT_THRESHOLD_PROP = "alert.threshold";
     private static final String INFERRED_FILE_PROP = "inferred.file";
@@ -91,9 +93,11 @@ public class PropsUtil {
     private static String ONTAIRS_ONTOLOGY_RULES_NAMESPACE_VALUE;
     private static String ONTAIRS_ONTOLOGY_AIRS_NAMESPACE_VALUE;
     private static String ONTAIRS_ONTOLOGY_AIRS_FILE_VALUE;
+    private static String ONTAIRS_ONTOLOGY_AIRS_FILE_URI_VALUE;
     private static String ONTAIRS_ONTOLOGY_INTRUSION_ALERT_NAMESPACE_VALUE;
     private static String ONTAIRS_ONTOLOGY_ASSESSED_ALERT_NAMESPACE_VALUE;
     private static String ONTAIRS_ONTOLOGY_ASSESSED_ALERT_FILE_VALUE;
+    private static String ONTAIRS_ONTOLOGY_ASSESSED_ALERT_FILE_URI_VALUE;
     private static String ONTAIRS_ONTOLOGY_RESULT_NAMESPACE_VALUE;
     private static String ONTAIRS_DATABASE_NAME_VALUE;
     private static String MYSQL_CONNECTION_USERNAME_VALUE;
@@ -125,9 +129,11 @@ public class PropsUtil {
             ONTAIRS_ONTOLOGY_RULES_NAMESPACE_VALUE = ontairsproperties.getProperty(ONTAIRS_ONTOLOGY_RULES_NAMESPACE_PROP);
             ONTAIRS_ONTOLOGY_AIRS_NAMESPACE_VALUE = ontairsproperties.getProperty(ONTAIRS_ONTOLOGY_AIRS_NAMESPACE_PROP);
             ONTAIRS_ONTOLOGY_AIRS_FILE_VALUE = ontairsproperties.getProperty(ONTAIRS_ONTOLOGY_AIRS_FILE_PROP);
+            ONTAIRS_ONTOLOGY_AIRS_FILE_URI_VALUE = ontairsproperties.getProperty(ONTAIRS_ONTOLOGY_AIRS_FILE_URI_PROP);
             ONTAIRS_ONTOLOGY_INTRUSION_ALERT_NAMESPACE_VALUE = ontairsproperties.getProperty(ONTAIRS_ONTOLOGY_INTRUSION_ALERT_NAMESPACE_PROP);;
             ONTAIRS_ONTOLOGY_ASSESSED_ALERT_NAMESPACE_VALUE = ontairsproperties.getProperty(ONTAIRS_ONTOLOGY_ASSESSED_ALERT_NAMESPACE_PROP);
             ONTAIRS_ONTOLOGY_ASSESSED_ALERT_FILE_VALUE = ontairsproperties.getProperty(ONTAIRS_ONTOLOGY_ASSESSED_ALERT_FILE_PROP);
+            ONTAIRS_ONTOLOGY_ASSESSED_ALERT_FILE_URI_VALUE = ontairsproperties.getProperty(ONTAIRS_ONTOLOGY_ASSESSED_ALERT_FILE_URI_PROP);
             ONTAIRS_ONTOLOGY_RESULT_NAMESPACE_VALUE = ontairsproperties.getProperty(ONTAIRS_ONTOLOGY_RESULT_NAMESPACE_PROP);
             ONTAIRS_DATABASE_NAME_VALUE = ontairsproperties.getProperty(ONTAIRS_DATABASE_NAME_PROP);
             MYSQL_CONNECTION_USERNAME_VALUE = ontairsproperties.getProperty(MYSQL_CONNECTION_USERNAME_PROP);
@@ -178,6 +184,10 @@ public class PropsUtil {
             System.out.println("Property \"" + ONTAIRS_ONTOLOGY_AIRS_FILE_PROP
                     + "\" not defined.");
         }
+        if (null == ONTAIRS_ONTOLOGY_AIRS_FILE_URI_VALUE) {
+            System.out.println("Property \"" + ONTAIRS_ONTOLOGY_AIRS_FILE_URI_PROP
+                    + "\" not defined.");
+        }
         if (null == ONTAIRS_ONTOLOGY_RULES_NAMESPACE_VALUE) {
             System.out.println("Property \"" + ONTAIRS_ONTOLOGY_RULES_NAMESPACE_PROP
                     + "\" not defined.");
@@ -192,6 +202,10 @@ public class PropsUtil {
         }
         if (null == ONTAIRS_ONTOLOGY_ASSESSED_ALERT_FILE_VALUE) {
             System.out.println("Property \"" + ONTAIRS_ONTOLOGY_ASSESSED_ALERT_FILE_PROP
+                    + "\" not defined.");
+        }
+        if (null == ONTAIRS_ONTOLOGY_ASSESSED_ALERT_FILE_URI_VALUE) {
+            System.out.println("Property \"" + ONTAIRS_ONTOLOGY_ASSESSED_ALERT_FILE_URI_PROP
                     + "\" not defined.");
         }
         if (null == ONTAIRS_ONTOLOGY_RESULT_NAMESPACE_VALUE) {
@@ -260,6 +274,10 @@ public class PropsUtil {
     public String getOntAIRSOntologyAirsFileValue() {
         return ONTAIRS_ONTOLOGY_AIRS_FILE_VALUE;
     }
+    
+    public String getOntAIRSOntologyAirsFileUriValue() {
+        return URI_VALUE + ONTAIRS_ONTOLOGY_AIRS_FILE_URI_VALUE;
+    }
 
     public String getOntAIRSOntologyRulesNamespaceValue() {
         return ONTAIRS_ONTOLOGY_RULES_NAMESPACE_VALUE;
@@ -277,6 +295,10 @@ public class PropsUtil {
         return ONTAIRS_ONTOLOGY_ASSESSED_ALERT_FILE_VALUE;
     }
 
+    public String getOntAIRSOntologyAssessedAlertFileUriValue() {
+        return URI_VALUE + ONTAIRS_ONTOLOGY_ASSESSED_ALERT_FILE_URI_VALUE;
+    }
+    
     public String getOntAIRSOntologyResultNamespaceValue() {
         return ONTAIRS_ONTOLOGY_RESULT_NAMESPACE_VALUE;
     }

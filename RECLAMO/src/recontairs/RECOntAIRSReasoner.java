@@ -120,6 +120,7 @@ public class RECOntAIRSReasoner {
      */
  /*LINUX: PATH a los ficheros de las 3 ontologías */
     private final String ontology_airs_file = props.getOntAIRSOntologyAirsFileValue();
+    private final String ontology_airs_file_uri = props.getOntAIRSOntologyAirsFileUriValue();
     private final String ontology_assessed_alert_file = props.getOntAIRSOntologyAssessedAlertFileValue();
     private final String inferred_file = props.getInferredFile();
     private final String inferred_uri = props.getInferredURI();
@@ -1596,16 +1597,16 @@ public class RECOntAIRSReasoner {
     private HashMap<String, Double> getPreviousResponseEfficiency(HashMap<String, String> responseIDToGet) {
 
         OntModel responseModel;
-        synchronized (ontology_airs_uri) {
+
+        synchronized (ontology_airs_file_uri) {
             responseModel = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM);
             RDFReader inf_modelReader = responseModel.getReader();
             inf_modelReader.setProperty("WARN_UNQUALIFIED_RDF_ATTRIBUTE", "EM_IGNORE");
-            inf_modelReader.read(responseModel, ontology_airs_uri);
+            inf_modelReader.read(responseModel, ontology_airs_file_uri);
         }
+
         Resource response_resource = responseModel.getResource(AIRSNAMESPACE + "Response");
-        OntClass class_Response = (OntClass) response_resource.as(OntClass.class
-        );
-        Property responseEff_prop = responseModel.getProperty(AIRSNAMESPACE + "efficiency");
+        OntClass class_Response = (OntClass) response_resource.as(OntClass.class);
         Property responseID_prop = responseModel.getProperty(AIRSNAMESPACE + "responseAction");
         Property responseType_prop = responseModel.getProperty(AIRSNAMESPACE + "responseType");
 
@@ -1625,15 +1626,37 @@ public class RECOntAIRSReasoner {
                 responseID = response.getPropertyValue(responseID_prop).toString();
                 responseID = responseID.substring(0, responseID.indexOf("^"));
                 if (responseIDToGet.containsValue(responseName)) {
-                    System.out.println("responseID:" + responseID);
+                    //System.out.println("responseID:" + responseID);
                     try {
-                        String ress = response.getPropertyValue(responseEff_prop).toString();
-                        Double res = Double.parseDouble(ress.substring(0, ress.indexOf("^")));
-                        responsesMap.put(responseID, res);
-                        ress = response.getPropertyValue(responseType_prop).toString();
+                        String ress = response.getPropertyValue(responseType_prop).toString();
                         ress = ress.substring(0, ress.indexOf("^"));
+                        String eff_query = "PREFIX RECAIRS: <" + AIRSNAMESPACE + "> "
+                                + "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> "
+                                + "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> "
+                                + "PREFIX owl: <http://www.w3.org/2002/07/owl#> "
+                                + "PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> "
+                                + "SELECT DISTINCT ?efficiency WHERE { "
+                                + "?type a RECAIRS:" + ress + " ."
+                                + "?type RECAIRS:responseAction ?response .FILTER (?response = \"" + responseID + "\") "
+                                + "?type RECAIRS:efficiency ?efficiency .}";
+
+                        Query qeff = QueryFactory.create(eff_query);
+                        QueryExecution qeeff = QueryExecutionFactory.create(qeff, responseModel);
+                        ResultSet rssisa = qeeff.execSelect();
+                        List<QuerySolution> listaEff = ResultSetFormatter.toList(rssisa);
+
+                        QuerySolution solution = listaEff.get(0);
+                        String eff_string = solution.get("efficiency").toString();
+                        int i1 = eff_string.indexOf("^");
+                        eff_string = eff_string.substring(0, i1);
+                        double eff = Double.parseDouble(eff_string);
+
+                        //int eff = solution.get("formattedintrusion").toString());
                         resp_data.put("_responseType", ress);
-                    } catch (NullPointerException e) {
+                        resp_data.put("_responseID", responseID);                        
+                        responsesMap.put(responseID, eff);
+
+                    } catch (Exception e) {
                         responsesMap.put(responseID, -1.0);
                     }
 
@@ -1678,12 +1701,11 @@ public class RECOntAIRSReasoner {
                 //Obtenemos el valor de la propiedad IDSID del ejemplar de IntrusionDetectionSystem.
                 responseID = response.getPropertyValue(responseID_prop).toString();
                 responseID = responseID.substring(0, responseID.indexOf("^"));
-                System.out.println("responseID:" + responseID);
+                //System.out.println("responseID:" + responseID);
                 if (responseID.equals(rid)) {
-                    String eff_prev = response.getPropertyValue(responseEff_prop).toString();
-                    int i2 = eff_prev.indexOf("^");
-                    double eff_prev_number = Double.parseDouble(eff_prev.substring(0, i2));
-                    rteValue = ((eff_prev_number*(num_exe_value-1))+rteValue)/num_exe_value;
+                    //String eff_prev = response.getPropertyValue(responseEff_prop).toString();
+                    //int i2 = eff_prev.indexOf("^");
+                    //double eff_prev_number = Double.parseDouble(eff_prev.substring(0, i2));
                     response.removeAll(responseEff_prop);
                     addIndividualProperty(response, rteValue, responseEff_prop.getLocalName(), responseModel, AIRSNAMESPACE);
                     response.removeAll(responseNumExec_prop);
@@ -2061,9 +2083,6 @@ public class RECOntAIRSReasoner {
 
                     responseMap.put("response", response);
                     responseMap.put("passiveResponse", passiveResponse);
-
-                    resp_data.put("_responseID", response);
-
                 }
             }
             return responseMap;
