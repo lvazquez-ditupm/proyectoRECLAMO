@@ -89,7 +89,7 @@ public class Extractor {
            // System.out.println("***Ejecutando Bash Shell Script para la actualización de medidas***");
         }
         try {
-            Thread.sleep(10000);
+            Thread.sleep(500);
         } catch (InterruptedException ex) {
             Logger.getLogger(Extractor.class.getName()).log(Level.SEVERE, null, ex);
         }
